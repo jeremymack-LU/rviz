@@ -1119,6 +1119,8 @@ frameWidget(fig, height=500, width=750)
 ```
 
 ---
+class: inverse
+
 #### Review - dynamic visualizations:
 * Grammar of graphics - basis for many data visualization programs.
 
