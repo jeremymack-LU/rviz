@@ -1055,8 +1055,8 @@ ggplot(data=gapminder,
 
 ---
 #### Topic 3: Dynamic visualizations
-<div id="htmlwidget-3a06ac76592e36ba7cd4" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-3a06ac76592e36ba7cd4">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-34.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-80e798ddf12a3119e0f3" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-80e798ddf12a3119e0f3">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-34.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 
 ---
 #### Topic 3: Dynamic visualizations
@@ -1098,10 +1098,12 @@ fig &lt;- ggplotly(plot, height=500, width=750) %&gt;%
 
 ---
 #### Topic 3: Dynamic visualizations
-<div id="htmlwidget-f2ac22a493c2583da516" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-f2ac22a493c2583da516">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-37.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-58a28cd8e60d57afc19a" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-58a28cd8e60d57afc19a">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-37.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 
 ---
+class: inverse
+
 #### Review - dynamic visualizations:
 * Grammar of graphics - basis for many data visualization programs.
 
@@ -1579,7 +1581,6 @@ server &lt;- function(input, output) {
             geom_line(data=df2, color="darkblue",
                       aes_string(x=names(df2)[1], y=names(df2)[2])) +
             labs(x = "Year", y = names(df1)[2]) +
-            scale_y_log10() +
             theme
         ggplotly(plot1)})
 }
@@ -1589,7 +1590,7 @@ server &lt;- function(input, output) {
 ---
 #### Topic 4: Shiny Apps
 
-&lt;center&gt;&lt;img src="./images/shiny_ui_8.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;
+[&lt;center&gt;&lt;img src="./images/shiny_ui_8.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;](https://shiny.cc.lehigh.edu/jsm4/gapminder)
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
