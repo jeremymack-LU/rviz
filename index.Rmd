@@ -1595,3 +1595,57 @@ server <- function(input, output) {
 #### Topic 4: Shiny Apps
 
 [<center><img src="./images/shiny_ui_8.png" alt="ggplot"</></center>](https://shiny.cc.lehigh.edu/jsm4/gapminder)
+
+---
+class: inverse
+
+#### Review - Shiny Apps:
+* Interactive web applications built with R.
+
+--
+
+* Three components:
+
+--
+
+ 1. a user interface object (ui)
+
+--
+
+ 2. a server function (server)
+
+--
+
+ 3. a call to the **shinyApp** function
+
+--
+
+* Reactive programming different than writing script
+
+---
+class: inverse
+
+#### Review - Resources:
+* RStudio (and user contributed) cheatsheets - [link](https://rstudio.com/resources/cheatsheets/)
+
+--
+
+* Data visualization (**ggplot**)
+
+ * *R for Data Science* by Hadley Wickham and Garret Grolemund - [link](https://r4ds.had.co.nz/index.html)
+ 
+--
+ 
+ * Thomas Lin Pedersen ggplot2 presentation (YouTube), Part 1 - [link](https://www.youtube.com/watch?v=h29g21z0a68)
+ 
+ * Thomas Lin Pedersen ggplot2 presentation (YouTube), Part 2 - [link](https://www.youtube.com/watch?v=0m4yywqNPVY)
+ 
+--
+
+* Shiny Apps
+
+ * *Mastering Shiny* by Hadley Wickham - [link](https://mastering-shiny.org)
+ 
+ * RStudio tutortials - [link](https://shiny.rstudio.com/tutorial/)
+ 
+ 
