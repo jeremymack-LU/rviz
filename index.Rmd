@@ -30,7 +30,7 @@ class: center, middle, inverse, title-slide
 
  * This course is the second in a series on R programming, with
    a focus on **data visualization**.
-   
+
 --
  
  * It is targeted at people that have experience progamming in R.
@@ -44,7 +44,14 @@ class: center, middle, inverse, title-slide
 --
    
  * Slides from the first course, **Programming in R: a brief introduction**,
- can be found [here](<https://jeremymack-lu.github.io/rprog/>).
+ can be found on [Lehigh's Research Computing site](https://researchcomputing.lehigh.edu/training), [Wordpress](https://wordpress.lehigh.edu/jsm4/data-visualization/programming-in-r/), and [Github](https://jeremymack-lu.github.io/rprog/)
+
+---
+class: inverse, middle
+
+<center><img src="./images/screen.png" alt="ggplot"</></center>
+<br/><br/>
+<br/><br/>
    
 ---
 ### Structure of the presentation
@@ -673,8 +680,7 @@ pw2 <- ggplot(data=faithful,
 
 pw3 <- ggplot(data=faithful,
        mapping=aes(
-         x=eruptions,
-         y=waiting)) +
+         x=eruptions)) +
   geom_histogram()
 ```
 ]
