@@ -49,7 +49,7 @@ class: center, middle, inverse, title-slide
 ---
 class: inverse, middle
 
-<center><img src="./images/screen.png" alt="ggplot"</></center>
+<center><img src="./images/screen2.png" alt="ggplot"</></center>
 <br/><br/>
 <br/><br/>
    
