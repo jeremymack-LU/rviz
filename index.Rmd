@@ -18,7 +18,8 @@ output:
 class: center, middle, inverse, title-slide
 
 ## Data Visualization with R
-#### Jeremy Mack, Lehigh University
+#### Jeremy Mack
+#### Lehigh University - Digital Scholarship Team
 #### April 17, 2020
 <br/><br/>
 <br/><br/>
