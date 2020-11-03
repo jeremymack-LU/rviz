@@ -20,21 +20,28 @@ class: center, middle, inverse, title-slide
 ## Data Visualization with R
 #### Jeremy Mack
 #### Lehigh University - Digital Scholarship Team
-#### April 17, 2020
+<img src="./images/notes.png" alt="RStudio" height=243/>
+
+---
+class: center, middle, inverse, title-slide
+
+## Data Visualization with R
+#### Jeremy Mack
+#### Lehigh University - Digital Scholarship Team
+<img src="./images/gganimate_hex.png" alt="RStudio" height=150/> &nbsp; <img src="./images/ggplot_hex.png" alt="RStudio" height=150/> &nbsp; <img src="./images/patchwork_hex.png" alt="RStudio" height=150/>
 <br/><br/>
 <br/><br/>
-<br/><br/>
-<br/><br/>
+<br/>
 
 ---
 ### About this presentation
 
- * This course is the second in a series on R programming, with
+ * This seminar is the second in a series on R programming, with
    a focus on **data visualization**.
 
 --
  
- * It is targeted at people that have experience progamming in R.
+ * It is targeted at people that have experience programming in R.
  
 --
    
@@ -44,28 +51,20 @@ class: center, middle, inverse, title-slide
    
 --
    
- * Slides from the first course, **Programming in R: a brief introduction**,
- can be found on [Lehigh's Research Computing site](https://researchcomputing.lehigh.edu/training), [Wordpress](https://wordpress.lehigh.edu/jsm4/data-visualization/programming-in-r/), and [Github](https://jeremymack-lu.github.io/rprog/)
+ * Slides are available on [Lehigh's Research Computing site](https://confluence.cc.lehigh.edu/display/hpc/Seminars), [Wordpress](https://wordpress.lehigh.edu/jsm4/r-at-lehigh/data-visualization-with-r/), and Github ([slides](https://jeremymack-lu.github.io/rviz/) and [raw code](https://github.com/jeremymack-LU/rviz))
 
----
-class: inverse, middle
-
-<center><img src="./images/screen2.png" alt="ggplot"</></center>
-<br/><br/>
-<br/><br/>
-   
 ---
 ### Structure of the presentation
 
- * The presentation is split into four topics:
+The presentation is split into four topics:
 
-  + **Topic 1:** The (layered) Grammar of Graphics
+ * **Topic 1:** The (layered) Grammar of Graphics
  
-  + **Topic 2:** Static visualizations
+ * **Topic 2:** Static visualizations
  
-  + **Topic 3:** Dynamic visualizations
+ * **Topic 3:** Dynamic visualizations
  
-  + **Topic 4:** Shiny Apps
+ * **Topic 4:** Shiny Apps
 
 ---
 class: center, middle, inverse
@@ -77,6 +76,26 @@ class: center, middle, inverse
 <br/><br/>
 <br/><br/>
 <br/><br/>
+
+---
+#### Topic 1: The (layered) Grammar of Graphics
+
+Visualizing data in R
+
+<center><b>“The simple graph has brought more information to the data analyst’s mind than any other device.” - John Tukey</b></center>
+
+--
+
+<center><img src="./images/dinosaur.gif" alt="gif" height=400</></center>
+
+---
+#### Topic 1: The (layered) Grammar of Graphics
+
+Visualizing data in R
+
+<center><b>“The simple graph has brought more information to the data analyst’s mind than any other device.” - John Tukey</b></center>
+<br/>
+<center><img src="./images/dinosaur2.gif" alt="gif" height=200</></center>
 
 ---
 #### Topic 1: The (layered) Grammar of Graphics
@@ -174,7 +193,7 @@ class: center, middle, inverse
 <br/><br/>
 
 ---
-#### Topic 2: Static visualizations
+##### Topic 2: Static visualizations
 <style>
   pre {
     background-color: lightyellow;
@@ -182,18 +201,22 @@ class: center, middle, inverse
     line-height: 100%;
   }
 </style>
-
 .pull-right2[
 <center><img src="./images/OldFaithfulGeyser_Yellowstone.jpg" alt="RStudio" width=500/></center>
 ]
 
 .tiny2.pull-left2[
 * Old Faithful dataset:
+  {{content}}
+]
+
+--
+  + Geyser in Yellowstone National Park
+  
   + Eruption time in minutes (*eruptions*)
   
   + Time until next eruption (*waiting*)
   {{content}}
-]
 
 --
 
@@ -218,7 +241,7 @@ str(faithful)
 
 .left-column2[
 * Create a blank ggplot canvas:
-```{r echo=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 library(ggplot2)
 ```
 .tiny[
@@ -326,7 +349,6 @@ geom_point(data=faithful,
              y=waiting))
 ```
 {{content}}
-
 
 ---
 #### Topic 2: Static visualizations
@@ -821,6 +843,456 @@ theme_gdocs()
 <center><img src="./images/p5d.png" alt="ggplot"</></center>
 
 ---
+class: center, middle, inverse
+
+#### Topic 2: Static visualizations
+#### ggplot2 and simple features (sf) data
+<br/><br/>
+<br/><br/>
+<br/><br/>
+<br/><br/>
+<br/><br/>
+
+---
+#### Topic 2: Static visualizations
+.right-column2[
+<center><img src="./images/sf_hex.png" height=250 alt="RStudio" </center>
+]
+
+.left-column2[
+* Simple features (**sf**) data
+
+* Introduces a new type of object to work with spatial data
+{{content}}
+]
+  
+---
+#### Topic 2: Static visualizations
+<style>
+  pre {
+    background-color: lightyellow;
+    white-space: pre-wrap;
+    line-height: 100%;
+  }
+</style>
+.right-column2[
+<center><img src="./images/sf.jpg" height=250 alt="RStudio" </center>
+]
+
+.left-column2[
+* Simple features (**sf**) data
+
+* Introduces a new type of object to work with spatial data
+
+ + Non-spatial data + Spatial data
+ {{content}}
+]
+
+--
+
+ + Attributes + Geometries
+ {{content}}
+
+---
+class: center, middle, inverse
+
+#### Comparison of sf and non-sf spatial data
+<br/><br/>
+<br/><br/>
+<br/><br/>
+<br/><br/>
+<br/><br/>
+
+---
+#### Topic 2: Static visualizations
+.right-column5[
+* Spatial data in data frame
+```{r echo=FALSE}
+library(usmap)
+```
+
+.tiny7[
+```{r}
+library(usmap) # State and county data non-sf
+non_sf <- us_map(regions="states"); head(non_sf, 5); str(non_sf)
+```
+]
+]
+
+.left-column5[
+* Spatial data in an sf object
+```{r echo=FALSE}
+library(urbnmapr)
+```
+
+.tiny7[
+```{r}
+library(urbnmapr) # State and county shapefiles in sf
+states_sf <- get_urbn_map("states", sf = TRUE); print(states_sf)
+```
+]
+]
+
+---
+#### Topic 2: Static visualizations
+
+<center><img src="./images/covid19.jpeg" alt="ggplot"</></center>
+
+---
+#### Topic 2: Static visualizations
+
+.pull-right2[
+<center><img src="./images/sf.jpg" height=250 alt="RStudio" </center>
+]
+
+.tiny2.pull-left2[
+Necessary datasets:
+{{content}}
+]
+
+--
+ * Spatial data: state boundaries
+  
+ * Non-spatial data: cases of COVID-19
+ 
+ * Non-spatial data: state populations
+  {{content}}
+
+---
+#### Topic 2: Static visualizations
+.right-column2[
+<center><img src="./images/map.jpeg" width=300 alt="RStudio" </center>
+]
+
+.left-column2[
+* Spatial data: state boundaries
+```{r echo=FALSE}
+library(urbnmapr)
+```
+
+.tiny5[
+```{r}
+library(urbnmapr) # State and county shapefiles in sf
+states_sf <- get_urbn_map("states", sf = TRUE); print(states_sf)
+```
+]
+]
+
+---
+#### Topic 2: Static visualizations
+.left-column2[
+* Non-spatial data: cases of COVID-19
+]
+<br/><br/>
+.tiny5[
+```{r echo=FALSE}
+ts <- "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_US.csv"
+ts <- read.csv(ts, sep=",", header=TRUE)
+```
+
+```{r eval=FALSE}
+ts <- "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_US.csv"
+ts <- read.csv(ts, sep=",", header=TRUE)
+str(ts[1:14])
+```
+]
+
+.tiny5[
+```{r echo=FALSE}
+str(ts[1:12])
+```
+]
+
+---
+#### Topic 2: Static visualizations
+.right-column2[
+<center><img src="./images/map.jpeg" width=300 alt="RStudio" </center>
+]
+
+.left-column2[
+* Non-spatial data: state populations
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(dplyr)
+```
+.tiny5[
+```{r}
+pop <- 
+  "https://drive.google.com/uc?open&id=1gAdOoa097FFAkNIgriG0bX2iAPNpXXIS"
+pop <- read.csv(pop, sep=",", header=TRUE)
+pop <- pop %>% mutate(population=as.numeric(gsub(",","",population)))
+names(pop)[1] <- "state_name"
+head(pop)
+```
+]
+]
+
+---
+#### Topic 2: Static visualizations
+.left-column4[
+* Load necessary packages
+
+.tiny3[
+```{r message=FALSE, warning=FALSE}
+library(patchwork)  # Combine plots
+library(sf)         # Simple features
+library(dplyr)      # Tidyverse grammar
+library(tidyr)      # Cleaning data
+library(zoo)        # Time series functions
+library(ggplot2)    # Plotting
+```
+]
+]
+
+.right-column4[
+* Time series data clean up
+
+.tiny3[
+```{r}
+ts <- ts %>%
+  # Remove unincorporated territories and cruise liners
+  filter(iso2=="US") %>%
+  filter(!Province_State %in% c("Diamond Princess", 
+                                "Grand Princess")) %>%
+  # Select id and time series columns
+  select(5:7, 12:ncol(.)) %>%
+  # Convert from wide to long format
+  gather(date, cases, 4:ncol(.), factor_key=TRUE) %>% 
+  arrange(FIPS, date) %>% 
+  droplevels() %>%
+  as.data.frame()
+head(ts)
+```
+]
+]
+
+---
+#### Topic 2: Static visualizations
+.left-column3[
+* Data frames for states and dates
+
+.tiny3[
+```{r message=FALSE}
+# Sum case count by state
+states <- ts %>%
+  group_by(Province_State, date) %>%
+  summarize(cases=sum(cases)) %>%
+  as.data.frame()
+# Calculate number of records for each state
+count <- states %>% 
+  group_by(Province_State) %>% 
+  summarize(count=length(Province_State))
+# Create a date frame of dates
+dates <- data.frame(rep(
+  seq(as.Date('2020-01-22'),
+      as.Date('2020-01-22') + as.numeric(count[1,2]-1),
+      by = 'days'),
+  times = nrow(count)))
+names(dates) <- "date"
+```
+]
+]
+
+.right-column3[
+* Merge datasets
+
+.tiny3[
+```{r message=FALSE}
+# Combine data frames
+df.us <- cbind(states, dates)
+df.us <- df.us[,c(1,4,3)]
+names(df.us)[1] <- "state_name"
+df.us <- df.us %>%
+  group_by(state_name) %>%
+  mutate(new=cases-lag(cases, default=0)) %>%
+  mutate(new7=rollapply(new,7,mean,fill=0,align="right"))
+head(df.us)
+```
+]
+]
+
+---
+#### Topic 2: Static visualizations
+.left-column3[
+* Subset and calculate incidence
+
+.tiny3[
+```{r message=FALSE}
+df.us2 <- df.us %>%
+  group_by(state_name) %>%
+  arrange(date) %>%
+  slice(n()) %>%
+  right_join(pop, by="state_name") %>%
+  mutate(new7b=round(new7/(population/100000),1))
+```
+]
+]
+
+.right-column3[
+* Merge attributes and geometries
+
+.tiny3[
+```{r message=FALSE}
+states_sf <- states_sf %>% 
+  right_join(df.us2, by="state_name")
+```
+]
+
+.tiny7[
+```{r message=FALSE, echo=FALSE}
+states_sf$new7 <- round(states_sf$new7,1)
+head(states_sf[3:9],3)
+```
+]
+]
+
+---
+#### Topic 2: Static visualizations
+
+.pull-right2[
+<center><img src="./images/sf.jpg" height=250 alt="RStudio" </center>
+]
+
+.tiny2.pull-left2[
+Necessary datasets:
+ * Spatial data: state boundaries
+  
+ * Non-spatial data: cases of COVID-19
+ 
+ * Non-spatial data: state populations
+{{content}}
+]
+
+--
+
+<br/>
+
+Parts of the plot:
+  
+ * Map
+ 
+ * Legend (custom)
+  {{content}}
+
+---
+#### Topic 2: Static visualizations
+* Parts of the plot: Map
+.tiny2[
+```{r eval=FALSE}
+# Create bins based on incidence value
+states_sf <- states_sf %>%
+  cut(new7b,
+      breaks=c(0,0.9,9.5,24.5,1000),
+      labels=c("A","B","C","D"))
+# Custom colors (Green, Yellow, Orange, and Red)
+cols <- c("A"="#197d7d", "B"="#dbc037", "C"="#e08f38", "D"="#8C1111")
+# Create map
+usa <- ggplot() +
+  geom_sf(data=states_sf, aes(fill=bin),
+          size=0.25, color="white") +
+  scale_fill_manual(values=cols) +
+  theme_void() +
+  theme(
+    legend.position="none",
+    text=element_text(color="#22211d"),
+    plot.background=element_rect(fill="white", color=NA), 
+    panel.background=element_rect(fill="white", color=NA))
+```
+]
+
+---
+#### Topic 2: Static visualizations
+
+<center><img src="./images/covid19c.jpeg" alt="ggplot"</></center>
+
+---
+#### Topic 2: Static visualizations
+* Parts of the plot: Map - updated coordinate reference system (CRS)
+.tiny2[
+```{r eval=FALSE}
+# Create map
+usa2 <- ggplot() +
+  geom_sf(data=states_sf, aes(fill=bin),
+          size=0.25, color="white") +
+  scale_fill_manual(values=cols) +
+# Update the coordinate reference system
+  coord_sf(crs=st_crs(3857)) +
+  theme_void() +
+  theme(
+    legend.position="none",
+    text=element_text(color="#22211d"),
+    plot.background=element_rect(fill="white", color=NA), 
+    panel.background=element_rect(fill="white", color=NA))
+```
+]
+
+---
+#### Topic 2: Static visualizations
+
+<center><img src="./images/covid19h.jpeg" alt="ggplot"</></center>
+
+---
+#### Topic 2: Static visualizations
+* Parts of the plot: Legend (custom)
+.tiny2[
+```{r eval=FALSE}
+# Create a legend item as another plot using annotate
+leg.R <- ggplot() +
+  annotate(geom="rect", xmin=0, xmax=2, ymin=1.8, ymax=2, color=NA, fill="#8C1111") +
+  annotate(geom="text", label="RED", x=1, y=1.9, color="white", size=3) +
+  annotate(geom="text",
+           label="Threshold:",
+           x=0, hjust=0, y=1.75, vjust=1, size=2.5, fontface="bold") +
+  annotate(geom="text",
+           label="                    25+ daily\nnew cases per 100,000\npeople",
+           x=0, hjust=0, y=1.75, vjust=1, size=2.5) +
+  annotate(geom="text",
+           label="Indicates:",
+           x=0, hjust=0, y=1.3, vjust=1, size=2.5, fontface="bold") +
+  annotate(geom="text",
+           label="                  unchecked\ncommunity spread",
+           x=0, hjust=0, y=1.3, vjust=1, size=2.5) +
+  scale_y_continuous(limits=c(1,2)) +
+  theme_void() +
+  theme(
+    text=element_text(color="#22211d"),
+    plot.background=element_rect(fill="white", color=NA), 
+    panel.background=element_rect(fill="white", color=NA), 
+    legend.background=element_rect(fill="white", color=NA)
+  )
+```
+]
+
+---
+#### Topic 2: Static visualizations
+
+<img src="./images/covid19g.jpeg" alt="ggplot" height=175</>
+<img src="./images/covid19f.jpeg" alt="ggplot" height=175</>
+<img src="./images/covid19e.jpeg" alt="ggplot" height=175</>
+<img src="./images/covid19d.jpeg" alt="ggplot" height=175</>
+
+---
+#### Topic 2: Static visualizations
+* Combining parts of the plot using patchwork
+.tiny2[
+```{r eval=FALSE}
+# Create a legend item as another plot using annotate
+usa2 + (leg.G/leg.Y/leg.O/leg.R) + plot_layout(widths = c(4, 1)) + 
+  plot_annotation(
+    title='Which Places Have The Most New Daily Cases?',
+    subtitle=paste("Data as of 11:59 p.m. ET", Sys.Date()-1)) & 
+  theme(plot.title=element_text(size= 12, hjust=0.5, color="#4e4d47",
+                                margin=margin(b = -0.1, t = 0.4, l = 2, unit = "cm")),
+        plot.subtitle=element_text(size=8, hjust=0.5, color="#4e4d47", face="italic",
+                                   margin=margin(b = -0.1, t = 0.4, l = 2, unit = "cm")))
+```
+]
+
+---
+#### Topic 2: Static visualizations
+
+<center><img src="./images/covid19.jpeg" alt="ggplot"</></center>
+
+---
 class: inverse
 
 #### Review - static visualizations:
@@ -838,6 +1310,10 @@ class: inverse
 --
 
 * Extension packages expand **ggplot2** capabilities.
+
+--
+
+* **sf** data makes working with spatial data more efficient.
 
 ---
 class: center, middle, inverse

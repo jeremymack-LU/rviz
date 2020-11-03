@@ -18,21 +18,28 @@ class: center, middle, inverse, title-slide
 ## Data Visualization with R
 #### Jeremy Mack
 #### Lehigh University - Digital Scholarship Team
-#### April 17, 2020
+&lt;img src="./images/notes.png" alt="RStudio" height=243/&gt;
+
+---
+class: center, middle, inverse, title-slide
+
+## Data Visualization with R
+#### Jeremy Mack
+#### Lehigh University - Digital Scholarship Team
+&lt;img src="./images/gganimate_hex.png" alt="RStudio" height=150/&gt; &amp;nbsp; &lt;img src="./images/ggplot_hex.png" alt="RStudio" height=150/&gt; &amp;nbsp; &lt;img src="./images/patchwork_hex.png" alt="RStudio" height=150/&gt;
 &lt;br/&gt;&lt;br/&gt;
 &lt;br/&gt;&lt;br/&gt;
-&lt;br/&gt;&lt;br/&gt;
-&lt;br/&gt;&lt;br/&gt;
+&lt;br/&gt;
 
 ---
 ### About this presentation
 
- * This course is the second in a series on R programming, with
+ * This seminar is the second in a series on R programming, with
    a focus on **data visualization**.
 
 --
  
- * It is targeted at people that have experience progamming in R.
+ * It is targeted at people that have experience programming in R.
  
 --
    
@@ -42,28 +49,20 @@ class: center, middle, inverse, title-slide
    
 --
    
- * Slides from the first course, **Programming in R: a brief introduction**,
- can be found on [Lehigh's Research Computing site](https://researchcomputing.lehigh.edu/training), [Wordpress](https://wordpress.lehigh.edu/jsm4/data-visualization/programming-in-r/), and [Github](https://jeremymack-lu.github.io/rprog/)
+ * Slides are available on [Lehigh's Research Computing site](https://confluence.cc.lehigh.edu/display/hpc/Seminars), [Wordpress](https://wordpress.lehigh.edu/jsm4/r-at-lehigh/data-visualization-with-r/), and Github ([slides](https://jeremymack-lu.github.io/rviz/) and [raw code](https://github.com/jeremymack-LU/rviz))
 
----
-class: inverse, middle
-
-&lt;center&gt;&lt;img src="./images/screen2.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;
-&lt;br/&gt;&lt;br/&gt;
-&lt;br/&gt;&lt;br/&gt;
-   
 ---
 ### Structure of the presentation
 
- * The presentation is split into four topics:
+The presentation is split into four topics:
 
-  + **Topic 1:** The (layered) Grammar of Graphics
+ * **Topic 1:** The (layered) Grammar of Graphics
  
-  + **Topic 2:** Static visualizations
+ * **Topic 2:** Static visualizations
  
-  + **Topic 3:** Dynamic visualizations
+ * **Topic 3:** Dynamic visualizations
  
-  + **Topic 4:** Shiny Apps
+ * **Topic 4:** Shiny Apps
 
 ---
 class: center, middle, inverse
@@ -75,6 +74,26 @@ class: center, middle, inverse
 &lt;br/&gt;&lt;br/&gt;
 &lt;br/&gt;&lt;br/&gt;
 &lt;br/&gt;&lt;br/&gt;
+
+---
+#### Topic 1: The (layered) Grammar of Graphics
+
+Visualizing data in R
+
+&lt;center&gt;&lt;b&gt;“The simple graph has brought more information to the data analyst’s mind than any other device.” - John Tukey&lt;/b&gt;&lt;/center&gt;
+
+--
+
+&lt;center&gt;&lt;img src="./images/dinosaur.gif" alt="gif" height=400&lt;/&gt;&lt;/center&gt;
+
+---
+#### Topic 1: The (layered) Grammar of Graphics
+
+Visualizing data in R
+
+&lt;center&gt;&lt;b&gt;“The simple graph has brought more information to the data analyst’s mind than any other device.” - John Tukey&lt;/b&gt;&lt;/center&gt;
+&lt;br/&gt;
+&lt;center&gt;&lt;img src="./images/dinosaur2.gif" alt="gif" height=200&lt;/&gt;&lt;/center&gt;
 
 ---
 #### Topic 1: The (layered) Grammar of Graphics
@@ -172,7 +191,7 @@ class: center, middle, inverse
 &lt;br/&gt;&lt;br/&gt;
 
 ---
-#### Topic 2: Static visualizations
+##### Topic 2: Static visualizations
 &lt;style&gt;
   pre {
     background-color: lightyellow;
@@ -180,18 +199,22 @@ class: center, middle, inverse
     line-height: 100%;
   }
 &lt;/style&gt;
-
 .pull-right2[
 &lt;center&gt;&lt;img src="./images/OldFaithfulGeyser_Yellowstone.jpg" alt="RStudio" width=500/&gt;&lt;/center&gt;
 ]
 
 .tiny2.pull-left2[
 * Old Faithful dataset:
+  {{content}}
+]
+
+--
+  + Geyser in Yellowstone National Park
+  
   + Eruption time in minutes (*eruptions*)
   
   + Time until next eruption (*waiting*)
   {{content}}
-]
 
 --
 
@@ -345,7 +368,6 @@ geom_point(data=faithful,
              y=waiting))
 ```
 {{content}}
-
 
 ---
 #### Topic 2: Static visualizations
@@ -855,6 +877,580 @@ theme_gdocs()
 &lt;center&gt;&lt;img src="./images/p5d.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;
 
 ---
+class: center, middle, inverse
+
+#### Topic 2: Static visualizations
+#### ggplot2 and simple features (sf) data
+&lt;br/&gt;&lt;br/&gt;
+&lt;br/&gt;&lt;br/&gt;
+&lt;br/&gt;&lt;br/&gt;
+&lt;br/&gt;&lt;br/&gt;
+&lt;br/&gt;&lt;br/&gt;
+
+---
+#### Topic 2: Static visualizations
+.right-column2[
+&lt;center&gt;&lt;img src="./images/sf_hex.png" height=250 alt="RStudio" &lt;/center&gt;
+]
+
+.left-column2[
+* Simple features (**sf**) data
+
+* Introduces a new type of object to work with spatial data
+{{content}}
+]
+  
+---
+#### Topic 2: Static visualizations
+&lt;style&gt;
+  pre {
+    background-color: lightyellow;
+    white-space: pre-wrap;
+    line-height: 100%;
+  }
+&lt;/style&gt;
+.right-column2[
+&lt;center&gt;&lt;img src="./images/sf.jpg" height=250 alt="RStudio" &lt;/center&gt;
+]
+
+.left-column2[
+* Simple features (**sf**) data
+
+* Introduces a new type of object to work with spatial data
+
+ + Non-spatial data + Spatial data
+ {{content}}
+]
+
+--
+
+ + Attributes + Geometries
+ {{content}}
+
+---
+class: center, middle, inverse
+
+#### Comparison of sf and non-sf spatial data
+&lt;br/&gt;&lt;br/&gt;
+&lt;br/&gt;&lt;br/&gt;
+&lt;br/&gt;&lt;br/&gt;
+&lt;br/&gt;&lt;br/&gt;
+&lt;br/&gt;&lt;br/&gt;
+
+---
+#### Topic 2: Static visualizations
+.right-column5[
+* Spatial data in data frame
+
+
+.tiny7[
+
+```r
+library(usmap) # State and county data non-sf
+non_sf &lt;- us_map(regions="states"); head(non_sf, 5); str(non_sf)
+```
+
+```
+##         x        y order  hole piece group fips abbr    full
+## 1 1091779 -1380695     1 FALSE     1  01.1   01   AL Alabama
+## 2 1091268 -1376372     2 FALSE     1  01.1   01   AL Alabama
+## 3 1091140 -1362998     3 FALSE     1  01.1   01   AL Alabama
+## 4 1090940 -1343517     4 FALSE     1  01.1   01   AL Alabama
+## 5 1090913 -1341006     5 FALSE     1  01.1   01   AL Alabama
+```
+
+```
+## 'data.frame':	12999 obs. of  9 variables:
+##  $ x    : num  1091779 1091268 1091140 1090940 1090913 ...
+##  $ y    : num  -1380695 -1376372 -1362998 -1343517 -1341006 ...
+##  $ order: int  1 2 3 4 5 6 7 8 9 10 ...
+##  $ hole : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+##  $ piece: int  1 1 1 1 1 1 1 1 1 1 ...
+##  $ group: chr  "01.1" "01.1" "01.1" "01.1" ...
+##  $ fips : chr  "01" "01" "01" "01" ...
+##  $ abbr : chr  "AL" "AL" "AL" "AL" ...
+##  $ full : chr  "Alabama" "Alabama" "Alabama" "Alabama" ...
+```
+]
+]
+
+.left-column5[
+* Spatial data in an sf object
+
+
+.tiny7[
+
+```r
+library(urbnmapr) # State and county shapefiles in sf
+states_sf &lt;- get_urbn_map("states", sf = TRUE); print(states_sf)
+```
+
+```
+## Simple feature collection with 51 features and 3 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: -2600000 ymin: -2363000 xmax: 2516374 ymax: 732352.2
+## CRS:            EPSG:2163
+## First 10 features:
+##    state_fips state_abbv  state_name                       geometry
+## 1          01         AL     Alabama MULTIPOLYGON (((1150023 -15...
+## 2          04         AZ     Arizona MULTIPOLYGON (((-1386136 -1...
+## 3          08         CO    Colorado MULTIPOLYGON (((-786661.9 -...
+## 4          09         CT Connecticut MULTIPOLYGON (((2156197 -83...
+## 5          12         FL     Florida MULTIPOLYGON (((1953691 -20...
+## 6          13         GA     Georgia MULTIPOLYGON (((1308636 -10...
+## 7          16         ID       Idaho MULTIPOLYGON (((-1357097 78...
+## 8          18         IN     Indiana MULTIPOLYGON (((1042064 -71...
+## 9          20         KS      Kansas MULTIPOLYGON (((-174904.2 -...
+## 10         22         LA   Louisiana MULTIPOLYGON (((1075669 -15...
+```
+]
+]
+
+---
+#### Topic 2: Static visualizations
+
+&lt;center&gt;&lt;img src="./images/covid19.jpeg" alt="ggplot"&lt;/&gt;&lt;/center&gt;
+
+---
+#### Topic 2: Static visualizations
+
+.pull-right2[
+&lt;center&gt;&lt;img src="./images/sf.jpg" height=250 alt="RStudio" &lt;/center&gt;
+]
+
+.tiny2.pull-left2[
+Necessary datasets:
+{{content}}
+]
+
+--
+ * Spatial data: state boundaries
+  
+ * Non-spatial data: cases of COVID-19
+ 
+ * Non-spatial data: state populations
+  {{content}}
+
+---
+#### Topic 2: Static visualizations
+.right-column2[
+&lt;center&gt;&lt;img src="./images/map.jpeg" width=300 alt="RStudio" &lt;/center&gt;
+]
+
+.left-column2[
+* Spatial data: state boundaries
+
+
+.tiny5[
+
+```r
+library(urbnmapr) # State and county shapefiles in sf
+states_sf &lt;- get_urbn_map("states", sf = TRUE); print(states_sf)
+```
+
+```
+## Simple feature collection with 51 features and 3 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: -2600000 ymin: -2363000 xmax: 2516374 ymax: 732352.2
+## CRS:            EPSG:2163
+## First 10 features:
+##    state_fips state_abbv  state_name                       geometry
+## 1          01         AL     Alabama MULTIPOLYGON (((1150023 -15...
+## 2          04         AZ     Arizona MULTIPOLYGON (((-1386136 -1...
+## 3          08         CO    Colorado MULTIPOLYGON (((-786661.9 -...
+## 4          09         CT Connecticut MULTIPOLYGON (((2156197 -83...
+## 5          12         FL     Florida MULTIPOLYGON (((1953691 -20...
+## 6          13         GA     Georgia MULTIPOLYGON (((1308636 -10...
+## 7          16         ID       Idaho MULTIPOLYGON (((-1357097 78...
+## 8          18         IN     Indiana MULTIPOLYGON (((1042064 -71...
+## 9          20         KS      Kansas MULTIPOLYGON (((-174904.2 -...
+## 10         22         LA   Louisiana MULTIPOLYGON (((1075669 -15...
+```
+]
+]
+
+---
+#### Topic 2: Static visualizations
+.left-column2[
+* Non-spatial data: cases of COVID-19
+]
+&lt;br/&gt;&lt;br/&gt;
+.tiny5[
+
+
+
+```r
+ts &lt;- "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_US.csv"
+ts &lt;- read.csv(ts, sep=",", header=TRUE)
+str(ts[1:14])
+```
+]
+
+.tiny5[
+
+```
+## 'data.frame':	3340 obs. of  12 variables:
+##  $ UID           : int  84001001 84001003 84001005 84001007 84001009 84001011 84001013 84001015 84001017 84001019 ...
+##  $ iso2          : Factor w/ 6 levels "AS","GU","MP",..: 5 5 5 5 5 5 5 5 5 5 ...
+##  $ iso3          : Factor w/ 6 levels "ASM","GUM","MNP",..: 5 5 5 5 5 5 5 5 5 5 ...
+##  $ code3         : int  840 840 840 840 840 840 840 840 840 840 ...
+##  $ FIPS          : num  1001 1003 1005 1007 1009 ...
+##  $ Admin2        : Factor w/ 1979 levels "","Abbeville",..: 91 98 109 162 177 237 247 260 314 336 ...
+##  $ Province_State: Factor w/ 58 levels "Alabama","Alaska",..: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ Country_Region: Factor w/ 1 level "US": 1 1 1 1 1 1 1 1 1 1 ...
+##  $ Lat           : num  32.5 30.7 31.9 33 34 ...
+##  $ Long_         : num  -86.6 -87.7 -85.4 -87.1 -86.6 ...
+##  $ Combined_Key  : Factor w/ 3340 levels "Abbeville, South Carolina, US",..: 120 129 141 215 235 325 337 364 467 495 ...
+##  $ X1.22.20      : int  0 0 0 0 0 0 0 0 0 0 ...
+```
+]
+
+---
+#### Topic 2: Static visualizations
+.right-column2[
+&lt;center&gt;&lt;img src="./images/map.jpeg" width=300 alt="RStudio" &lt;/center&gt;
+]
+
+.left-column2[
+* Non-spatial data: state populations
+
+.tiny5[
+
+```r
+pop &lt;- 
+  "https://drive.google.com/uc?open&amp;id=1gAdOoa097FFAkNIgriG0bX2iAPNpXXIS"
+pop &lt;- read.csv(pop, sep=",", header=TRUE)
+pop &lt;- pop %&gt;% mutate(population=as.numeric(gsub(",","",population)))
+names(pop)[1] &lt;- "state_name"
+head(pop)
+```
+
+```
+##   state_name population
+## 1    Alabama    4903185
+## 2     Alaska     731545
+## 3    Arizona    7278717
+## 4   Arkansas    3017804
+## 5 California   39512223
+## 6   Colorado    5758736
+```
+]
+]
+
+---
+#### Topic 2: Static visualizations
+.left-column4[
+* Load necessary packages
+
+.tiny3[
+
+```r
+library(patchwork)  # Combine plots
+library(sf)         # Simple features
+library(dplyr)      # Tidyverse grammar
+library(tidyr)      # Cleaning data
+library(zoo)        # Time series functions
+library(ggplot2)    # Plotting
+```
+]
+]
+
+.right-column4[
+* Time series data clean up
+
+.tiny3[
+
+```r
+ts &lt;- ts %&gt;%
+  # Remove unincorporated territories and cruise liners
+  filter(iso2=="US") %&gt;%
+  filter(!Province_State %in% c("Diamond Princess", 
+                                "Grand Princess")) %&gt;%
+  # Select id and time series columns
+  select(5:7, 12:ncol(.)) %&gt;%
+  # Convert from wide to long format
+  gather(date, cases, 4:ncol(.), factor_key=TRUE) %&gt;% 
+  arrange(FIPS, date) %&gt;% 
+  droplevels() %&gt;%
+  as.data.frame()
+head(ts)
+```
+
+```
+##   FIPS  Admin2 Province_State     date cases
+## 1 1001 Autauga        Alabama X1.22.20     0
+## 2 1001 Autauga        Alabama X1.23.20     0
+## 3 1001 Autauga        Alabama X1.24.20     0
+## 4 1001 Autauga        Alabama X1.25.20     0
+## 5 1001 Autauga        Alabama X1.26.20     0
+## 6 1001 Autauga        Alabama X1.27.20     0
+```
+]
+]
+
+---
+#### Topic 2: Static visualizations
+.left-column3[
+* Data frames for states and dates
+
+.tiny3[
+
+```r
+# Sum case count by state
+states &lt;- ts %&gt;%
+  group_by(Province_State, date) %&gt;%
+  summarize(cases=sum(cases)) %&gt;%
+  as.data.frame()
+# Calculate number of records for each state
+count &lt;- states %&gt;% 
+  group_by(Province_State) %&gt;% 
+  summarize(count=length(Province_State))
+# Create a date frame of dates
+dates &lt;- data.frame(rep(
+  seq(as.Date('2020-01-22'),
+      as.Date('2020-01-22') + as.numeric(count[1,2]-1),
+      by = 'days'),
+  times = nrow(count)))
+names(dates) &lt;- "date"
+```
+]
+]
+
+.right-column3[
+* Merge datasets
+
+.tiny3[
+
+```r
+# Combine data frames
+df.us &lt;- cbind(states, dates)
+df.us &lt;- df.us[,c(1,4,3)]
+names(df.us)[1] &lt;- "state_name"
+df.us &lt;- df.us %&gt;%
+  group_by(state_name) %&gt;%
+  mutate(new=cases-lag(cases, default=0)) %&gt;%
+  mutate(new7=rollapply(new,7,mean,fill=0,align="right"))
+head(df.us)
+```
+
+```
+## # A tibble: 6 x 5
+## # Groups:   state_name [1]
+##   state_name date       cases   new  new7
+##   &lt;fct&gt;      &lt;date&gt;     &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1 Alabama    2020-01-22     0     0     0
+## 2 Alabama    2020-01-23     0     0     0
+## 3 Alabama    2020-01-24     0     0     0
+## 4 Alabama    2020-01-25     0     0     0
+## 5 Alabama    2020-01-26     0     0     0
+## 6 Alabama    2020-01-27     0     0     0
+```
+]
+]
+
+---
+#### Topic 2: Static visualizations
+.left-column3[
+* Subset and calculate incidence
+
+.tiny3[
+
+```r
+df.us2 &lt;- df.us %&gt;%
+  group_by(state_name) %&gt;%
+  arrange(date) %&gt;%
+  slice(n()) %&gt;%
+  right_join(pop, by="state_name") %&gt;%
+  mutate(new7b=round(new7/(population/100000),1))
+```
+]
+]
+
+.right-column3[
+* Merge attributes and geometries
+
+.tiny3[
+
+```r
+states_sf &lt;- states_sf %&gt;% 
+  right_join(df.us2, by="state_name")
+```
+]
+
+.tiny7[
+
+```
+## Simple feature collection with 3 features and 7 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: -1389101 ymin: -1562374 xmax: 1431325 ymax: -402936
+## CRS:            EPSG:2163
+##   state_name       date  cases  new   new7 population new7b
+## 1    Alabama 2020-11-02 194892  907 1367.1    4903185  27.9
+## 2    Arizona 2020-11-02 248139  666 1310.7    7278717  18.0
+## 3   Colorado 2020-11-02 112124 2237 2121.0    5758736  36.8
+##                         geometry
+## 1 MULTIPOLYGON (((1150023 -15...
+## 2 MULTIPOLYGON (((-1386136 -1...
+## 3 MULTIPOLYGON (((-786661.9 -...
+```
+]
+]
+
+---
+#### Topic 2: Static visualizations
+
+.pull-right2[
+&lt;center&gt;&lt;img src="./images/sf.jpg" height=250 alt="RStudio" &lt;/center&gt;
+]
+
+.tiny2.pull-left2[
+Necessary datasets:
+ * Spatial data: state boundaries
+  
+ * Non-spatial data: cases of COVID-19
+ 
+ * Non-spatial data: state populations
+{{content}}
+]
+
+--
+
+&lt;br/&gt;
+
+Parts of the plot:
+  
+ * Map
+ 
+ * Legend (custom)
+  {{content}}
+
+---
+#### Topic 2: Static visualizations
+* Parts of the plot: Map
+.tiny2[
+
+```r
+# Create bins based on incidence value
+states_sf &lt;- states_sf %&gt;%
+  cut(new7b,
+      breaks=c(0,0.9,9.5,24.5,1000),
+      labels=c("A","B","C","D"))
+# Custom colors (Green, Yellow, Orange, and Red)
+cols &lt;- c("A"="#197d7d", "B"="#dbc037", "C"="#e08f38", "D"="#8C1111")
+# Create map
+usa &lt;- ggplot() +
+  geom_sf(data=states_sf, aes(fill=bin),
+          size=0.25, color="white") +
+  scale_fill_manual(values=cols) +
+  theme_void() +
+  theme(
+    legend.position="none",
+    text=element_text(color="#22211d"),
+    plot.background=element_rect(fill="white", color=NA), 
+    panel.background=element_rect(fill="white", color=NA))
+```
+]
+
+---
+#### Topic 2: Static visualizations
+
+&lt;center&gt;&lt;img src="./images/covid19c.jpeg" alt="ggplot"&lt;/&gt;&lt;/center&gt;
+
+---
+#### Topic 2: Static visualizations
+* Parts of the plot: Map - updated coordinate reference system (CRS)
+.tiny2[
+
+```r
+# Create map
+usa2 &lt;- ggplot() +
+  geom_sf(data=states_sf, aes(fill=bin),
+          size=0.25, color="white") +
+  scale_fill_manual(values=cols) +
+# Update the coordinate reference system
+  coord_sf(crs=st_crs(3857)) +
+  theme_void() +
+  theme(
+    legend.position="none",
+    text=element_text(color="#22211d"),
+    plot.background=element_rect(fill="white", color=NA), 
+    panel.background=element_rect(fill="white", color=NA))
+```
+]
+
+---
+#### Topic 2: Static visualizations
+
+&lt;center&gt;&lt;img src="./images/covid19h.jpeg" alt="ggplot"&lt;/&gt;&lt;/center&gt;
+
+---
+#### Topic 2: Static visualizations
+* Parts of the plot: Legend (custom)
+.tiny2[
+
+```r
+# Create a legend item as another plot using annotate
+leg.R &lt;- ggplot() +
+  annotate(geom="rect", xmin=0, xmax=2, ymin=1.8, ymax=2, color=NA, fill="#8C1111") +
+  annotate(geom="text", label="RED", x=1, y=1.9, color="white", size=3) +
+  annotate(geom="text",
+           label="Threshold:",
+           x=0, hjust=0, y=1.75, vjust=1, size=2.5, fontface="bold") +
+  annotate(geom="text",
+           label="                    25+ daily\nnew cases per 100,000\npeople",
+           x=0, hjust=0, y=1.75, vjust=1, size=2.5) +
+  annotate(geom="text",
+           label="Indicates:",
+           x=0, hjust=0, y=1.3, vjust=1, size=2.5, fontface="bold") +
+  annotate(geom="text",
+           label="                  unchecked\ncommunity spread",
+           x=0, hjust=0, y=1.3, vjust=1, size=2.5) +
+  scale_y_continuous(limits=c(1,2)) +
+  theme_void() +
+  theme(
+    text=element_text(color="#22211d"),
+    plot.background=element_rect(fill="white", color=NA), 
+    panel.background=element_rect(fill="white", color=NA), 
+    legend.background=element_rect(fill="white", color=NA)
+  )
+```
+]
+
+---
+#### Topic 2: Static visualizations
+
+&lt;img src="./images/covid19g.jpeg" alt="ggplot" height=175&lt;/&gt;
+&lt;img src="./images/covid19f.jpeg" alt="ggplot" height=175&lt;/&gt;
+&lt;img src="./images/covid19e.jpeg" alt="ggplot" height=175&lt;/&gt;
+&lt;img src="./images/covid19d.jpeg" alt="ggplot" height=175&lt;/&gt;
+
+---
+#### Topic 2: Static visualizations
+* Combining parts of the plot using patchwork
+.tiny2[
+
+```r
+# Create a legend item as another plot using annotate
+usa2 + (leg.G/leg.Y/leg.O/leg.R) + plot_layout(widths = c(4, 1)) + 
+  plot_annotation(
+    title='Which Places Have The Most New Daily Cases?',
+    subtitle=paste("Data as of 11:59 p.m. ET", Sys.Date()-1)) &amp; 
+  theme(plot.title=element_text(size= 12, hjust=0.5, color="#4e4d47",
+                                margin=margin(b = -0.1, t = 0.4, l = 2, unit = "cm")),
+        plot.subtitle=element_text(size=8, hjust=0.5, color="#4e4d47", face="italic",
+                                   margin=margin(b = -0.1, t = 0.4, l = 2, unit = "cm")))
+```
+]
+
+---
+#### Topic 2: Static visualizations
+
+&lt;center&gt;&lt;img src="./images/covid19.jpeg" alt="ggplot"&lt;/&gt;&lt;/center&gt;
+
+---
 class: inverse
 
 #### Review - static visualizations:
@@ -872,6 +1468,10 @@ class: inverse
 --
 
 * Extension packages expand **ggplot2** capabilities.
+
+--
+
+* **sf** data makes working with spatial data more efficient.
 
 ---
 class: center, middle, inverse
@@ -917,13 +1517,13 @@ str(gapminder)
 ```
 
 ```
-Classes 'tbl_df', 'tbl' and 'data.frame':	1704 obs. of  6 variables:
+tibble [1,704 × 6] (S3: tbl_df/tbl/data.frame)
  $ country  : Factor w/ 142 levels "Afghanistan",..: 1 1 1 1 1 1 1 1 1 1 ...
  $ continent: Factor w/ 5 levels "Africa","Americas",..: 3 3 3 3 3 3 3 3 3 3 ...
- $ year     : int  1952 1957 1962 1967 1972 1977 1982 1987 1992 1997 ...
- $ lifeExp  : num  28.8 30.3 32 34 36.1 ...
- $ pop      : int  8425333 9240934 10267083 11537966 13079460 14880372 12881816 13867957 16317921 22227415 ...
- $ gdpPercap: num  779 821 853 836 740 ...
+ $ year     : int [1:1704] 1952 1957 1962 1967 1972 1977 1982 1987 1992 1997 ...
+ $ lifeExp  : num [1:1704] 28.8 30.3 32 34 36.1 ...
+ $ pop      : int [1:1704] 8425333 9240934 10267083 11537966 13079460 14880372 12881816 13867957 16317921 22227415 ...
+ $ gdpPercap: num [1:1704] 779 821 853 836 740 ...
 ```
 ]
 
@@ -1062,8 +1662,8 @@ ggplot(data=gapminder,
 
 ---
 #### Topic 3: Dynamic visualizations
-<div id="htmlwidget-8e6e749865225e49beaf" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-8e6e749865225e49beaf">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-34.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-5e2680b198415fbe247d" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5e2680b198415fbe247d">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-56.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 
 ---
 #### Topic 3: Dynamic visualizations
@@ -1105,8 +1705,8 @@ fig &lt;- ggplotly(plot, height=500, width=750) %&gt;%
 
 ---
 #### Topic 3: Dynamic visualizations
-<div id="htmlwidget-2266ba457d96dfe3be58" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-2266ba457d96dfe3be58">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-37.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-47296605ef8f9b1315ef" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-47296605ef8f9b1315ef">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-59.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 
 ---
 class: inverse
