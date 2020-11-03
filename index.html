@@ -1346,11 +1346,10 @@ usa &lt;- ggplot() +
           size=0.25, color="white") +
   scale_fill_manual(values=cols) +
   theme_void() +
-  theme(
-    legend.position="none",
-    text=element_text(color="#22211d"),
-    plot.background=element_rect(fill="white", color=NA), 
-    panel.background=element_rect(fill="white", color=NA))
+  theme(legend.position="none",
+        text=element_text(color="#22211d"),
+        plot.background=element_rect(fill="white", color=NA),
+        panel.background=element_rect(fill="white", color=NA))
 ```
 ]
 
@@ -1373,11 +1372,10 @@ usa2 &lt;- ggplot() +
 # Update the coordinate reference system
   coord_sf(crs=st_crs(3857)) +
   theme_void() +
-  theme(
-    legend.position="none",
-    text=element_text(color="#22211d"),
-    plot.background=element_rect(fill="white", color=NA), 
-    panel.background=element_rect(fill="white", color=NA))
+  theme(legend.position="none",
+        text=element_text(color="#22211d"),
+        plot.background=element_rect(fill="white", color=NA), 
+        panel.background=element_rect(fill="white", color=NA))
 ```
 ]
 
@@ -1410,11 +1408,10 @@ leg.R &lt;- ggplot() +
            x=0, hjust=0, y=1.3, vjust=1, size=2.5) +
   scale_y_continuous(limits=c(1,2)) +
   theme_void() +
-  theme(
-    text=element_text(color="#22211d"),
-    plot.background=element_rect(fill="white", color=NA), 
-    panel.background=element_rect(fill="white", color=NA), 
-    legend.background=element_rect(fill="white", color=NA)
+  theme(text=element_text(color="#22211d"),
+        plot.background=element_rect(fill="white", color=NA),
+        panel.background=element_rect(fill="white", color=NA),
+        legend.background=element_rect(fill="white", color=NA)
   )
 ```
 ]
@@ -1662,8 +1659,8 @@ ggplot(data=gapminder,
 
 ---
 #### Topic 3: Dynamic visualizations
-<div id="htmlwidget-88e4c97851f8b3deae9f" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-88e4c97851f8b3deae9f">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-56.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-3acf9d441ecc3674a9cd" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3acf9d441ecc3674a9cd">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-56.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 
 ---
 #### Topic 3: Dynamic visualizations
@@ -1705,8 +1702,8 @@ fig &lt;- ggplotly(plot, height=500, width=750) %&gt;%
 
 ---
 #### Topic 3: Dynamic visualizations
-<div id="htmlwidget-92961c58befe43c5c746" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-92961c58befe43c5c746">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-59.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-b364157e4b2eec375e00" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b364157e4b2eec375e00">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-59.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 
 ---
 class: inverse
