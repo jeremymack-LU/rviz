@@ -102,10 +102,44 @@ th, td { padding: 5px; }
   width: 47%;
   float: right;
 }
+.left-column4 {
+  width: 38%;
+  float: left;
+}
+.right-column4 {
+  width: 56%;
+  float: right;
+}
+
+.left-column5 {
+  width: 50%;
+  float: left;
+}
+.right-column5 {
+  width: 44%;
+  float: right;
+}
+
 .tiny .remark-code { /*Change made here*/
   font-size: 65% !important;
 }
 
 .tiny2 .remark-code { /*Change made here*/
   font-size: 55% !important;
+}
+
+.tiny3 .remark-code { /*Change made here*/
+  font-size: 50% !important;
+}
+
+.tiny5 .remark-code { /*Change made here*/
+  font-size: 45% !important;
+}
+
+.tiny6 .remark-code { /*Change made here*/
+  font-size: 35% !important;
+}
+
+.tiny7 .remark-code { /*Change made here*/
+  font-size: 40% !important;
 }
