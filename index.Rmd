@@ -1347,23 +1347,58 @@ class: center, middle, inverse
 
 ---
 #### Topic 3: Dynamic visualizations
+.pull-right2[
+<center><img src="./images/gapminder2.png" alt="RStudio" width=250/></center>
+]
+
+.tiny2.pull-left2[
+* Life expectency (**gapminder**) dataset:
+  {{content}}
+]
+
+--
+  + Data from the Gapminder foundation
+  
+  + Geography (*country* and *continent*)
+  
+  + Life expectency (*lifeExp*)
+  
+  + Economic data (*gdpPercap*)
+  
+  + Time (*year*)
+
+---
+#### Topic 2: Static visualizations
+.pull-right2[
+<center><img src="./images/gapminder2.png" alt="RStudio" width=250/></center>
+]
+
+.pull-left2[
+* Life expectency (**gapminder**) dataset:
+
+  + Data from the Gapminder foundation
+  
+  + Geography (*country* and *continent*)
+  
+  + Life expectency (*lifeExp*)
+  
+  + Economic data (*gdpPercap*)
+  
+  + Time (*year*)
+]
+
+<br/><br/>
+<br/><br/>
+<br/><br/>
+<br/><br/>
+<br/><br/>
+<br/><br/>
+
+.tiny3[
 ```{r echo=FALSE}
 library(gapminder)
 ```
 
-* Life expectency (**gapminder**) dataset:
-
---
-
-.tiny[  
-```{r comment=NA}
-head(gapminder, 3)
-```
-]
-
---
-
-.tiny[
 ```{r comment=NA}
 str(gapminder)
 ```

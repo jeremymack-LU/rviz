@@ -4,7 +4,7 @@
     <title>Data Visualization with R</title>
     <meta charset="utf-8" />
     <meta name="author" content="Jeremy Mack" />
-    <script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+    <script src="libs/htmlwidgets-1.5.2/htmlwidgets.js"></script>
     <script src="libs/pymjs-1.3.2/pym.v1.js"></script>
     <script src="libs/widgetframe-binding-0.3.1/widgetframe.js"></script>
     <link rel="stylesheet" href="custom.css" type="text/css" />
@@ -1014,7 +1014,7 @@ states_sf &lt;- get_urbn_map("states", sf = TRUE); print(states_sf)
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
 ## bbox:           xmin: -2600000 ymin: -2363000 xmax: 2516374 ymax: 732352.2
-## CRS:            EPSG:2163
+## projected CRS:  US National Atlas Equal Area
 ## First 10 features:
 ##    state_fips state_abbv  state_name                       geometry
 ## 1          01         AL     Alabama MULTIPOLYGON (((1150023 -15...
@@ -1078,7 +1078,7 @@ states_sf &lt;- get_urbn_map("states", sf = TRUE); print(states_sf)
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
 ## bbox:           xmin: -2600000 ymin: -2363000 xmax: 2516374 ymax: 732352.2
-## CRS:            EPSG:2163
+## projected CRS:  US National Atlas Equal Area
 ## First 10 features:
 ##    state_fips state_abbv  state_name                       geometry
 ## 1          01         AL     Alabama MULTIPOLYGON (((1150023 -15...
@@ -1117,16 +1117,16 @@ str(ts[1:14])
 ```
 ## 'data.frame':	3340 obs. of  12 variables:
 ##  $ UID           : int  84001001 84001003 84001005 84001007 84001009 84001011 84001013 84001015 84001017 84001019 ...
-##  $ iso2          : Factor w/ 6 levels "AS","GU","MP",..: 5 5 5 5 5 5 5 5 5 5 ...
-##  $ iso3          : Factor w/ 6 levels "ASM","GUM","MNP",..: 5 5 5 5 5 5 5 5 5 5 ...
+##  $ iso2          : chr  "US" "US" "US" "US" ...
+##  $ iso3          : chr  "USA" "USA" "USA" "USA" ...
 ##  $ code3         : int  840 840 840 840 840 840 840 840 840 840 ...
 ##  $ FIPS          : num  1001 1003 1005 1007 1009 ...
-##  $ Admin2        : Factor w/ 1979 levels "","Abbeville",..: 91 98 109 162 177 237 247 260 314 336 ...
-##  $ Province_State: Factor w/ 58 levels "Alabama","Alaska",..: 1 1 1 1 1 1 1 1 1 1 ...
-##  $ Country_Region: Factor w/ 1 level "US": 1 1 1 1 1 1 1 1 1 1 ...
+##  $ Admin2        : chr  "Autauga" "Baldwin" "Barbour" "Bibb" ...
+##  $ Province_State: chr  "Alabama" "Alabama" "Alabama" "Alabama" ...
+##  $ Country_Region: chr  "US" "US" "US" "US" ...
 ##  $ Lat           : num  32.5 30.7 31.9 33 34 ...
 ##  $ Long_         : num  -86.6 -87.7 -85.4 -87.1 -86.6 ...
-##  $ Combined_Key  : Factor w/ 3340 levels "Abbeville, South Carolina, US",..: 120 129 141 215 235 325 337 364 467 495 ...
+##  $ Combined_Key  : chr  "Autauga, Alabama, US" "Baldwin, Alabama, US" "Barbour, Alabama, US" "Bibb, Alabama, US" ...
 ##  $ X1.22.20      : int  0 0 0 0 0 0 0 0 0 0 ...
 ```
 ]
@@ -1263,7 +1263,7 @@ head(df.us)
 ## # A tibble: 6 x 5
 ## # Groups:   state_name [1]
 ##   state_name date       cases   new  new7
-##   &lt;fct&gt;      &lt;date&gt;     &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
+##   &lt;chr&gt;      &lt;date&gt;     &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
 ## 1 Alabama    2020-01-22     0     0     0
 ## 2 Alabama    2020-01-23     0     0     0
 ## 3 Alabama    2020-01-24     0     0     0
@@ -1310,7 +1310,7 @@ states_sf &lt;- states_sf %&gt;%
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
 ## bbox:           xmin: -1389101 ymin: -1562374 xmax: 1431325 ymax: -402936
-## CRS:            EPSG:2163
+## projected CRS:  US National Atlas Equal Area
 ##   state_name       date  cases  new   new7 population new7b
 ## 1    Alabama 2020-11-03 195929 1037 1356.0    4903185  27.7
 ## 2    Arizona 2020-11-03 249818 1679 1385.1    7278717  19.0
@@ -1507,31 +1507,56 @@ class: center, middle, inverse
 
 ---
 #### Topic 3: Dynamic visualizations
+.pull-right2[
+&lt;center&gt;&lt;img src="./images/gapminder2.png" alt="RStudio" width=250/&gt;&lt;/center&gt;
+]
 
-
+.tiny2.pull-left2[
 * Life expectency (**gapminder**) dataset:
-
---
-
-.tiny[  
-
-```r
-head(gapminder, 3)
-```
-
-```
-# A tibble: 3 x 6
-  country     continent  year lifeExp      pop gdpPercap
-  &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
-1 Afghanistan Asia       1952    28.8  8425333      779.
-2 Afghanistan Asia       1957    30.3  9240934      821.
-3 Afghanistan Asia       1962    32.0 10267083      853.
-```
+  {{content}}
 ]
 
 --
+  + Data from the Gapminder foundation
+  
+  + Geography (*country* and *continent*)
+  
+  + Life expectency (*lifeExp*)
+  
+  + Economic data (*gdpPercap*)
+  
+  + Time (*year*)
 
-.tiny[
+---
+#### Topic 2: Static visualizations
+.pull-right2[
+&lt;center&gt;&lt;img src="./images/gapminder2.png" alt="RStudio" width=250/&gt;&lt;/center&gt;
+]
+
+.pull-left2[
+* Life expectency (**gapminder**) dataset:
+
+  + Data from the Gapminder foundation
+  
+  + Geography (*country* and *continent*)
+  
+  + Life expectency (*lifeExp*)
+  
+  + Economic data (*gdpPercap*)
+  
+  + Time (*year*)
+]
+
+&lt;br/&gt;&lt;br/&gt;
+&lt;br/&gt;&lt;br/&gt;
+&lt;br/&gt;&lt;br/&gt;
+&lt;br/&gt;&lt;br/&gt;
+&lt;br/&gt;&lt;br/&gt;
+&lt;br/&gt;&lt;br/&gt;
+
+.tiny3[
+
+
 
 ```r
 str(gapminder)
@@ -1683,8 +1708,8 @@ ggplot(data=gapminder,
 
 ---
 #### Topic 3: Dynamic visualizations
-<div id="htmlwidget-31dbb983225e761a21e4" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-31dbb983225e761a21e4">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-58.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-4a7b016d4c53aa1b2284" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-4a7b016d4c53aa1b2284">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-57.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 
 ---
 #### Topic 3: Dynamic visualizations
@@ -1726,8 +1751,8 @@ fig &lt;- ggplotly(plot, height=500, width=750) %&gt;%
 
 ---
 #### Topic 3: Dynamic visualizations
-<div id="htmlwidget-fb4bff998b63967535e6" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-fb4bff998b63967535e6">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-61.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-8bc08af06c2c01f12734" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-8bc08af06c2c01f12734">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-60.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 
 ---
 class: inverse
@@ -2319,6 +2344,32 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
 // adds .remark-code-has-line-highlighted class to <pre> parent elements
 // of code chunks containing highlighted lines with class .remark-code-line-highlighted
 (function(d) {
@@ -2336,17 +2387,6 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   }
   preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
 })(document);</script>
-
-<script>
-(function() {
-  var links = document.getElementsByTagName('a');
-  for (var i = 0; i < links.length; i++) {
-    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
-      links[i].target = '_blank';
-    }
-  }
-})();
-</script>
 
 <script>
 slideshow._releaseMath = function(el) {
