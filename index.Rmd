@@ -58,13 +58,13 @@ class: center, middle, inverse, title-slide
 
 The presentation is split into four topics:
 
- * **Topic 1:** The (layered) Grammar of Graphics
+ * [**Topic 1:**](https://jeremymack-lu.github.io/rviz/#8) The (layered) Grammar of Graphics
  
- * **Topic 2:** Static visualizations
+ * [**Topic 2:**](https://jeremymack-lu.github.io/rviz/#75) Static visualizations
  
- * **Topic 3:** Dynamic visualizations
+ * [**Topic 3:**](https://jeremymack-lu.github.io/rviz/#100) Dynamic visualizations
  
- * **Topic 4:** Shiny Apps
+ * [**Topic 4:**](https://jeremymack-lu.github.io/rviz/#124) Shiny Apps
 
 ---
 class: center, middle, inverse
@@ -83,8 +83,6 @@ class: center, middle, inverse
 Visualizing data in R
 
 <center><b>“The simple graph has brought more information to the data analyst’s mind than any other device.” - John Tukey</b></center>
-
---
 
 <center><img src="./images/dinosaur.gif" alt="gif" height=400</></center>
 
