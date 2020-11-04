@@ -376,6 +376,49 @@ geom_point(data=faithful,
 &lt;center&gt;&lt;img src="./images/ggplot.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
 ]
 
+.tiny.left-column2[
+* Create a blank ggplot canvas:
+
+```r
+ggplot(data=faithful)
+```
+
+* Add a geometric (geom) object layer and map variables to **aes**thetics:
+
+```r
+ggplot(data=faithful) +
+geom_point(mapping=aes(
+             x=eruptions,
+             y=waiting))
+```
+{{content}}
+]
+
+--
+
+* Add another **aes**thetics:
+
+```r
+ggplot(data=faithful) +
+geom_point(mapping=aes(
+             x=eruptions,
+             y=waiting,
+             color=eruptions &lt; 3)))
+```
+{{content}}
+
+---
+#### Topic 2: Static visualizations
+
+&lt;center&gt;&lt;img src="./images/p4.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;
+
+---
+#### Topic 2: Static visualizations
+.right-column2[
+&lt;center&gt;&lt;img src="./images/ggplot2_2.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/ggplot.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
+]
+
 .left-column2[
 * Layered approach to building graphics
 
@@ -408,31 +451,10 @@ geom_point(mapping=aes(
              y=waiting,
              color=eruptions &lt; 3))
 ```
+{{content}}
 ]
 
----
-#### Topic 2: Static visualizations
-
-&lt;center&gt;&lt;img src="./images/p4.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;
-
----
-#### Topic 2: Static visualizations
-
-.right-column2[
-&lt;center&gt;&lt;img src="./images/ggplot2_2.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
-&lt;center&gt;&lt;img src="./images/ggplot.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
-]
-
-.tiny.left-column2[
-* Mapping a color:
-
-```r
-ggplot(data=faithful) +
-geom_point(mapping=aes(
-             x=eruptions,
-             y=waiting,
-             color=eruptions &lt; 3))
-```
+--
 
 * Setting a color:
 
@@ -443,12 +465,38 @@ geom_point(mapping=aes(
              y=waiting),
              color='blue')
 ```
-]
+{{content}}
 
 ---
 #### Topic 2: Static visualizations
 
 &lt;center&gt;&lt;img src="./images/p5.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;
+
+---
+#### Topic 2: Static visualizations
+
+.right-column2[
+&lt;center&gt;&lt;img src="./images/ggplot2_2.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/ggplot.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
+]
+
+.tiny.left-column2[
+* Add another geom ("stacking layers"):
+
+```r
+ggplot(data=faithful,
+       mapping=aes(
+         x=eruptions,
+         y=waiting)) +
+geom_point() +
+geom_smooth(method="lm")
+```
+]
+
+---
+#### Topic 2: Static visualizations
+
+&lt;center&gt;&lt;img src="./images/p7.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;
 
 ---
 #### Topic 2: Static visualizations
@@ -483,7 +531,7 @@ geom_point(mapping=aes(
 ]
 
 .tiny.left-column2[
-* Stacking layers:
+* Add another geom ("stacking layers"):
 
 ```r
 ggplot(data=faithful,
@@ -493,32 +541,10 @@ ggplot(data=faithful,
 geom_point() +
 geom_smooth(method="lm")
 ```
+{{content}}
 ]
 
----
-#### Topic 2: Static visualizations
-
-&lt;center&gt;&lt;img src="./images/p7.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;
-
----
-#### Topic 2: Static visualizations
-
-.right-column2[
-&lt;center&gt;&lt;img src="./images/ggplot2_2.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
-&lt;center&gt;&lt;img src="./images/ggplot.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
-]
-
-.tiny.left-column2[
-* Stacking layers:
-
-```r
-ggplot(data=faithful,
-       mapping=aes(
-         x=eruptions,
-         y=waiting)) +
-geom_point() +
-geom_smooth(method="lm")
-```
+--
 
 
 ```r
@@ -529,7 +555,7 @@ ggplot(data=faithful,
 geom_smooth(method="lm") +
 geom_point()
 ```
-]
+{{content}}
 
 ---
 #### Topic 2: Static visualizations
@@ -1288,9 +1314,9 @@ states_sf &lt;- states_sf %&gt;%
 ## bbox:           xmin: -1389101 ymin: -1562374 xmax: 1431325 ymax: -402936
 ## CRS:            EPSG:2163
 ##   state_name       date  cases  new   new7 population new7b
-## 1    Alabama 2020-11-02 194892  907 1367.1    4903185  27.9
-## 2    Arizona 2020-11-02 248139  666 1310.7    7278717  18.0
-## 3   Colorado 2020-11-02 112124 2237 2121.0    5758736  36.8
+## 1    Alabama 2020-11-03 195929 1037 1356.0    4903185  27.7
+## 2    Arizona 2020-11-03 249818 1679 1385.1    7278717  19.0
+## 3   Colorado 2020-11-03 114709 2562 2282.3    5758736  39.6
 ##                         geometry
 ## 1 MULTIPOLYGON (((1150023 -15...
 ## 2 MULTIPOLYGON (((-1386136 -1...
@@ -1659,8 +1685,8 @@ ggplot(data=gapminder,
 
 ---
 #### Topic 3: Dynamic visualizations
-<div id="htmlwidget-3acf9d441ecc3674a9cd" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-3acf9d441ecc3674a9cd">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-56.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-8812d913863e92aeff07" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-8812d913863e92aeff07">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-58.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 
 ---
 #### Topic 3: Dynamic visualizations
@@ -1702,8 +1728,8 @@ fig &lt;- ggplotly(plot, height=500, width=750) %&gt;%
 
 ---
 #### Topic 3: Dynamic visualizations
-<div id="htmlwidget-b364157e4b2eec375e00" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-b364157e4b2eec375e00">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-59.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-2d2ee0cdeffccdf93a00" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2d2ee0cdeffccdf93a00">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-61.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 
 ---
 class: inverse

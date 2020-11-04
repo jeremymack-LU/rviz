@@ -357,6 +357,46 @@ geom_point(data=faithful,
 <center><img src="./images/ggplot.png" alt="RStudio" width=500/></center>
 ]
 
+.tiny.left-column2[
+* Create a blank ggplot canvas:
+```{r eval=FALSE}
+ggplot(data=faithful)
+```
+
+* Add a geometric (geom) object layer and map variables to **aes**thetics:
+```{r eval=FALSE}
+ggplot(data=faithful) +
+geom_point(mapping=aes(
+             x=eruptions,
+             y=waiting))
+```
+{{content}}
+]
+
+--
+
+* Add another **aes**thetics:
+```{r eval=FALSE}
+ggplot(data=faithful) +
+geom_point(mapping=aes(
+             x=eruptions,
+             y=waiting,
+             color=eruptions < 3)))
+```
+{{content}}
+
+---
+#### Topic 2: Static visualizations
+
+<center><img src="./images/p4.png" alt="ggplot"</></center>
+
+---
+#### Topic 2: Static visualizations
+.right-column2[
+<center><img src="./images/ggplot2_2.png" alt="RStudio" width=500/></center>
+<center><img src="./images/ggplot.png" alt="RStudio" width=500/></center>
+]
+
 .left-column2[
 * Layered approach to building graphics
 
@@ -388,12 +428,25 @@ geom_point(mapping=aes(
              y=waiting,
              color=eruptions < 3))
 ```
+{{content}}
 ]
+
+--
+
+* Setting a color:
+```{r eval=FALSE}
+ggplot(data=faithful) +
+geom_point(mapping=aes(
+             x=eruptions,
+             y=waiting),
+             color='blue')
+```
+{{content}}
 
 ---
 #### Topic 2: Static visualizations
 
-<center><img src="./images/p4.png" alt="ggplot"</></center>
+<center><img src="./images/p5.png" alt="ggplot"</></center>
 
 ---
 #### Topic 2: Static visualizations
@@ -404,29 +457,21 @@ geom_point(mapping=aes(
 ]
 
 .tiny.left-column2[
-* Mapping a color:
+* Add another geom ("stacking layers"):
 ```{r eval=FALSE}
-ggplot(data=faithful) +
-geom_point(mapping=aes(
-             x=eruptions,
-             y=waiting,
-             color=eruptions < 3))
-```
-
-* Setting a color:
-```{r eval=FALSE}
-ggplot(data=faithful) +
-geom_point(mapping=aes(
-             x=eruptions,
-             y=waiting),
-             color='blue')
+ggplot(data=faithful,
+       mapping=aes(
+         x=eruptions,
+         y=waiting)) +
+geom_point() +
+geom_smooth(method="lm")
 ```
 ]
 
 ---
 #### Topic 2: Static visualizations
 
-<center><img src="./images/p5.png" alt="ggplot"</></center>
+<center><img src="./images/p7.png" alt="ggplot"</></center>
 
 ---
 #### Topic 2: Static visualizations
@@ -461,7 +506,7 @@ geom_point(mapping=aes(
 ]
 
 .tiny.left-column2[
-* Stacking layers:
+* Add another geom ("stacking layers"):
 ```{r eval=FALSE}
 ggplot(data=faithful,
        mapping=aes(
@@ -470,31 +515,10 @@ ggplot(data=faithful,
 geom_point() +
 geom_smooth(method="lm")
 ```
+{{content}}
 ]
 
----
-#### Topic 2: Static visualizations
-
-<center><img src="./images/p7.png" alt="ggplot"</></center>
-
----
-#### Topic 2: Static visualizations
-
-.right-column2[
-<center><img src="./images/ggplot2_2.png" alt="RStudio" width=500/></center>
-<center><img src="./images/ggplot.png" alt="RStudio" width=500/></center>
-]
-
-.tiny.left-column2[
-* Stacking layers:
-```{r eval=FALSE}
-ggplot(data=faithful,
-       mapping=aes(
-         x=eruptions,
-         y=waiting)) +
-geom_point() +
-geom_smooth(method="lm")
-```
+--
 
 ```{r eval=FALSE}
 ggplot(data=faithful,
@@ -504,7 +528,7 @@ ggplot(data=faithful,
 geom_smooth(method="lm") +
 geom_point()
 ```
-]
+{{content}}
 
 ---
 #### Topic 2: Static visualizations
