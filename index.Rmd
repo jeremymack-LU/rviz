@@ -20,7 +20,7 @@ class: center, middle, inverse, title-slide
 ## Data Visualization with R
 #### Jeremy Mack
 #### Lehigh University - Digital Scholarship Team
-<img src="./images/notes.png" alt="RStudio" height=243/>
+<img src="./images/notes.png" alt="RStudio" height=242/>
 
 ---
 class: center, middle, inverse, title-slide
