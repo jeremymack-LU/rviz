@@ -1312,9 +1312,9 @@ states_sf &lt;- states_sf %&gt;%
 ## bbox:           xmin: -1389101 ymin: -1562374 xmax: 1431325 ymax: -402936
 ## projected CRS:  US National Atlas Equal Area
 ##   state_name       date  cases  new   new7 population new7b
-## 1    Alabama 2020-11-04 197777 1848 1438.7    4903185  29.3
-## 2    Arizona 2020-11-04 250633  815 1352.6    7278717  18.6
-## 3   Colorado 2020-11-04 117637 2928 2489.9    5758736  43.2
+## 1    Alabama 2020-11-05 199158 1381 1429.9    4903185  29.2
+## 2    Arizona 2020-11-05 252768 2135 1469.7    7278717  20.2
+## 3   Colorado 2020-11-05 121006 3369 2713.1    5758736  47.1
 ##                         geometry
 ## 1 MULTIPOLYGON (((1150023 -15...
 ## 2 MULTIPOLYGON (((-1386136 -1...
@@ -1528,7 +1528,7 @@ class: center, middle, inverse
   + Time (*year*)
 
 ---
-#### Topic 2: Static visualizations
+#### Topic 3: Dynamic visualizations
 .pull-right2[
 &lt;center&gt;&lt;img src="./images/gapminder2.png" alt="RStudio" width=250/&gt;&lt;/center&gt;
 ]
@@ -1708,8 +1708,8 @@ ggplot(data=gapminder,
 
 ---
 #### Topic 3: Dynamic visualizations
-<div id="htmlwidget-297252192b7e95546a79" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-297252192b7e95546a79">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-57.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-396ee8e17032155d5ab5" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-396ee8e17032155d5ab5">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-57.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 
 ---
 #### Topic 3: Dynamic visualizations
@@ -1751,8 +1751,8 @@ fig &lt;- ggplotly(plot, height=500, width=750) %&gt;%
 
 ---
 #### Topic 3: Dynamic visualizations
-<div id="htmlwidget-10460bbf03d001ee61dc" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-10460bbf03d001ee61dc">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-60.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-9cd2955b0e2566401c45" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9cd2955b0e2566401c45">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-60.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 
 ---
 class: inverse
@@ -2234,7 +2234,7 @@ server &lt;- function(input, output) {
             geom_line(data=df2, color="darkblue",
                       aes_string(x=names(df2)[1], y=names(df2)[2])) +
             labs(x = "Year", y = names(df1)[2]) +
-            theme
+            scale_y_log10()
         ggplotly(plot1)})
 }
 ```
@@ -2296,6 +2296,12 @@ class: inverse
  * *Mastering Shiny* by Hadley Wickham - [link](https://mastering-shiny.org)
  
  * RStudio tutortials - [link](https://shiny.rstudio.com/tutorial/)
+ 
+---
+class: center, middle, inverse, title-slide
+
+## Questions?
+&lt;img src="./images/contact.png" alt="RStudio" height=400/&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

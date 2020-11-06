@@ -1368,7 +1368,7 @@ class: center, middle, inverse
   + Time (*year*)
 
 ---
-#### Topic 2: Static visualizations
+#### Topic 3: Dynamic visualizations
 .pull-right2[
 <center><img src="./images/gapminder2.png" alt="RStudio" width=250/></center>
 ]
@@ -2122,7 +2122,7 @@ server <- function(input, output) {
             geom_line(data=df2, color="darkblue",
                       aes_string(x=names(df2)[1], y=names(df2)[2])) +
             labs(x = "Year", y = names(df1)[2]) +
-            theme
+            scale_y_log10()
         ggplotly(plot1)})
 }
 ```
@@ -2185,4 +2185,8 @@ class: inverse
  
  * RStudio tutortials - [link](https://shiny.rstudio.com/tutorial/)
  
- 
+---
+class: center, middle, inverse, title-slide
+
+## Questions?
+<img src="./images/contact.png" alt="RStudio" height=400/>
