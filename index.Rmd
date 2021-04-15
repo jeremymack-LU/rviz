@@ -2069,29 +2069,30 @@ class: center, middle, inverse
 <br/><br/>
 
 ---
-#### Topic 4: Shiny Apps
+#### Topic 4: Shiny Apps - a preview
 .right-column2[
 <center><img src="./images/shiny_hex.png" height=250 alt="RStudio" </center>
+<br/><br/>
+<center><img src="./images/master_shiny.jpg" height=250 alt="RStudio" </center>
 ]
 
 .left-column2[
 * [RStudio](<https://shiny.rstudio.com/>) product - **shiny**
 
-* Create interactive web applications with R
-{{content}}
+* Build interactive web applications, reports, and dashboards with R
+
+* Reactive Programming
 ]
 
-.pull-right[<center><img src="./images/master_shiny.jpg" height=250 alt="RStudio" </center>]
-
 ---
-#### Topic 4: Shiny Apps
+#### Topic 4: Shiny Apps - a preview
 
 [<center><img src="./images/covid_shiny.png" alt="ggplot"</></center>](https://shiny.cc.lehigh.edu/jsm4/covid19)
 
 ---
 class: inverse
 
-#### Review - Resources:
+#### Review - Data Visualization Resources:
 * RStudio (and user contributed) cheatsheets - [link](https://rstudio.com/resources/cheatsheets/)
 
 --
