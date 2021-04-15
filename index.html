@@ -4,7 +4,7 @@
     <title>Data Visualization with R</title>
     <meta charset="utf-8" />
     <meta name="author" content="Jeremy Mack" />
-    <script src="libs/htmlwidgets-1.5.2/htmlwidgets.js"></script>
+    <script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
     <script src="libs/pymjs-1.3.2/pym.v1.js"></script>
     <script src="libs/widgetframe-binding-0.3.1/widgetframe.js"></script>
     <link rel="stylesheet" href="custom.css" type="text/css" />
@@ -56,13 +56,35 @@ class: center, middle, inverse, title-slide
 
 The presentation is split into four topics:
 
- * [**Topic 1:**](https://jeremymack-lu.github.io/rviz/#8) The (layered) Grammar of Graphics
+ * [**Topic 1:**](https://jeremymack-lu.github.io/rviz/#12) The (layered) Grammar of Graphics
  
- * [**Topic 2:**](https://jeremymack-lu.github.io/rviz/#75) Static visualizations
+ * [**Topic 2:**](https://jeremymack-lu.github.io/rviz/#26) Static visualizations
  
- * [**Topic 3:**](https://jeremymack-lu.github.io/rviz/#100) Dynamic visualizations
+ * [**Topic 3:**](https://jeremymack-lu.github.io/rviz/#102) Dynamic visualizations
  
- * [**Topic 4:**](https://jeremymack-lu.github.io/rviz/#124) Shiny Apps
+ * [**Topic 4:**](https://jeremymack-lu.github.io/rviz/#133) Shiny Apps - a preview
+
+---
+#### Data Visualization with R
+
+&lt;center&gt;&lt;img src="./images/data-science.png" alt="RStudio" height=350/&gt;&lt;/center&gt;
+
+---
+#### Data Visualization with R
+
+&lt;center&gt;&lt;img src="./images/data-science2.png" alt="RStudio" height=350/&gt;&lt;/center&gt;
+
+---
+#### Data Visualization with R
+
+&lt;center&gt;&lt;img src="./images/data-science3.png" alt="RStudio" height=350/&gt;&lt;/center&gt;
+
+---
+#### Data Visualization with R
+
+&lt;center&gt;&lt;b&gt;“The simple graph has brought more information to the data analyst’s mind than any other device.” - John Tukey&lt;/b&gt;&lt;/center&gt;
+&lt;br/&gt;
+&lt;center&gt;&lt;img src="./images/dinosaur2.gif" alt="gif" height=200&lt;/&gt;&lt;/center&gt;
 
 ---
 class: center, middle, inverse
@@ -73,25 +95,6 @@ class: center, middle, inverse
 &lt;br/&gt;&lt;br/&gt;
 &lt;br/&gt;&lt;br/&gt;
 &lt;br/&gt;&lt;br/&gt;
-&lt;br/&gt;&lt;br/&gt;
-
----
-#### Topic 1: The (layered) Grammar of Graphics
-
-Visualizing data in R
-
-&lt;center&gt;&lt;b&gt;“The simple graph has brought more information to the data analyst’s mind than any other device.” - John Tukey&lt;/b&gt;&lt;/center&gt;
-
-&lt;center&gt;&lt;img src="./images/dinosaur.gif" alt="gif" height=400&lt;/&gt;&lt;/center&gt;
-
----
-#### Topic 1: The (layered) Grammar of Graphics
-
-Visualizing data in R
-
-&lt;center&gt;&lt;b&gt;“The simple graph has brought more information to the data analyst’s mind than any other device.” - John Tukey&lt;/b&gt;&lt;/center&gt;
-&lt;br/&gt;
-&lt;center&gt;&lt;img src="./images/dinosaur2.gif" alt="gif" height=200&lt;/&gt;&lt;/center&gt;
 
 ---
 #### Topic 1: The (layered) Grammar of Graphics
@@ -132,7 +135,7 @@ Visualizing data in R
 ]
 
 .pull-right2[
-&lt;center&gt;&lt;img src="./images/ggplot2_1.png" alt="RStudio" width=500/&gt;&lt;/center&gt;]
+&lt;center&gt;&lt;img src="./images/ggplot1.png" alt="RStudio" width=500/&gt;&lt;/center&gt;]
 
 ---
 #### Topic 1: The (layered) Grammar of Graphics
@@ -142,15 +145,190 @@ Visualizing data in R
 * Implementation of the grammar
 
 * Layered approach to building graphics
- + Required arguments
- 
- + Sensible defaults
+
+ + Data creates the base (tidy format)
 ]
 
 .pull-right2[
-&lt;center&gt;&lt;img src="./images/ggplot2_2.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
-&lt;center&gt;&lt;img src="./images/ggplot.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/ggplot2.png" alt="RStudio" width=500/&gt;&lt;/center&gt;]
+
+---
+#### Topic 1: The (layered) Grammar of Graphics
+.pull-left2[
+* Tidyverse - **ggplot2**
+
+* Implementation of the grammar
+
+* Layered approach to building graphics
+
+ + &lt;span style="color:lightgray"&gt;Data creates the base (tidy format)&lt;/span&gt;
+
+ + Link variables to graphical properties
 ]
+
+.pull-right2[
+&lt;center&gt;&lt;img src="./images/ggplot3.png" alt="RStudio" width=500/&gt;&lt;/center&gt;]
+
+---
+#### Topic 1: The (layered) Grammar of Graphics
+.pull-left2[
+* Tidyverse - **ggplot2**
+
+* Implementation of the grammar
+
+* Layered approach to building graphics
+
+ + &lt;span style="color:lightgray"&gt;Data creates the base (tidy format)&lt;/span&gt;
+ 
+ + &lt;span style="color:lightgray"&gt;Link variables to graphical properties&lt;/span&gt;
+
+ + Transform data to displayed values
+]
+
+.pull-right2[
+&lt;center&gt;&lt;img src="./images/ggplot4.png" alt="RStudio" width=500/&gt;&lt;/center&gt;]
+
+---
+#### Topic 1: The (layered) Grammar of Graphics
+.pull-left2[
+* Tidyverse - **ggplot2**
+
+* Implementation of the grammar
+
+* Layered approach to building graphics
+
+ + &lt;span style="color:lightgray"&gt;Data creates the base (tidy format)&lt;/span&gt;
+
+ + &lt;span style="color:lightgray"&gt;Link variables to graphical properties&lt;/span&gt;
+
+ + &lt;span style="color:lightgray"&gt;Transform data to displayed values&lt;/span&gt;
+
+ + Variable and property ranges
+]
+
+.pull-right2[
+&lt;center&gt;&lt;img src="./images/ggplot5.png" alt="RStudio" width=500/&gt;&lt;/center&gt;]
+
+---
+#### Topic 1: The (layered) Grammar of Graphics
+.pull-left2[
+* Tidyverse - **ggplot2**
+
+* Implementation of the grammar
+
+* Layered approach to building graphics
+
+ + &lt;span style="color:lightgray"&gt;Data creates the base (tidy format)&lt;/span&gt;
+
+ + &lt;span style="color:lightgray"&gt;Link variables to graphical properties&lt;/span&gt;
+
+ + &lt;span style="color:lightgray"&gt;Transform data to displayed values&lt;/span&gt;
+
+ + &lt;span style="color:lightgray"&gt;Variable and property ranges&lt;/span&gt;
+
+ + Graphical representation of the data
+]
+
+.pull-right2[
+&lt;center&gt;&lt;img src="./images/ggplot6.png" alt="RStudio" width=500/&gt;&lt;/center&gt;]
+
+---
+#### Topic 1: The (layered) Grammar of Graphics
+.pull-left2[
+* Tidyverse - **ggplot2**
+
+* Implementation of the grammar
+
+* Layered approach to building graphics
+
+ + &lt;span style="color:lightgray"&gt;Data creates the base (tidy format)&lt;/span&gt;
+
+ + &lt;span style="color:lightgray"&gt;Link variables to graphical properties&lt;/span&gt;
+
+ + &lt;span style="color:lightgray"&gt;Transform data to displayed values&lt;/span&gt;
+
+ + &lt;span style="color:lightgray"&gt;Variable and property ranges&lt;/span&gt;
+
+ + &lt;span style="color:lightgray"&gt;Graphical representation of the data&lt;/span&gt;
+
+ + Creates "small multiples"
+]
+
+.pull-right2[
+&lt;center&gt;&lt;img src="./images/ggplot7.png" alt="RStudio" width=500/&gt;&lt;/center&gt;]
+
+---
+#### Topic 1: The (layered) Grammar of Graphics
+.pull-left2[
+* Tidyverse - **ggplot2**
+
+* Implementation of the grammar
+
+* Layered approach to building graphics
+
+ + &lt;span style="color:lightgray"&gt;Data creates the base (tidy format)&lt;/span&gt;
+
+ + &lt;span style="color:lightgray"&gt;Link variables to graphical properties&lt;/span&gt;
+
+ + &lt;span style="color:lightgray"&gt;Transform data to displayed values&lt;/span&gt;
+
+ + &lt;span style="color:lightgray"&gt;Variable and property ranges&lt;/span&gt;
+
+ + &lt;span style="color:lightgray"&gt;Graphical representation of the data&lt;/span&gt;
+
+ + &lt;span style="color:lightgray"&gt;Creates "small multiples"&lt;/span&gt;
+ 
+ + Sets unique position
+]
+
+.pull-right2[
+&lt;center&gt;&lt;img src="./images/ggplot8.png" alt="RStudio" width=500/&gt;&lt;/center&gt;]
+
+---
+#### Topic 1: The (layered) Grammar of Graphics
+.pull-left2[
+* Tidyverse - **ggplot2**
+
+* Implementation of the grammar
+
+* Layered approach to building graphics
+
+ + &lt;span style="color:lightgray"&gt;Data creates the base (tidy format)&lt;/span&gt;
+
+ + &lt;span style="color:lightgray"&gt;Link variables to graphical properties&lt;/span&gt;
+
+ + &lt;span style="color:lightgray"&gt;Transform data to displayed values&lt;/span&gt;
+
+ + &lt;span style="color:lightgray"&gt;Variable and property ranges&lt;/span&gt;
+
+ + &lt;span style="color:lightgray"&gt;Graphical representation of the data&lt;/span&gt;
+
+ + &lt;span style="color:lightgray"&gt;Creates "small multiples"&lt;/span&gt;
+ 
+ + &lt;span style="color:lightgray"&gt;Sets unique position&lt;/span&gt;
+ 
+ + Defines the overall look of the plot
+]
+
+.pull-right2[
+&lt;center&gt;&lt;img src="./images/ggplot9.png" alt="RStudio" width=500/&gt;&lt;/center&gt;]
+
+---
+#### Topic 1: The (layered) Grammar of Graphics
+.pull-left2[
+* Tidyverse - **ggplot2**
+
+* Implementation of the grammar
+
+* Layered approach to building graphics
+
+ + Required arguments
+ 
+ + Everything else has **sensible defaults**
+]
+
+.pull-right2[
+&lt;center&gt;&lt;img src="./images/ggplot10.png" alt="RStudio" width=500/&gt;&lt;/center&gt;]
 
 ---
 #### Topic 1: The (layered) Grammar of Graphics
@@ -162,7 +340,7 @@ Visualizing data in R
 * Layered approach to building graphics
  + Required arguments
  
- + Sensible defaults
+ + Everything else has **sensible defaults**
  
 * Basic template has three functions:
   + **ggplot** - creates a blank canvas
@@ -173,7 +351,7 @@ Visualizing data in R
 ]
 
 .pull-right2[
-&lt;center&gt;&lt;img src="./images/ggplot2_2.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/ggplot10.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
 &lt;center&gt;&lt;img src="./images/ggplot.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
 ]
 
@@ -189,30 +367,22 @@ class: center, middle, inverse
 &lt;br/&gt;&lt;br/&gt;
 
 ---
-##### Topic 2: Static visualizations
-&lt;style&gt;
-  pre {
-    background-color: lightyellow;
-    white-space: pre-wrap;
-    line-height: 100%;
-  }
-&lt;/style&gt;
+#### Topic 2: Static visualizations
+
 .pull-right2[
 &lt;center&gt;&lt;img src="./images/OldFaithfulGeyser_Yellowstone.jpg" alt="RStudio" width=500/&gt;&lt;/center&gt;
 ]
 
 .tiny2.pull-left2[
 * Old Faithful dataset:
-  {{content}}
-]
 
---
   + Geyser in Yellowstone National Park
   
   + Eruption time in minutes (*eruptions*)
   
   + Time until next eruption (*waiting*)
   {{content}}
+]
 
 --
 
@@ -231,8 +401,6 @@ head(faithful, 5)
 ```
 {{content}}
 
---
-
 
 ```r
 str(faithful)
@@ -248,7 +416,7 @@ str(faithful)
 ---
 #### Topic 2: Static visualizations
 .right-column2[
-&lt;center&gt;&lt;img src="./images/ggplot2_2.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/ggplot10.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
 &lt;center&gt;&lt;img src="./images/ggplot.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
 ]
 
@@ -271,7 +439,7 @@ ggplot(data=faithful)
 ---
 #### Topic 2: Static visualizations
 .right-column2[
-&lt;center&gt;&lt;img src="./images/ggplot2_2.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/ggplot10.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
 &lt;center&gt;&lt;img src="./images/ggplot.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
 ]
 
@@ -303,29 +471,22 @@ geom_point(mapping=aes(
 ---
 #### Topic 2: Static visualizations
 .right-column2[
-&lt;center&gt;&lt;img src="./images/ggplot2_2.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/ggplot10.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
 &lt;center&gt;&lt;img src="./images/ggplot.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
 ]
 
 .left-column2[
 * Layered approach to building graphics
-{{content}}
-]
-
---
 
 * Some things to remember:
- {{content}}
-
---
 
  + Multiple ways to map variables
-   {{content}}
+]
 
 ---
 #### Topic 2: Static visualizations
 .right-column2[
-&lt;center&gt;&lt;img src="./images/ggplot2_2.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/ggplot10.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
 &lt;center&gt;&lt;img src="./images/ggplot.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
 ]
 
@@ -370,7 +531,7 @@ geom_point(data=faithful,
 ---
 #### Topic 2: Static visualizations
 .right-column2[
-&lt;center&gt;&lt;img src="./images/ggplot2_2.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/ggplot10.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
 &lt;center&gt;&lt;img src="./images/ggplot.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
 ]
 
@@ -394,7 +555,7 @@ geom_point(mapping=aes(
 
 --
 
-* Add another **aes**thetics:
+* Add another **aes**thetic:
 
 ```r
 ggplot(data=faithful) +
@@ -413,7 +574,7 @@ geom_point(mapping=aes(
 ---
 #### Topic 2: Static visualizations
 .right-column2[
-&lt;center&gt;&lt;img src="./images/ggplot2_2.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/ggplot10.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
 &lt;center&gt;&lt;img src="./images/ggplot.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
 ]
 
@@ -422,20 +583,15 @@ geom_point(mapping=aes(
 
 * Some things to remember:
 
- + Multiple ways to map variables
-   {{content}}
-
-]
-
---
+ + &lt;span style="color:lightgray"&gt;Multiple ways to map variables&lt;/span&gt;
 
  + Multiple ways to change aesthetics
-   {{content}}
+]
 
 ---
 #### Topic 2: Static visualizations
 .right-column2[
-&lt;center&gt;&lt;img src="./images/ggplot2_2.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/ggplot10.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
 &lt;center&gt;&lt;img src="./images/ggplot.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
 ]
 
@@ -472,9 +628,89 @@ geom_point(mapping=aes(
 
 ---
 #### Topic 2: Static visualizations
+.right-column2[
+&lt;center&gt;&lt;img src="./images/ggplot10.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/ggplot.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
+]
+
+.left-column2[
+* Layered approach to building graphics
+
+* Some things to remember:
+
+ + &lt;span style="color:lightgray"&gt;Multiple ways to map variables&lt;/span&gt;
+
+ + &lt;span style="color:lightgray"&gt;Multiple ways to change aesthetics&lt;/span&gt;
+ 
+ + Aesthetics vary by geometry
+]
+
+---
+#### Topic 2: Static visualizations
+.right-column2[
+&lt;center&gt;&lt;img src="./images/ggplot10.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/ggplot.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
+]
+
+.tiny.left-column2[
+* Mapping a color:
+
+```r
+ggplot(data=faithful) +
+geom_point(mapping=aes(
+             x=eruptions,
+             y=waiting,
+             color=eruptions &lt; 3))
+```
+{{content}}
+]
+
+--
+
+* Adding aesthetics:
+
+```r
+ggplot(data=faithful) +
+    geom_point(mapping=aes(
+        x=eruptions,
+        y=waiting,
+        color=eruptions &lt; 3,
+        size=waiting),
+        alpha=0.5)
+```
+{{content}}
+
+---
+#### Topic 2: Static visualizations
+
+&lt;center&gt;&lt;img src="./images/p5e.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;
+
+---
+#### Topic 2: Static visualizations
+.right-column2[
+&lt;center&gt;&lt;img src="./images/ggplot10.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/ggplot.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
+]
+
+.left-column2[
+* Layered approach to building graphics
+
+* Some things to remember:
+
+ + &lt;span style="color:lightgray"&gt;Multiple ways to map variables&lt;/span&gt;
+ 
+ + &lt;span style="color:lightgray"&gt;Multiple ways to change aesthetics&lt;/span&gt;
+ 
+ + &lt;span style="color:lightgray"&gt;Aesthetics vary by geometry&lt;/span&gt;
+ 
+ + When stacking layers, order matters
+]
+
+---
+#### Topic 2: Static visualizations
 
 .right-column2[
-&lt;center&gt;&lt;img src="./images/ggplot2_2.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/ggplot10.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
 &lt;center&gt;&lt;img src="./images/ggplot.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
 ]
 
@@ -498,33 +734,9 @@ geom_smooth(method="lm")
 
 ---
 #### Topic 2: Static visualizations
-.right-column2[
-&lt;center&gt;&lt;img src="./images/ggplot2_2.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
-&lt;center&gt;&lt;img src="./images/ggplot.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
-]
-
-.left-column2[
-* Layered approach to building graphics
-
-* Some things to remember:
-
- + Multiple ways to map variables
-
- + Multiple ways to change aesthetics
-   {{content}}
-
-]
-
---
-
- + Order matters
- {{content}}
-
----
-#### Topic 2: Static visualizations
 
 .right-column2[
-&lt;center&gt;&lt;img src="./images/ggplot2_2.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/ggplot10.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
 &lt;center&gt;&lt;img src="./images/ggplot.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
 ]
 
@@ -563,7 +775,7 @@ geom_point()
 ---
 #### Topic 2: Static visualizations
 .right-column2[
-&lt;center&gt;&lt;img src="./images/ggplot2_2.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/ggplot10.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
 &lt;center&gt;&lt;img src="./images/ggplot.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
 ]
 
@@ -572,24 +784,95 @@ geom_point()
 
 * Some things to remember:
 
- + Multiple ways to map variables
-
- + Multiple ways to change aesthetics
-
- + Order matters
-   {{content}} 
-
-]
-
---
-
+ + &lt;span style="color:lightgray"&gt;Multiple ways to map variables&lt;/span&gt;
+ 
+ + &lt;span style="color:lightgray"&gt;Multiple ways to change aesthetics&lt;/span&gt;
+ 
+ + &lt;span style="color:lightgray"&gt;Aesthetics vary by geometry&lt;/span&gt;
+ 
+ + &lt;span style="color:lightgray"&gt;When stacking layers, order matters&lt;/span&gt;
+ 
  + Many types of geoms, different mapping requirements
- {{content}}
+]
 
 ---
 #### Topic 2: Static visualizations
 
 &lt;center&gt;&lt;img src="./images/geoms.png" height=550 alt="ggplot"&lt;/&gt;&lt;/center&gt;
+
+---
+#### Topic 2: Static visualizations
+.right-column2[
+&lt;center&gt;&lt;img src="./images/ggplot10.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/ggplot.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
+]
+
+.left-column2[
+* Layered approach to building graphics
+
+* Some things to remember:
+
+ + &lt;span style="color:lightgray"&gt;Multiple ways to map variables&lt;/span&gt;
+ 
+ + &lt;span style="color:lightgray"&gt;Multiple ways to change aesthetics&lt;/span&gt;
+ 
+ + &lt;span style="color:lightgray"&gt;Aesthetics vary by geometry&lt;/span&gt;
+ 
+ + &lt;span style="color:lightgray"&gt;When stacking layers, order matters&lt;/span&gt;
+ 
+ + &lt;span style="color:lightgray"&gt;Many types of geoms, different mapping requirements&lt;/span&gt;
+ 
+ + Many (many!) theme arguments
+]
+
+---
+#### Topic 2: Static visualizations
+
+.right-column2[
+&lt;center&gt;&lt;img src="./images/ggplot10.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/ggplot.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
+]
+
+.tiny2.left-column2[
+* Cleaning up the overall plot:
+
+```r
+plot &lt;- ggplot(data=faithful,
+               mapping=aes(
+                 x=eruptions,
+                 y=waiting)) +
+geom_smooth(method="lm") +
+geom_point(size=0.25)
+```
+{{content}}
+]
+
+--
+
+
+```r
+plot &lt;- plot +
+  theme(plot.background=element_blank(),
+        panel.border=element_blank(),
+        panel.background=element_blank(),
+        axis.ticks=element_line(size=0.25),
+        axis.text=element_text(size = 7),
+        axis.line=element_line(size=0.25),
+        axis.title=element_text(size = 7),
+        legend.text=element_text(size = 7),
+        legend.title=element_text(size = 7),
+        legend.key=element_blank(),
+        plot.title=element_text(hjust=.5, size=8)) +
+    labs(title="Old Faithful Waiting Time",
+         x="Length of eruption (minutes)",
+         y="Waiting time to next eruption (minutes)")
+```
+{{content}}
+
+---
+#### Topic 2: Static visualizations
+
+&lt;center&gt;&lt;img src="./images/faithful.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;
 
 ---
 class: center, middle, inverse
@@ -612,18 +895,11 @@ class: center, middle, inverse
 * **ggplot2** extensions
 
 * Extends the grammar of graphics
-{{content}}
-]
-
---
 
  + Developed by R users
-  {{content}}
-
---
   
  + Provides additional [functionality](&lt;http://exts.ggplot2.tidyverse.org/gallery/&gt;)
-  {{content}}
+]
 
 ---
 #### Topic 2: Static visualizations
@@ -635,23 +911,16 @@ class: center, middle, inverse
 * **ggplot2** extensions - **patchwork**
 
 * Extends the grammar of graphics
-{{content}}
-]
-
---
 
  + Arranging multiple plots
-  {{content}}
-
---
   
  + Many approaches
-  {{content}}
      - Facets
      - gridExtra::grid.arrange()
      - ggpubr::ggarrange()
      - cowplot::plot_grid()
      - patchwork
+]
 
 ---
 #### Topic 2: Static visualizations
@@ -793,13 +1062,9 @@ pw1 / pw2
 * **ggplot2** extensions - **ggforce/ggthemes**
 
 * Extends the grammar of graphics
-{{content}}
-]
-
---
 
  + Provides extra geoms, scales, and themes
-  {{content}}
+]
   
 ---
 #### Topic 2: Static visualizations
@@ -817,6 +1082,8 @@ pw1 / pw2
  + Microsoft Excel theme
 
 ```r
+library(ggthemes)
+
 ggplot(data=faithful) +
 geom_point(mapping=aes(
              x=eruptions,
@@ -849,6 +1116,8 @@ theme_excel()
  + Wall Street Journal theme
 
 ```r
+library(ggthemes)
+
 ggplot(data=faithful) +
 geom_point(mapping=aes(
              x=eruptions,
@@ -884,6 +1153,8 @@ theme_wsj()
  + Google Docs theme
 
 ```r
+library(ggthemes)
+
 ggplot(data=faithful) +
 geom_point(mapping=aes(
              x=eruptions,
@@ -930,7 +1201,7 @@ class: center, middle, inverse
   pre {
     background-color: lightyellow;
     white-space: pre-wrap;
-    line-height: 100%;
+    line-height: 90%;
   }
 &lt;/style&gt;
 .right-column2[
@@ -943,13 +1214,9 @@ class: center, middle, inverse
 * Introduces a new type of object to work with spatial data
 
  + Non-spatial data + Spatial data
- {{content}}
-]
-
---
 
  + Attributes + Geometries
- {{content}}
+]
 
 ---
 class: center, middle, inverse
@@ -1014,7 +1281,7 @@ states_sf &lt;- get_urbn_map("states", sf = TRUE); print(states_sf)
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
 ## bbox:           xmin: -2600000 ymin: -2363000 xmax: 2516374 ymax: 732352.2
-## projected CRS:  US National Atlas Equal Area
+## CRS:            EPSG:2163
 ## First 10 features:
 ##    state_fips state_abbv  state_name                       geometry
 ## 1          01         AL     Alabama MULTIPOLYGON (((1150023 -15...
@@ -1034,7 +1301,7 @@ states_sf &lt;- get_urbn_map("states", sf = TRUE); print(states_sf)
 ---
 #### Topic 2: Static visualizations
 
-&lt;center&gt;&lt;img src="./images/covid19.jpeg" alt="ggplot"&lt;/&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/covid19b.jpeg" alt="ggplot"&lt;/&gt;&lt;/center&gt;
 
 ---
 #### Topic 2: Static visualizations
@@ -1045,16 +1312,13 @@ states_sf &lt;- get_urbn_map("states", sf = TRUE); print(states_sf)
 
 .tiny2.pull-left2[
 Necessary datasets:
-{{content}}
-]
 
---
  * Spatial data: state boundaries
   
  * Non-spatial data: cases of COVID-19
  
  * Non-spatial data: state populations
-  {{content}}
+]
 
 ---
 #### Topic 2: Static visualizations
@@ -1070,7 +1334,8 @@ Necessary datasets:
 
 ```r
 library(urbnmapr) # State and county shapefiles in sf
-states_sf &lt;- get_urbn_map("states", sf = TRUE); print(states_sf)
+states.sf &lt;- get_urbn_map("states", sf = TRUE)
+print(states.sf)
 ```
 
 ```
@@ -1078,7 +1343,7 @@ states_sf &lt;- get_urbn_map("states", sf = TRUE); print(states_sf)
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
 ## bbox:           xmin: -2600000 ymin: -2363000 xmax: 2516374 ymax: 732352.2
-## projected CRS:  US National Atlas Equal Area
+## CRS:            EPSG:2163
 ## First 10 features:
 ##    state_fips state_abbv  state_name                       geometry
 ## 1          01         AL     Alabama MULTIPOLYGON (((1150023 -15...
@@ -1097,173 +1362,22 @@ states_sf &lt;- get_urbn_map("states", sf = TRUE); print(states_sf)
 
 ---
 #### Topic 2: Static visualizations
-.left-column2[
-* Non-spatial data: cases of COVID-19
-]
-&lt;br/&gt;&lt;br/&gt;
-.tiny5[
+.tiny5.left-column3[
+* Non-spatial data: cases
 
 
 
 ```r
-ts &lt;- "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_US.csv"
-ts &lt;- read.csv(ts, sep=",", header=TRUE)
-str(ts[1:14])
-```
-]
-
-.tiny5[
-
-```
-## 'data.frame':	3340 obs. of  12 variables:
-##  $ UID           : int  84001001 84001003 84001005 84001007 84001009 84001011 84001013 84001015 84001017 84001019 ...
-##  $ iso2          : chr  "US" "US" "US" "US" ...
-##  $ iso3          : chr  "USA" "USA" "USA" "USA" ...
-##  $ code3         : int  840 840 840 840 840 840 840 840 840 840 ...
-##  $ FIPS          : num  1001 1003 1005 1007 1009 ...
-##  $ Admin2        : chr  "Autauga" "Baldwin" "Barbour" "Bibb" ...
-##  $ Province_State: chr  "Alabama" "Alabama" "Alabama" "Alabama" ...
-##  $ Country_Region: chr  "US" "US" "US" "US" ...
-##  $ Lat           : num  32.5 30.7 31.9 33 34 ...
-##  $ Long_         : num  -86.6 -87.7 -85.4 -87.1 -86.6 ...
-##  $ Combined_Key  : chr  "Autauga, Alabama, US" "Baldwin, Alabama, US" "Barbour, Alabama, US" "Bibb, Alabama, US" ...
-##  $ X1.22.20      : int  0 0 0 0 0 0 0 0 0 0 ...
-```
-]
-
----
-#### Topic 2: Static visualizations
-.right-column2[
-&lt;center&gt;&lt;img src="./images/map.jpeg" width=300 alt="RStudio" &lt;/center&gt;
-]
-
-.left-column2[
-* Non-spatial data: state populations
-
-.tiny5[
-
-```r
-pop &lt;- 
-  "https://drive.google.com/uc?open&amp;id=1gAdOoa097FFAkNIgriG0bX2iAPNpXXIS"
-pop &lt;- read.csv(pop, sep=",", header=TRUE)
-pop &lt;- pop %&gt;% mutate(population=as.numeric(gsub(",","",population)))
-names(pop)[1] &lt;- "state_name"
-head(pop)
-```
-
-```
-##   state_name population
-## 1    Alabama    4903185
-## 2     Alaska     731545
-## 3    Arizona    7278717
-## 4   Arkansas    3017804
-## 5 California   39512223
-## 6   Colorado    5758736
-```
-]
-]
-
----
-#### Topic 2: Static visualizations
-.left-column4[
-* Load necessary packages
-
-.tiny3[
-
-```r
-library(patchwork)  # Combine plots
-library(sf)         # Simple features
-library(dplyr)      # Tidyverse grammar
-library(tidyr)      # Cleaning data
-library(zoo)        # Time series functions
-library(ggplot2)    # Plotting
-```
-]
-]
-
-.right-column4[
-* Time series data clean up
-
-.tiny3[
-
-```r
-ts &lt;- ts %&gt;%
-  # Remove unincorporated territories and cruise liners
-  filter(iso2=="US") %&gt;%
-  filter(!Province_State %in% c("Diamond Princess", 
-                                "Grand Princess")) %&gt;%
-  # Select id and time series columns
-  select(5:7, 12:ncol(.)) %&gt;%
-  # Convert from wide to long format
-  gather(date, cases, 4:ncol(.), factor_key=TRUE) %&gt;% 
-  arrange(FIPS, date) %&gt;% 
-  droplevels() %&gt;%
-  as.data.frame()
+ts &lt;- "https://raw.githubusercontent.com/jeremymack-LU/rviz/master/data/us_covid_ts.csv"
+ts &lt;- read_csv(ts)
 head(ts)
 ```
 
-```
-##   FIPS  Admin2 Province_State     date cases
-## 1 1001 Autauga        Alabama X1.22.20     0
-## 2 1001 Autauga        Alabama X1.23.20     0
-## 3 1001 Autauga        Alabama X1.24.20     0
-## 4 1001 Autauga        Alabama X1.25.20     0
-## 5 1001 Autauga        Alabama X1.26.20     0
-## 6 1001 Autauga        Alabama X1.27.20     0
-```
-]
-]
-
----
-#### Topic 2: Static visualizations
-.left-column3[
-* Data frames for states and dates
-
-.tiny3[
-
-```r
-# Sum case count by state
-states &lt;- ts %&gt;%
-  group_by(Province_State, date) %&gt;%
-  summarize(cases=sum(cases)) %&gt;%
-  as.data.frame()
-# Calculate number of records for each state
-count &lt;- states %&gt;% 
-  group_by(Province_State) %&gt;% 
-  summarize(count=length(Province_State))
-# Create a date frame of dates
-dates &lt;- data.frame(rep(
-  seq(as.Date('2020-01-22'),
-      as.Date('2020-01-22') + as.numeric(count[1,2]-1),
-      by = 'days'),
-  times = nrow(count)))
-names(dates) &lt;- "date"
-```
-]
-]
-
-.right-column3[
-* Merge datasets
-
-.tiny3[
-
-```r
-# Combine data frames
-df.us &lt;- cbind(states, dates)
-df.us &lt;- df.us[,c(1,4,3)]
-names(df.us)[1] &lt;- "state_name"
-df.us &lt;- df.us %&gt;%
-  group_by(state_name) %&gt;%
-  mutate(new=cases-lag(cases, default=0)) %&gt;%
-  mutate(new7=rollapply(new,7,mean,fill=0,align="right"))
-head(df.us)
-```
 
 ```
 ## # A tibble: 6 x 5
-## # Groups:   state_name [1]
 ##   state_name date       cases   new  new7
-##   &lt;chr&gt;      &lt;date&gt;     &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
+##   &lt;chr&gt;      &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ## 1 Alabama    2020-01-22     0     0     0
 ## 2 Alabama    2020-01-23     0     0     0
 ## 3 Alabama    2020-01-24     0     0     0
@@ -1272,55 +1386,120 @@ head(df.us)
 ## 6 Alabama    2020-01-27     0     0     0
 ```
 ]
+
+.tiny5.right-column3[
+* Non-spatial data: state populations
+
+
+
+```r
+pop &lt;- "https://raw.githubusercontent.com/jeremymack-LU/rviz/master/data/population.csv"
+pop &lt;- read_csv(pop)
+head(pop)
+```
+
+
+```
+## # A tibble: 6 x 2
+##   state      population
+##   &lt;chr&gt;           &lt;dbl&gt;
+## 1 Alabama       4903185
+## 2 Alaska         731545
+## 3 Arizona       7278717
+## 4 Arkansas      3017804
+## 5 California   39512223
+## 6 Colorado      5758736
+```
+
+
+```r
+names(pop)[1] &lt;- "state_name"
+head(pop, 2)
+```
+
+```
+## # A tibble: 2 x 2
+##   state_name population
+##   &lt;chr&gt;           &lt;dbl&gt;
+## 1 Alabama       4903185
+## 2 Alaska         731545
+```
+
 ]
 
 ---
 #### Topic 2: Static visualizations
-.left-column3[
-* Subset and calculate incidence
-
-.tiny3[
+.left-column2[
+* Merge cases and population datasets
+]
+&lt;br/&gt;&lt;br/&gt;
+.tiny5[
 
 ```r
-df.us2 &lt;- df.us %&gt;%
+# Combine data frames
+df.us &lt;- ts %&gt;%
   group_by(state_name) %&gt;%
   arrange(date) %&gt;%
+  # Select most recent date
   slice(n()) %&gt;%
-  right_join(pop, by="state_name") %&gt;%
+  left_join(pop, by="state_name") %&gt;%
+  # Calculate per capita rate
   mutate(new7b=round(new7/(population/100000),1))
+head(df.us)
+```
+
+```
+## # A tibble: 6 x 7
+## # Groups:   state_name [6]
+##   state_name date         cases   new  new7 population new7b
+##   &lt;chr&gt;      &lt;date&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt;
+## 1 Alabama    2021-04-13  520503  1432  484.    4903185   9.9
+## 2 Alaska     2021-04-13   65336   156  179.     731545  24.5
+## 3 Arizona    2021-04-13  850846   610  767.    7278717  10.5
+## 4 Arkansas   2021-04-13  332446   224  169.    3017804   5.6
+## 5 California 2021-04-13 3706629  2559 3083.   39512223   7.8
+## 6 Colorado   2021-04-13  481494  1904 1606.    5758736  27.9
 ```
 ]
-]
 
-.right-column3[
+---
+#### Topic 2: Static visualizations
+.left-column2[
 * Merge attributes and geometries
+]
+&lt;br/&gt;&lt;br/&gt;
+.tiny5[
 
-.tiny3[
+
 
 ```r
-states_sf &lt;- states_sf %&gt;% 
-  right_join(df.us2, by="state_name")
+states.sf &lt;- states.sf %&gt;% 
+  right_join(df.us, by="state_name")
+head(states.sf)
 ```
 ]
 
-.tiny7[
+.tiny5[
 
 ```
-## Simple feature collection with 3 features and 7 fields
+## Simple feature collection with 5 features and 9 fields
 ## geometry type:  MULTIPOLYGON
 ## dimension:      XY
-## bbox:           xmin: -1389101 ymin: -1562374 xmax: 1431325 ymax: -402936
-## projected CRS:  US National Atlas Equal Area
-##   state_name       date  cases  new   new7 population new7b
-## 1    Alabama 2020-11-05 199158 1381 1429.9    4903185  29.2
-## 2    Arizona 2020-11-05 252768 2135 1469.7    7278717  20.2
-## 3   Colorado 2020-11-05 121006 3369 2713.1    5758736  47.1
-##                         geometry
-## 1 MULTIPOLYGON (((1150023 -15...
-## 2 MULTIPOLYGON (((-1386136 -1...
-## 3 MULTIPOLYGON (((-786661.9 -...
+## bbox:           xmin: -1389101 ymin: -2086803 xmax: 2295610 ymax: 67481.2
+## CRS:            EPSG:2163
+##   state_fips state_abbv  state_name       date   cases  new   new7 population
+## 1         01         AL     Alabama 2021-04-13  520503 1432  484.1    4903185
+## 2         04         AZ     Arizona 2021-04-13  850846  610  766.6    7278717
+## 3         08         CO    Colorado 2021-04-13  481494 1904 1605.7    5758736
+## 4         09         CT Connecticut 2021-04-13  325689 1118 1137.1    3565287
+## 5         12         FL     Florida 2021-04-13 2134914 9068 6293.1   21477737
+##   new7b                       geometry
+## 1   9.9 MULTIPOLYGON (((1150023 -15...
+## 2  10.5 MULTIPOLYGON (((-1386136 -1...
+## 3  27.9 MULTIPOLYGON (((-786661.9 -...
+## 4  31.9 MULTIPOLYGON (((2156197 -83...
+## 5  29.3 MULTIPOLYGON (((1953691 -20...
 ```
-]
 ]
 
 ---
@@ -1353,20 +1532,25 @@ Parts of the plot:
 
 ---
 #### Topic 2: Static visualizations
+
+.left-column2[
 * Parts of the plot: Map
+]
+&lt;br/&gt;&lt;br/&gt;
+
 .tiny2[
 
 ```r
 # Create bins based on incidence value
-states_sf &lt;- states_sf %&gt;%
-  cut(new7b,
-      breaks=c(0,0.9,9.5,24.5,1000),
-      labels=c("A","B","C","D"))
+states.sf &lt;- states.sf %&gt;%
+  mutate(bin=cut(new7b,
+                 breaks=c(0,0.9,9.5,24.5,1000),
+                 labels=c("A","B","C","D")))
 # Custom colors (Green, Yellow, Orange, and Red)
 cols &lt;- c("A"="#197d7d", "B"="#dbc037", "C"="#e08f38", "D"="#8C1111")
 # Create map
 usa &lt;- ggplot() +
-  geom_sf(data=states_sf, aes(fill=bin),
+  geom_sf(data=states.sf, aes(fill=bin),
           size=0.25, color="white") +
   scale_fill_manual(values=cols) +
   theme_void() +
@@ -1384,13 +1568,18 @@ usa &lt;- ggplot() +
 
 ---
 #### Topic 2: Static visualizations
+
+.left-column8[
 * Parts of the plot: Map - updated coordinate reference system (CRS)
+]
+&lt;br/&gt;&lt;br/&gt;
+
 .tiny2[
 
 ```r
 # Create map
 usa2 &lt;- ggplot() +
-  geom_sf(data=states_sf, aes(fill=bin),
+  geom_sf(data=states.sf, aes(fill=bin),
           size=0.25, color="white") +
   scale_fill_manual(values=cols) +
 # Update the coordinate reference system
@@ -1410,7 +1599,11 @@ usa2 &lt;- ggplot() +
 
 ---
 #### Topic 2: Static visualizations
+.left-column2[
 * Parts of the plot: Legend (custom)
+]
+&lt;br/&gt;&lt;br/&gt;
+
 .tiny2[
 
 ```r
@@ -1435,8 +1628,7 @@ leg.R &lt;- ggplot() +
   theme(text=element_text(color="#22211d"),
         plot.background=element_rect(fill="white", color=NA),
         panel.background=element_rect(fill="white", color=NA),
-        legend.background=element_rect(fill="white", color=NA)
-  )
+        legend.background=element_rect(fill="white", color=NA))
 ```
 ]
 
@@ -1450,7 +1642,12 @@ leg.R &lt;- ggplot() +
 
 ---
 #### Topic 2: Static visualizations
+
+.left-column8[
 * Combining parts of the plot using patchwork
+]
+&lt;br/&gt;&lt;br/&gt;
+
 .tiny2[
 
 ```r
@@ -1469,12 +1666,12 @@ usa2 + (leg.G/leg.Y/leg.O/leg.R) + plot_layout(widths = c(4, 1)) +
 ---
 #### Topic 2: Static visualizations
 
-&lt;center&gt;&lt;img src="./images/covid19.jpeg" alt="ggplot"&lt;/&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/covid19b.jpeg" alt="ggplot"&lt;/&gt;&lt;/center&gt;
 
 ---
 class: inverse
 
-#### Review - static visualizations:
+#### Review - Static visualizations:
 * Grammar of graphics - basis for many data visualization programs.
 
 --
@@ -1513,10 +1710,7 @@ class: center, middle, inverse
 
 .tiny2.pull-left2[
 * Life expectency (**gapminder**) dataset:
-  {{content}}
-]
 
---
   + Data from the Gapminder foundation
   
   + Geography (*country* and *continent*)
@@ -1526,6 +1720,7 @@ class: center, middle, inverse
   + Economic data (*gdpPercap*)
   
   + Time (*year*)
+]
 
 ---
 #### Topic 3: Dynamic visualizations
@@ -1594,9 +1789,6 @@ tibble [1,704 × 6] (S3: tbl_df/tbl/data.frame)
 --
 
   + New grammar classes
-  {{content}}
-
---
   
   + How a plot should change with time
   {{content}}
@@ -1684,36 +1876,62 @@ ggplot(data=gapminder,
 &lt;center&gt;&lt;img src="./images/gapminder.gif" width=700 alt="ggplot"&lt;/&gt;&lt;/center&gt;
 
 ---
+class: center, middle, inverse
+
+#### Topic 3: Dynamic visualizations
+#### ggplot2 integrations
+&lt;br/&gt;&lt;br/&gt;
+&lt;br/&gt;&lt;br/&gt;
+&lt;br/&gt;&lt;br/&gt;
+&lt;br/&gt;&lt;br/&gt;
+&lt;br/&gt;&lt;br/&gt;
+
+---
+#### Topic 3: Dynamic visualizations
+.right-column2[
+&lt;center&gt;&lt;img src="./images/ggplot_hex.png" height=250 alt="RStudio" &lt;/center&gt;
+]
+
+.left-column2[
+* **ggplot2** integrations
+
+* Integrate with ggplot2 objects
+
+ + Used as required arguments
+
+]
+
+---
 #### Topic 3: Dynamic visualizations
 .right-column2[
 &lt;center&gt;&lt;img src="./images/plotly_logo.png" height=250 alt="RStudio" &lt;/center&gt;
 ]
 
 .left-column2[
-* **ggplot2** integration - **plotly**
+* **ggplot2** integrations - **plotly**
 
 * Extends the grammar of graphics
-{{content}}
-]
-
---
 
   + Creates interactive web graphics
-  {{content}}
-
---
   
   + Customizable user interface
-  {{content}}
+]
+
+
 
 ---
 #### Topic 3: Dynamic visualizations
-<div id="htmlwidget-6807b2d91de5a6e087f1" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-6807b2d91de5a6e087f1">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-57.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+
+
+
+.tiny2[
+<div id="htmlwidget-06dadd8e3ad4ac66f838" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-06dadd8e3ad4ac66f838">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-61.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+]
 
 ---
 #### Topic 3: Dynamic visualizations
-.tiny[
+.tiny2[
 
 ```r
 library(plotly)
@@ -1732,7 +1950,7 @@ plot &lt;- ggplot(data=gapminder,
 
 --
 
-.tiny[
+.tiny2[
 
 ```r
 fig &lt;- ggplotly(plot, height=500, width=750) %&gt;%
@@ -1751,31 +1969,191 @@ fig &lt;- ggplotly(plot, height=500, width=750) %&gt;%
 
 ---
 #### Topic 3: Dynamic visualizations
-<div id="htmlwidget-a9138a303c689224fd85" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-a9138a303c689224fd85">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-60.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+
+<div id="htmlwidget-f20cc09d22f54c3060d6" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f20cc09d22f54c3060d6">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-64.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+
+---
+#### Topic 3: Dynamic visualizations
+
+.right-column2[
+&lt;center&gt;&lt;img src="./images/rayshader_hex.png" height=250 alt="RStudio" &lt;/center&gt;
+]
+
+.left-column2[
+* **ggplot2** integrations - **rayshader**
+
+* Extends the grammar of graphics
+
+  + Translates ggplot2 objects into 3D
+  
+  + Models can be rotated and examined interactively
+]
+
+---
+#### Topic 3: Dynamic visualizations
+
+&lt;center&gt;&lt;img src="./images/test.png" width=700 alt="ggplot"&lt;/&gt;&lt;/center&gt;
+
+---
+#### Topic 3: Dynamic visualizations
+
+.tiny2[
+
+```r
+# Load necessary packages
+pacman::p_load(tidyverse, raster, gggthemes, sp, sf, rasterVis, rayshader)
+# Download raster dataset
+url  &lt;- "https://github.com/jeremymack-LU/rviz/blob/master/data/CRLA_DEM_fill2.tif?raw=true"
+download.file(url, "CRLA_DEM_fill2.tif")
+# Load raster dataset and convert to a data frame
+r    &lt;- raster("data/CRLA_DEM_fill2.tif")
+r.df &lt;- as.data.frame(r, xy=TRUE)
+# Create ggplot2 object
+r.plot &lt;- ggplot() +
+    geom_raster(data=r.df,
+                aes(x=x, y=y, fill=CRLA_DEM_fill2),
+                interpolate=TRUE,
+                show.legend=FALSE) +
+    scale_fill_gradientn(name = "Elevation", colors=terrain.colors(10)) +
+    coord_quickmap() +
+    theme_dark(base_size=6) +
+    theme(axis.title=element_blank())
+```
+]
+
+---
+#### Topic 3: Dynamic visualizations
+
+&lt;center&gt;&lt;img src="./images/map.png" width=500 alt="ggplot"&lt;/&gt;&lt;/center&gt;
+
+---
+#### Topic 3: Dynamic visualizations
+
+.tiny2.left-column7[
+* Create ggplot object
+
+
+```r
+# Load necessary packages
+pacman::p_load(tidyverse, raster, gggthemes, sp, sf, rasterVis, rayshader)
+# Download raster dataset
+url  &lt;- "https://github.com/jeremymack-LU/rviz/blob/master/data/CRLA_DEM_fill2.tif?raw=true"
+download.file(url, "CRLA_DEM_fill2.tif")
+# Load raster dataset and convert to a data frame
+r    &lt;- raster("data/CRLA_DEM_fill2.tif")
+r.df &lt;- as.data.frame(r, xy=TRUE)
+# Create ggplot2 object
+r.plot &lt;- ggplot() +
+    geom_raster(data=r.df,
+                aes(x=x, y=y, fill=CRLA_DEM_fill2),
+                interpolate=TRUE,
+                show.legend=FALSE) +
+    scale_fill_gradientn(name = "Elevation", colors=terrain.colors(10)) +
+    coord_quickmap() +
+    theme_dark(base_size=6) +
+    theme(axis.title=element_blank())
+```
+]
+
+--
+
+.tiny2.right-column7[
+* Pass to rayshader
+
+
+```r
+# Pass ggplot2 object to rayshader function
+plot_gg(r.plot,
+        multicore=TRUE,
+        width=5,
+        height=5,
+        scale=250,
+        windowsize=c(1400,866),
+        zoom=0.55,
+        phi=30)
+# Capture snapshot of the rgl window
+render_snapshot(filename = "CRLA_3D",
+                clear=TRUE)
+```
+]
+
+---
+#### Topic 3: Dynamic visualizations
+
+&lt;center&gt;&lt;img src="./images/CRLA_3D_no_water.png" width=500 alt="ggplot"&lt;/&gt;&lt;/center&gt;
+
+---
+#### Topic 3: Dynamic visualizations
+
+.tiny2.left-column7[
+* Create ggplot object
+
+```r
+# Load viridis package
+library(viridis)
+# Plot using mtcars dataset
+gg_cars &lt;- ggplot(mtcars) + 
+    geom_point(aes(x=disp, color=wt, y=mpg), size=2) +
+    scale_fill_viridis("Weight") +
+    ggtitle("mtcars: Displacement vs mpg vs # of cylinders") +
+    theme_dark() +
+    theme(title = element_text(size=8),
+          text = element_text(size=12),
+          legend.position = 'bottom') 
+```
+]
+
+.tiny2.right-column7[
+* Pass to rayshader
+
+```r
+# Pass ggplot2 object to rayshader function
+plot_gg(gg_cars,
+        multicore=TRUE,
+        width=6,
+        height=5,
+        scale=250,
+        windowsize=c(1400,866),
+        zoom=0.55,
+        phi=30)
+# Capture snapshot of the rgl window
+render_snapshot(filename = "mtcars",
+                clear=TRUE)
+```
+]
+
+---
+#### Topic 3: Dynamic visualizations
+
+&lt;center&gt;&lt;img src="./images/mtcars.png" width=500 alt="ggplot"&lt;/&gt;&lt;/center&gt;
 
 ---
 class: inverse
 
-#### Review - dynamic visualizations:
-* Grammar of graphics - basis for many data visualization programs.
+#### Review - Dynamic visualizations:
+* Dynamic visualization created with **ggplot2** extensions and integrations
 
 --
 
-* **ggplot2** is a popular implementation.
+* **gganimate** is a popular extension for animating graphs
 
- * Extention packages - **gganimate**.
- 
- * Intergration packages - **ploltly**.
+ * Adds new grammar to ggplot2
 
 --
 
-* Create visualizations that are dynamic and interactive.
+* **rayshader** is a popular integration for creating 3D objects
+
+  * Uses ggplot objects as required arguments
+&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;
+.pull-right[
+&lt;center&gt;&lt;img src="./images/rayshader.png" width=400 alt="ggplot"&lt;/&gt;&lt;/center&gt;
+]
 
 ---
 class: center, middle, inverse
 
-#### Topic 4: Shiny Apps
+#### Topic 4: Shiny Apps - a preview
 &lt;br/&gt;&lt;br/&gt;
 &lt;br/&gt;&lt;br/&gt;
 &lt;br/&gt;&lt;br/&gt;
@@ -1792,484 +2170,16 @@ class: center, middle, inverse
 .left-column2[
 * [RStudio](&lt;https://shiny.rstudio.com/&gt;) product - **shiny**
 
-* Create interative web applications with R
+* Create interactive web applications with R
 {{content}}
 ]
 
---
-
-* Three components:
-{{content}}
-
---
-
- 1. a user interface object (ui)
-{{content}}
---
-
- 2. a server function (server)
-{{content}}
---
-
- 3. a call to the **shinyApp** function
-{{content}}
+.pull-right[&lt;center&gt;&lt;img src="./images/master_shiny.jpg" height=250 alt="RStudio" &lt;/center&gt;]
 
 ---
 #### Topic 4: Shiny Apps
 
-[&lt;center&gt;&lt;img src="./images/shiny_ui_8.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;](https://shiny.cc.lehigh.edu/jsm4/gapminder)
-
----
-#### Topic 4: Shiny Apps
-.right-column2[
-&lt;center&gt;&lt;img src="./images/shiny_hex.png" height=250 alt="RStudio" &lt;/center&gt;
-]
-
-.left-column2[
-* User interface object (ui)
-{{content}}
-]
-
---
-
-* Determines how the application will look and function
-{{content}}
-
---
-
-* Three components: 
- {{content}}
-
---
-
- 1. Layout
-{{content}}
-
-
----
-#### Topic 4: Shiny Apps
-
-&lt;center&gt;&lt;img src="./images/shiny_ui_1.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;
-
----
-#### Topic 4: Shiny Apps
-.right-column2[
-&lt;center&gt;&lt;img src="./images/shiny_hex.png" height=250 alt="RStudio" &lt;/center&gt;
-]
-
-.left-column2[
-* User interface object (ui)
-
-* Determines how the application will look and function
- 
-* Three components:
-
- 1. Layout
- 
- 2. User inputs
-]
-
----
-#### Topic 4: Shiny Apps
-
-&lt;center&gt;&lt;img src="./images/shiny_ui_2.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;
-
----
-#### Topic 4: Shiny Apps
-.right-column2[
-&lt;center&gt;&lt;img src="./images/shiny_hex.png" height=250 alt="RStudio" &lt;/center&gt;
-]
-
-.left-column2[
-* User interface object (ui)
-
-* Determines how the application will look and function
- 
-* Three components:
-
- 1. Layout
- 
- 2. User inputs
- 
- 3. Visible content
-]
- 
----
-#### Topic 4: Shiny Apps
-
-&lt;center&gt;&lt;img src="./images/shiny_ui_3.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;
-
----
-#### Topic 4: Shiny Apps
-.right-column2[
-&lt;center&gt;&lt;img src="./images/shiny_hex.png" height=250 alt="RStudio" &lt;/center&gt;
-]
-
-.left-column2[
-* Server function (server)
-{{content}}
-]
-
---
-
-* Creates *outputs* from *inputs* (i.e., reactive programming)
-{{content}}
-
---
- 
-* Three parameters:
-{{content}}
-
---
-
- 1. Input
- {{content}}
- 
---
- 
- 2. Output
- {{content}}
- 
---
- 
- 3. Session
- {{content}}
- 
----
-#### Topic 4: Shiny Apps
-
-&lt;center&gt;&lt;img src="./images/shiny_ui_3.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;
-
----
-#### Topic 4: Shiny Apps
-.tiny[
-* Load necessary packages:
-
-```r
-library(shiny)           # Shiny package   
-library(gapminder)       # Dataset
-library(tidyverse)       # Tidyverse, including ggplot and dplyr
-library(shinydashboard)  # Shiny dashboard layout
-library(plotly)          # Plotly package
-```
-]
----
-#### Topic 4: Shiny Apps
-
-
-.tiny[
-* Define data:
-
-```r
-# Load gapminder data
-df &lt;- gapminder
-df &lt;- df %&gt;% as.data.frame()
-
-# Create dataframe of country names 
-df.countries &lt;- df %&gt;% select(country) %&gt;% unique()
-head(df.countries)
-```
-
-
-```
-       country
-1  Afghanistan
-13     Albania
-25     Algeria
-37      Angola
-49   Argentina
-61   Australia
-```
-]
-
----
-#### Topic 4: Shiny Apps
-.tiny2[
-* Base Shiny app:
-
-```r
-ui &lt;- dashboardPage(
-    dashboardHeader(),
-    dashboardSidebar(),
-    dashboardBody())
-
-server &lt;- function(input, output, session){}
-
-shinyApp(ui, server)
-```
-]
-
----
-#### Topic 4: Shiny Apps
-
-&lt;center&gt;&lt;img src="./images/shiny_ui_4.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;
-
----
-#### Topic 4: Shiny Apps
-.tiny2[
-* Define ui function:
-
-```r
-ui &lt;- dashboardPage(
-    dashboardHeader(title="Gapminder Data"),
-    dashboardSidebar(),
-    dashboardBody()
-)
-```
-]
-
----
-#### Topic 4: Shiny Apps
-
-&lt;center&gt;&lt;img src="./images/shiny_ui_5.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;
-
----
-#### Topic 4: Shiny Apps
-.tiny2[
-* Define ui function:
-
-```r
-ui &lt;- dashboardPage(
-    dashboardHeader(title="Gapminder Data"),
-    dashboardSidebar(
-        varSelectizeInput(),
-        selectizeInput(),
-        selectizeInput()
-  ),
-    dashboardBody()
-)
-```
-]
-
----
-#### Topic 4: Shiny Apps
-.tiny2[
-* Define ui function:
-
-```r
-ui &lt;- dashboardPage(
-    dashboardHeader(title="Gapminder Data"),
-    dashboardSidebar(
-        varSelectizeInput(inputId='variable',
-                          label='Variable to plot:',
-                          data=df[,4:6],
-                          options=list(placeholder='Select variable',
-                                       onInitialize=I('function() { this.setValue(""); }'))),
-        selectizeInput(),
-        selectizeInput(),
-    dashboardBody()
-)
-```
-]
-
----
-#### Topic 4: Shiny Apps
-.tiny2[
-* Define ui function:
-
-```r
-ui &lt;- dashboardPage(
-    dashboardHeader(title="Gapminder Data"),
-    dashboardSidebar(
-        varSelectizeInput(inputId='variable',
-                          label='Variable to plot:',
-                          data=df[,4:6],
-                          options=list(placeholder='Select variable',
-                                       onInitialize=I('function() { this.setValue(""); }'))),
-        selectizeInput(inputId='country1',
-                       label='Country 1 (red line):',
-                       choices=df.countries,
-                       options=list(placeholder='Select or type country',
-                                    onInitialize=I('function() { this.setValue(""); }'))),
-        selectizeInput(),
-    dashboardBody()
-)
-```
-]
-
----
-#### Topic 4: Shiny Apps
-.tiny2[
-* Define ui function:
-
-```r
-ui &lt;- dashboardPage(
-    dashboardHeader(title="Gapminder Data"),
-    dashboardSidebar(
-        varSelectizeInput(inputId='variable',
-                          label='Variable to plot:',
-                          data=df[,4:6],
-                          options=list(placeholder='Select variable',
-                                       onInitialize=I('function() { this.setValue(""); }'))),
-        selectizeInput(inputId='country1',
-                       label='Country 1 (red line):',
-                       choices=df.countries,
-                       options=list(placeholder='Select or type country',
-                                    onInitialize=I('function() { this.setValue(""); }'))),
-        selectizeInput(inputId='country2',
-                       label='Country 2 (blue line):',
-                       choices=df.countries,
-                       options=list(placeholder='Select or type country',
-                                    onInitialize=I('function() { this.setValue("United States"); }'))
-                       )),
-    dashboardBody()
-)
-```
-]
-
----
-#### Topic 4: Shiny Apps
-
-&lt;center&gt;&lt;img src="./images/shiny_ui_6.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;
-
----
-#### Topic 4: Shiny Apps
-.tiny2[
-* Define ui function:
-
-```r
-ui &lt;- dashboardPage(
-    dashboardHeader(title="Gapminder Data"),
-    dashboardSidebar(
-        varSelectizeInput(inputId='variable',
-                          label='Variable to plot:',
-                          data=df[,4:6],
-                          options=list(placeholder='Select variable',
-                                       onInitialize=I('function() { this.setValue(""); }'))),
-        selectizeInput(inputId='country1',
-                       label='Country 1 (red line):',
-                       choices=df.countries,
-                       options=list(placeholder='Select or type country',
-                                    onInitialize=I('function() { this.setValue(""); }'))),
-        selectizeInput(inputId='country2',
-                       label='Country 2 (blue line):',
-                       choices=df.countries,
-                       options=list(placeholder='Select or type country',
-                                    onInitialize=I('function() { this.setValue("United States"); }')))),
-    dashboardBody(
-            box(title="Country Comparison",
-                solidHeader=TRUE,
-                width=12,
-                collapsible=TRUE,
-                plotlyOutput('plot1')))
-)
-```
-]
-
----
-#### Topic 4: Shiny Apps
-
-&lt;center&gt;&lt;img src="./images/shiny_ui_7.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;
-
----
-#### Topic 4: Shiny Apps
-.tiny2[
-* Define server function:
-
-```r
-server &lt;- function(input, output) {}
-```
-]
-
----
-#### Topic 4: Shiny Apps
-.tiny2[
-* Define server function:
-
-```r
-server &lt;- function(input, output) {
-    # Subset data based on Country 1 selection
-    df.sub1 &lt;- reactive({
-        req(input$country1)
-        df %&gt;% filter(country==input$country1) %&gt;% select(year, !!input$variable)})
-}
-```
-]
-
----
-#### Topic 4: Shiny Apps
-.tiny2[
-* Define server function:
-
-```r
-server &lt;- function(input, output) {
-    # Subset data based on Country 1 selection
-    df.sub1 &lt;- reactive({
-        req(input$country1)
-        df %&gt;% filter(country==input$country1) %&gt;% select(year, !!input$variable)})
-    # Subset data based on Country 2 selection
-    df.sub2 &lt;- reactive({
-        req(input$country2)
-        df %&gt;% filter(country==input$country2) %&gt;% select(year, !!input$variable)})
-}
-```
-]
-
----
-#### Topic 4: Shiny Apps
-.tiny2[
-* Define server function:
-
-```r
-server &lt;- function(input, output) {
-    # Subset data based on Country 1 selection
-    df.sub1 &lt;- reactive({
-        req(input$country1)
-        df %&gt;% filter(country==input$country1) %&gt;% select(year, !!input$variable)})
-    # Subset data based on Country 2 selection
-    df.sub2 &lt;- reactive({
-        req(input$country2)
-        df %&gt;% filter(country==input$country2) %&gt;% select(year, !!input$variable)})
-    # Plot variables
-    output$plot1 &lt;- renderPlotly({
-        df1   &lt;- df.sub1()
-        df2   &lt;- df.sub2()
-        plot1 &lt;- ggplot() + 
-            geom_point(data=df1, color="darkred",
-                       aes_string(x=names(df1)[1], y=names(df1)[2])) +
-            geom_line(data=df1, color="darkred",
-                      aes_string(x=names(df1)[1], y=names(df1)[2])) +
-            geom_point(data=df2, color="darkblue",
-                       aes_string(x=names(df2)[1], y=names(df2)[2])) +
-            geom_line(data=df2, color="darkblue",
-                      aes_string(x=names(df2)[1], y=names(df2)[2])) +
-            labs(x = "Year", y = names(df1)[2]) +
-            scale_y_log10()
-        ggplotly(plot1)})
-}
-```
-]
-
----
-#### Topic 4: Shiny Apps
-
-[&lt;center&gt;&lt;img src="./images/shiny_ui_8.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;](https://shiny.cc.lehigh.edu/jsm4/gapminder)
-
----
-class: inverse
-
-#### Review - Shiny Apps:
-* Interactive web applications built with R.
-
---
-
-* Three components:
-
---
-
- 1. a user interface object (ui)
-
---
-
- 2. a server function (server)
-
---
-
- 3. a call to the **shinyApp** function
-
---
-
-* Reactive programming different than writing script
+[&lt;center&gt;&lt;img src="./images/covid_shiny.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;](https://shiny.cc.lehigh.edu/jsm4/covid19)
 
 ---
 class: inverse
@@ -2350,32 +2260,6 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
-(function() {
-  "use strict"
-  // Replace <script> tags in slides area to make them executable
-  var scripts = document.querySelectorAll(
-    '.remark-slides-area .remark-slide-container script'
-  );
-  if (!scripts.length) return;
-  for (var i = 0; i < scripts.length; i++) {
-    var s = document.createElement('script');
-    var code = document.createTextNode(scripts[i].textContent);
-    s.appendChild(code);
-    var scriptAttrs = scripts[i].attributes;
-    for (var j = 0; j < scriptAttrs.length; j++) {
-      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
-    }
-    scripts[i].parentElement.replaceChild(s, scripts[i]);
-  }
-})();
-(function() {
-  var links = document.getElementsByTagName('a');
-  for (var i = 0; i < links.length; i++) {
-    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
-      links[i].target = '_blank';
-    }
-  }
-})();
 // adds .remark-code-has-line-highlighted class to <pre> parent elements
 // of code chunks containing highlighted lines with class .remark-code-line-highlighted
 (function(d) {
@@ -2393,6 +2277,17 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   }
   preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
 })(document);</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
 
 <script>
 slideshow._releaseMath = function(el) {

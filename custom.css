@@ -120,6 +120,30 @@ th, td { padding: 5px; }
   float: right;
 }
 
+.left-column6 {
+  width: 60%;
+  float: left;
+}
+.right-column6 {
+  width: 34%;
+  float: right;
+}
+
+.left-column7 {
+  width: 56%;
+  float: left;
+}
+.right-column7 {
+  width: 38%;
+  float: right;
+}
+
+.left-column8 {
+  width: 90%;
+  float: left;
+}
+
+
 .tiny .remark-code { /*Change made here*/
   font-size: 65% !important;
 }
