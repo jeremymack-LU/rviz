@@ -1925,8 +1925,8 @@ class: center, middle, inverse
 
 
 .tiny2[
-<div id="htmlwidget-16aadd849bec8a664b7c" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-16aadd849bec8a664b7c">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-61.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-affa13a7cc0f39d3d5bb" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-affa13a7cc0f39d3d5bb">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-61.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 ]
 
 ---
@@ -1970,8 +1970,8 @@ fig &lt;- ggplotly(plot, height=500, width=750) %&gt;%
 ---
 #### Topic 3: Dynamic visualizations
 
-<div id="htmlwidget-4f13fa5997625725631d" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-4f13fa5997625725631d">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-64.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-d389cede3d95008f14ce" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d389cede3d95008f14ce">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-64.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 
 ---
 #### Topic 3: Dynamic visualizations
@@ -2007,7 +2007,7 @@ pacman::p_load(tidyverse, raster, gggthemes, sp, sf, rasterVis, rayshader)
 url  &lt;- "https://github.com/jeremymack-LU/rviz/blob/master/data/CRLA_DEM_fill2.tif?raw=true"
 download.file(url, "CRLA_DEM_fill2.tif")
 # Load raster dataset and convert to a data frame
-r    &lt;- raster("data/CRLA_DEM_fill2.tif")
+r    &lt;- raster("CRLA_DEM_fill2.tif")
 r.df &lt;- as.data.frame(r, xy=TRUE)
 # Create ggplot2 object
 r.plot &lt;- ggplot() +
