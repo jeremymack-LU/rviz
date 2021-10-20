@@ -4,7 +4,8 @@
     <title>Data Visualization with R</title>
     <meta charset="utf-8" />
     <meta name="author" content="Jeremy Mack" />
-    <script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+    <script src="libs/header-attrs-2.9/header-attrs.js"></script>
+    <script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
     <script src="libs/pymjs-1.3.2/pym.v1.js"></script>
     <script src="libs/widgetframe-binding-0.3.1/widgetframe.js"></script>
     <link rel="stylesheet" href="custom.css" type="text/css" />
@@ -49,7 +50,7 @@ class: center, middle, inverse, title-slide
    
 --
    
- * Slides are available on [Lehigh's Research Computing site](https://confluence.cc.lehigh.edu/display/hpc/Seminars), [Wordpress](https://wordpress.lehigh.edu/jsm4/r-at-lehigh/data-visualization-with-r/), and Github ([slides](https://jeremymack-lu.github.io/rviz/) and [raw code](https://github.com/jeremymack-LU/rviz))
+ * Slides are available on [Lehigh's Research Computing site](https://confluence.cc.lehigh.edu/display/hpc/Seminars) and Github ([slides](https://jeremymack-lu.github.io/rviz/) and [raw code](https://github.com/jeremymack-LU/rviz))
 
 ---
 ### Structure of the presentation
@@ -421,11 +422,12 @@ str(faithful)
 ]
 
 .left-column2[
-* Create a blank ggplot canvas:
+* Layered approach to building graphics
 
 .tiny[
 
 ```r
+# Create a blank ggplot canvas
 ggplot(data=faithful)
 ```
 ]
@@ -444,21 +446,21 @@ ggplot(data=faithful)
 ]
 
 .left-column2[
-* Create a blank ggplot canvas:
+* Layered approach to building graphics
+
 .tiny[
 
 ```r
+# Create a blank ggplot canvas
 ggplot(data=faithful)
 ```
-]
-* Add a geometric (geom) object layer and map variables to **aes**thetics:
-.tiny[
+
 
 ```r
+# Add a geometric (geom) layer and map variables to aesthetics (aes) function
 ggplot(data=faithful) +
-geom_point(mapping=aes(
-             x=eruptions,
-             y=waiting))
+geom_point(mapping=aes(x=eruptions,
+                       y=waiting))
 ```
 ]
 ]
@@ -495,9 +497,8 @@ geom_point(mapping=aes(
 
 ```r
 ggplot(data=faithful) +
-geom_point(mapping=aes(
-             x=eruptions,
-             y=waiting))
+geom_point(mapping=aes(x=eruptions,
+                       y=waiting))
 ```
 {{content}}
 ]
@@ -508,9 +509,8 @@ geom_point(mapping=aes(
 
 ```r
 ggplot(data=faithful,
-       mapping=aes(
-         x=eruptions,
-         y=waiting)) +
+       mapping=aes(x=eruptions,
+                   y=waiting)) +
 geom_point()
 ```
 {{content}}
@@ -522,9 +522,8 @@ geom_point()
 ```r
 ggplot() +
 geom_point(data=faithful,
-           mapping=aes(
-             x=eruptions,
-             y=waiting))
+           mapping=aes(x=eruptions,
+                       y=waiting))
 ```
 {{content}}
 
@@ -535,36 +534,34 @@ geom_point(data=faithful,
 &lt;center&gt;&lt;img src="./images/ggplot.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
 ]
 
-.tiny.left-column2[
-* Create a blank ggplot canvas:
+.left-column2[
+* Layered approach to building graphics
+
+.tiny[
 
 ```r
+# Create a blank ggplot canvas
 ggplot(data=faithful)
 ```
 
-* Add a geometric (geom) object layer and map variables to **aes**thetics:
 
 ```r
+# Add a geometric (geom) layer and map variables to aesthetics (aes) function
 ggplot(data=faithful) +
-geom_point(mapping=aes(
-             x=eruptions,
-             y=waiting))
+geom_point(mapping=aes(x=eruptions,
+                       y=waiting))
 ```
-{{content}}
+
+
+```r
+# Add another aesthetic
+ggplot(data=faithful) +
+geom_point(mapping=aes(x=eruptions,
+                       y=waiting,
+                       color=eruptions &lt; 3))
+```
 ]
-
---
-
-* Add another **aes**thetic:
-
-```r
-ggplot(data=faithful) +
-geom_point(mapping=aes(
-             x=eruptions,
-             y=waiting,
-             color=eruptions &lt; 3)))
-```
-{{content}}
+]
 
 ---
 #### Topic 2: Static visualizations
@@ -600,10 +597,9 @@ geom_point(mapping=aes(
 
 ```r
 ggplot(data=faithful) +
-geom_point(mapping=aes(
-             x=eruptions,
-             y=waiting,
-             color=eruptions &lt; 3))
+geom_point(mapping=aes(x=eruptions,
+                       y=waiting,
+                       color=eruptions &lt; 3))
 ```
 {{content}}
 ]
@@ -614,10 +610,9 @@ geom_point(mapping=aes(
 
 ```r
 ggplot(data=faithful) +
-geom_point(mapping=aes(
-             x=eruptions,
-             y=waiting),
-             color='blue')
+geom_point(mapping=aes(x=eruptions,
+                       y=waiting),
+           color='blue')
 ```
 {{content}}
 
@@ -625,6 +620,45 @@ geom_point(mapping=aes(
 #### Topic 2: Static visualizations
 
 &lt;center&gt;&lt;img src="./images/p5.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;
+
+---
+#### Topic 2: Static visualizations
+.right-column2[
+&lt;center&gt;&lt;img src="./images/ggplot10.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/ggplot.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
+]
+
+.tiny.left-column2[
+* Mapping a color:
+
+```r
+ggplot(data=faithful) +
+geom_point(mapping=aes(x=eruptions,
+                       y=waiting,
+                       color=eruptions &lt; 3))
+```
+* Setting a color:
+
+```r
+ggplot(data=faithful) +
+geom_point(mapping=aes(x=eruptions,
+                       y=waiting),
+           color='blue')
+```
+* Setting inside aes function?
+
+```r
+ggplot(data=faithful) +
+geom_point(mapping=aes(x=eruptions,
+                       y=waiting,
+                       color='blue'))
+```
+]
+
+---
+#### Topic 2: Static visualizations
+
+&lt;center&gt;&lt;img src="./images/p5a.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;
 
 ---
 #### Topic 2: Static visualizations
@@ -647,6 +681,11 @@ geom_point(mapping=aes(
 
 ---
 #### Topic 2: Static visualizations
+
+&lt;center&gt;&lt;img src="./images/geoms.png" height=550 alt="ggplot"&lt;/&gt;&lt;/center&gt;
+
+---
+#### Topic 2: Static visualizations
 .right-column2[
 &lt;center&gt;&lt;img src="./images/ggplot10.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
 &lt;center&gt;&lt;img src="./images/ggplot.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
@@ -657,10 +696,9 @@ geom_point(mapping=aes(
 
 ```r
 ggplot(data=faithful) +
-geom_point(mapping=aes(
-             x=eruptions,
-             y=waiting,
-             color=eruptions &lt; 3))
+geom_point(mapping=aes(x=eruptions,
+                       y=waiting,
+                       color=eruptions &lt; 3))
 ```
 {{content}}
 ]
@@ -671,12 +709,11 @@ geom_point(mapping=aes(
 
 ```r
 ggplot(data=faithful) +
-    geom_point(mapping=aes(
-        x=eruptions,
-        y=waiting,
-        color=eruptions &lt; 3,
-        size=waiting),
-        alpha=0.5)
+    geom_point(mapping=aes(x=eruptions,
+                           y=waiting,
+                           color=eruptions &lt; 3,
+                           size=waiting),
+               alpha=0.5)
 ```
 {{content}}
 
@@ -719,9 +756,8 @@ ggplot(data=faithful) +
 
 ```r
 ggplot(data=faithful,
-       mapping=aes(
-         x=eruptions,
-         y=waiting)) +
+       mapping=aes(x=eruptions,
+                   y=waiting)) +
 geom_point() +
 geom_smooth(method="lm")
 ```
@@ -745,9 +781,8 @@ geom_smooth(method="lm")
 
 ```r
 ggplot(data=faithful,
-       mapping=aes(
-         x=eruptions,
-         y=waiting)) +
+       mapping=aes(x=eruptions,
+                   y=waiting)) +
 geom_point() +
 geom_smooth(method="lm")
 ```
@@ -756,12 +791,12 @@ geom_smooth(method="lm")
 
 --
 
+* Order matters
 
 ```r
 ggplot(data=faithful,
-       mapping=aes(
-         x=eruptions,
-         y=waiting)) +
+       mapping=aes(x=eruptions,
+                   y=waiting)) +
 geom_smooth(method="lm") +
 geom_point()
 ```
@@ -803,7 +838,7 @@ geom_point()
 ---
 #### Topic 2: Static visualizations
 .right-column2[
-&lt;center&gt;&lt;img src="./images/ggplot10.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/ggplot9.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
 &lt;center&gt;&lt;img src="./images/ggplot.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
 ]
 
@@ -829,18 +864,18 @@ geom_point()
 #### Topic 2: Static visualizations
 
 .right-column2[
-&lt;center&gt;&lt;img src="./images/ggplot10.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/ggplot9.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
 &lt;center&gt;&lt;img src="./images/ggplot.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
 ]
 
 .tiny2.left-column2[
-* Cleaning up the overall plot:
+* Layered approach to building graphics
 
 ```r
+# Create overall plot object
 plot &lt;- ggplot(data=faithful,
-               mapping=aes(
-                 x=eruptions,
-                 y=waiting)) +
+               mapping=aes(x=eruptions,
+                           y=waiting)) +
 geom_smooth(method="lm") +
 geom_point(size=0.25)
 ```
@@ -851,6 +886,7 @@ geom_point(size=0.25)
 
 
 ```r
+# Clean up overall plot theme
 plot &lt;- plot +
   theme(plot.background=element_blank(),
         panel.border=element_blank(),
@@ -912,7 +948,7 @@ class: center, middle, inverse
 
 * Extends the grammar of graphics
 
- + Arranging multiple plots
+ + Arrange multiple plots, using mathematical operators
   
  + Many approaches
      - Facets
@@ -931,15 +967,13 @@ class: center, middle, inverse
 library(patchwork)
 
 pw1 &lt;- ggplot(data=faithful,
-       mapping=aes(
-         x=eruptions,
-         y=waiting)) +
+              mapping=aes(x=eruptions,
+                          y=waiting)) +
   geom_point()
 
 pw2 &lt;- ggplot(data=faithful,
-       mapping=aes(
-         x=eruptions,
-         y=waiting)) +
+              mapping=aes(x=eruptions,
+                          y=waiting)) +
   geom_point() +
   geom_smooth(method="lm")
 ```
@@ -971,15 +1005,13 @@ pw1 + pw2
 library(patchwork)
 
 pw1 &lt;- ggplot(data=faithful,
-       mapping=aes(
-         x=eruptions,
-         y=waiting)) +
+              mapping=aes(x=eruptions,
+                          y=waiting)) +
   geom_point()
 
 pw2 &lt;- ggplot(data=faithful,
-       mapping=aes(
-         x=eruptions,
-         y=waiting)) +
+              mapping=aes(x=eruptions,
+                          y=waiting)) +
   geom_point() +
   geom_smooth(method="lm")
 ```
@@ -1012,21 +1044,18 @@ pw1 / pw2
 library(patchwork)
 
 pw1 &lt;- ggplot(data=faithful,
-       mapping=aes(
-         x=eruptions,
-         y=waiting)) +
+              mapping=aes(x=eruptions,
+                          y=waiting)) +
   geom_point()
 
 pw2 &lt;- ggplot(data=faithful,
-       mapping=aes(
-         x=eruptions,
-         y=waiting)) +
+              mapping=aes(x=eruptions,
+                          y=waiting)) +
   geom_point() +
   geom_smooth(method="lm")
 
 pw3 &lt;- ggplot(data=faithful,
-       mapping=aes(
-         x=eruptions)) +
+              mapping=aes(x=eruptions)) +
   geom_histogram()
 ```
 ]
@@ -1051,6 +1080,137 @@ pw1 / pw2
 #### Topic 2: Static visualizations
 
 &lt;center&gt;&lt;img src="./images/pw3.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;
+
+---
+#### Topic 2: Static visualizations
+
+&lt;center&gt;&lt;img src="./images/pw1.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;
+
+---
+#### Topic 2: Static visualizations
+.tiny.left-column3[
+* Establish plots:
+
+```r
+library(patchwork)
+
+pw1 &lt;- ggplot(data=faithful,
+              mapping=aes(x=eruptions,
+                          y=waiting)) +
+  geom_point()
+
+pw2 &lt;- ggplot(data=faithful,
+              mapping=aes(x=eruptions,
+                          y=waiting)) +
+  geom_point() +
+  geom_smooth(method="lm")
+```
+]
+
+.tiny.right-column3[
+* Patchwork together:
+
+```r
+# Side by side
+pw1 + pw2
+```
+]
+
+---
+#### Topic 2: Static visualizations
+.tiny.left-column3[
+* Establish plots:
+
+```r
+library(patchwork)
+
+pw1 &lt;- ggplot(data=faithful,
+              mapping=aes(x=eruptions,
+                          y=waiting)) +
+  geom_point()
+
+pw2 &lt;- ggplot(data=faithful,
+              mapping=aes(x=eruptions,
+                          y=waiting)) +
+  geom_point() +
+  geom_smooth(method="lm")
+```
+]
+
+.tiny.right-column3[
+* Patchwork together:
+
+```r
+# Side by side
+pw1 + pw2 + plot_layout(widths=c(2,1))
+```
+]
+
+---
+#### Topic 2: Static visualizations
+
+&lt;center&gt;&lt;img src="./images/pw5.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;
+
+---
+#### Topic 2: Static visualizations
+.tiny.left-column3[
+* Establish plots:
+
+```r
+library(patchwork)
+
+pw1 &lt;- ggplot(data=faithful,
+              mapping=aes(x=eruptions,
+                          y=waiting)) +
+  geom_point()
+
+pw2 &lt;- ggplot(data=faithful,
+              mapping=aes(x=eruptions,
+                          y=waiting)) +
+  geom_point() +
+  geom_smooth(method="lm")
+```
+]
+
+.tiny.right-column3[
+* Patchwork together:
+
+```r
+# Side by side
+pw1 + pw2
+```
+{{content}}
+]
+
+--
+
+
+```r
+library(grid); library(gridExtra) 
+
+# Remove axis title
+pw1 &lt;- pw1 +
+  theme(axis.title=element_blank())
+pw2 &lt;- pw2 +
+  theme(axis.title=element_blank())
+
+# Patch together and create a 'grob' object
+patch    &lt;- pw1 + pw2
+patch.gr &lt;- patchworkGrob(patch)
+
+# Add grid text
+grid.arrange(patch.gr, 
+  left=textGrob("Time until next eruption",
+       gp=gpar(fontsize=8), rot=90),
+  bottom=textGrob("Length of eruption",
+         gp=gpar(fontsize=8)))
+```
+{{content}}
+
+---
+#### Topic 2: Static visualizations
+
+&lt;center&gt;&lt;img src="./images/pw4.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;
 
 ---
 #### Topic 2: Static visualizations
@@ -1172,6 +1332,44 @@ theme_gdocs()
 &lt;center&gt;&lt;img src="./images/p5d.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;
 
 ---
+#### Topic 2: Static visualizations
+.right-column2[
+&lt;center&gt;&lt;img src="./images/ggstats_hex.png" height=250 alt="RStudio" &lt;/center&gt;
+]
+
+.tiny.left-column2[
+* **ggplot2** extensions - **ggstatsplot**
+
+* Extends the grammar of graphics
+
+ + Quickly combine plots with statistics
+ {{content}}
+]
+
+--
+
+
+```r
+ggscatterstats(
+  data=faithful,
+  x=eruptions,
+  y=waiting,
+  xlab="Length of eruption",
+  ylab="Time until next eruption",
+  title="How long until Old Faithful erupts?")
+```
+
+---
+#### Topic 2: Static visualizations
+
+&lt;center&gt;&lt;img src="./images/stats.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;
+
+---
+#### Topic 2: Static visualizations
+
+[&lt;center&gt;&lt;img src="./images/ggstatsplot.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;](https://indrajeetpatil.github.io/ggstatsplot/)
+
+---
 class: center, middle, inverse
 
 #### Topic 2: Static visualizations
@@ -1230,8 +1428,8 @@ class: center, middle, inverse
 
 ---
 #### Topic 2: Static visualizations
-.right-column5[
-* Spatial data in data frame
+.left-column5b[
+* Spatial data in a data frame
 
 
 .tiny7[
@@ -1265,7 +1463,30 @@ non_sf &lt;- us_map(regions="states"); head(non_sf, 5); str(non_sf)
 ]
 ]
 
-.left-column5[
+--
+
+.right-column5b[
+* Plot of Pennsylvania
+
+
+.tiny7[
+
+```r
+non_sf %&gt;% 
+  filter(abbr=="PA") %&gt;%
+  ggplot() +
+  geom_point(aes(x=x,y=y,group=group)) +
+  geom_path(aes(x=x,y=y,group=group)) +
+  coord_fixed() +
+  ggthemes::theme_map()
+```
+]
+&lt;center&gt;&lt;img src="./images/pa_state.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;
+]
+
+---
+#### Topic 2: Static visualizations
+.left-column5b[
 * Spatial data in an sf object
 
 
@@ -1278,10 +1499,99 @@ states_sf &lt;- get_urbn_map("states", sf = TRUE); print(states_sf)
 
 ```
 ## Simple feature collection with 51 features and 3 fields
-## geometry type:  MULTIPOLYGON
-## dimension:      XY
-## bbox:           xmin: -2600000 ymin: -2363000 xmax: 2516374 ymax: 732352.2
-## CRS:            EPSG:2163
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: -2600000 ymin: -2363000 xmax: 2516374 ymax: 732352.2
+## Projected CRS: NAD27 / US National Atlas Equal Area
+## First 10 features:
+##    state_fips state_abbv  state_name                       geometry
+## 1          01         AL     Alabama MULTIPOLYGON (((1150023 -15...
+## 2          04         AZ     Arizona MULTIPOLYGON (((-1386136 -1...
+## 3          08         CO    Colorado MULTIPOLYGON (((-786661.9 -...
+## 4          09         CT Connecticut MULTIPOLYGON (((2156197 -83...
+## 5          12         FL     Florida MULTIPOLYGON (((1953691 -20...
+## 6          13         GA     Georgia MULTIPOLYGON (((1308636 -10...
+## 7          16         ID       Idaho MULTIPOLYGON (((-1357097 78...
+## 8          18         IN     Indiana MULTIPOLYGON (((1042064 -71...
+## 9          20         KS      Kansas MULTIPOLYGON (((-174904.2 -...
+## 10         22         LA   Louisiana MULTIPOLYGON (((1075669 -15...
+```
+]
+]
+
+--
+
+.right-column5b[
+* Plot of Pennsylvania
+
+
+.tiny7[
+
+```r
+states_sf %&gt;%
+    filter(state_abbv=='PA') %&gt;%
+    ggplot() +
+    geom_sf() +
+    ggthemes::theme_map()
+```
+]
+&lt;center&gt;&lt;img src="./images/pa_state2.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;
+]
+
+---
+#### Topic 2: Static visualizations
+.left-column5[
+* Spatial data in a data frame
+
+
+.tiny7[
+
+```r
+library(usmap) # State and county data non-sf
+non_sf &lt;- us_map(regions="states"); head(non_sf, 5); str(non_sf)
+```
+
+```
+##         x        y order  hole piece group fips abbr    full
+## 1 1091779 -1380695     1 FALSE     1  01.1   01   AL Alabama
+## 2 1091268 -1376372     2 FALSE     1  01.1   01   AL Alabama
+## 3 1091140 -1362998     3 FALSE     1  01.1   01   AL Alabama
+## 4 1090940 -1343517     4 FALSE     1  01.1   01   AL Alabama
+## 5 1090913 -1341006     5 FALSE     1  01.1   01   AL Alabama
+```
+
+```
+## 'data.frame':	12999 obs. of  9 variables:
+##  $ x    : num  1091779 1091268 1091140 1090940 1090913 ...
+##  $ y    : num  -1380695 -1376372 -1362998 -1343517 -1341006 ...
+##  $ order: int  1 2 3 4 5 6 7 8 9 10 ...
+##  $ hole : logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+##  $ piece: int  1 1 1 1 1 1 1 1 1 1 ...
+##  $ group: chr  "01.1" "01.1" "01.1" "01.1" ...
+##  $ fips : chr  "01" "01" "01" "01" ...
+##  $ abbr : chr  "AL" "AL" "AL" "AL" ...
+##  $ full : chr  "Alabama" "Alabama" "Alabama" "Alabama" ...
+```
+]
+]
+
+.right-column5[
+* Spatial data in an sf object
+
+
+.tiny7[
+
+```r
+library(urbnmapr) # State and county shapefiles in sf
+states_sf &lt;- get_urbn_map("states", sf = TRUE); print(states_sf)
+```
+
+```
+## Simple feature collection with 51 features and 3 fields
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: -2600000 ymin: -2363000 xmax: 2516374 ymax: 732352.2
+## Projected CRS: NAD27 / US National Atlas Equal Area
 ## First 10 features:
 ##    state_fips state_abbv  state_name                       geometry
 ## 1          01         AL     Alabama MULTIPOLYGON (((1150023 -15...
@@ -1340,10 +1650,10 @@ print(states.sf)
 
 ```
 ## Simple feature collection with 51 features and 3 fields
-## geometry type:  MULTIPOLYGON
-## dimension:      XY
-## bbox:           xmin: -2600000 ymin: -2363000 xmax: 2516374 ymax: 732352.2
-## CRS:            EPSG:2163
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: -2600000 ymin: -2363000 xmax: 2516374 ymax: 732352.2
+## Projected CRS: NAD27 / US National Atlas Equal Area
 ## First 10 features:
 ##    state_fips state_abbv  state_name                       geometry
 ## 1          01         AL     Alabama MULTIPOLYGON (((1150023 -15...
@@ -1375,7 +1685,7 @@ head(ts)
 
 
 ```
-## # A tibble: 6 x 5
+## # A tibble: 6 × 5
 ##   state_name date       cases   new  new7
 ##   &lt;chr&gt;      &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ## 1 Alabama    2020-01-22     0     0     0
@@ -1400,7 +1710,7 @@ head(pop)
 
 
 ```
-## # A tibble: 6 x 2
+## # A tibble: 6 × 2
 ##   state      population
 ##   &lt;chr&gt;           &lt;dbl&gt;
 ## 1 Alabama       4903185
@@ -1418,7 +1728,7 @@ head(pop, 2)
 ```
 
 ```
-## # A tibble: 2 x 2
+## # A tibble: 2 × 2
 ##   state_name population
 ##   &lt;chr&gt;           &lt;dbl&gt;
 ## 1 Alabama       4903185
@@ -1445,11 +1755,12 @@ df.us &lt;- ts %&gt;%
   left_join(pop, by="state_name") %&gt;%
   # Calculate per capita rate
   mutate(new7b=round(new7/(population/100000),1))
+# View top of data frame
 head(df.us)
 ```
 
 ```
-## # A tibble: 6 x 7
+## # A tibble: 6 × 7
 ## # Groups:   state_name [6]
 ##   state_name date         cases   new  new7 population new7b
 ##   &lt;chr&gt;      &lt;date&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt;
@@ -1473,8 +1784,10 @@ head(df.us)
 
 
 ```r
+# Combine data frames
 states.sf &lt;- states.sf %&gt;% 
   right_join(df.us, by="state_name")
+# View top of data frame
 head(states.sf)
 ```
 ]
@@ -1483,10 +1796,10 @@ head(states.sf)
 
 ```
 ## Simple feature collection with 5 features and 9 fields
-## geometry type:  MULTIPOLYGON
-## dimension:      XY
-## bbox:           xmin: -1389101 ymin: -2086803 xmax: 2295610 ymax: 67481.2
-## CRS:            EPSG:2163
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: -1389101 ymin: -2086803 xmax: 2295610 ymax: 67481.2
+## Projected CRS: NAD27 / US National Atlas Equal Area
 ##   state_fips state_abbv  state_name       date   cases  new   new7 population
 ## 1         01         AL     Alabama 2021-04-13  520503 1432  484.1    4903185
 ## 2         04         AZ     Arizona 2021-04-13  850846  610  766.6    7278717
@@ -1543,9 +1856,11 @@ Parts of the plot:
 ```r
 # Create bins based on incidence value
 states.sf &lt;- states.sf %&gt;%
-  mutate(bin=cut(new7b,
-                 breaks=c(0,0.9,9.5,24.5,1000),
-                 labels=c("A","B","C","D")))
+  mutate(bin2=case_when(
+        new7b &lt; 1 ~ "A",
+        new7b &gt;= 1  &amp; new7b &lt; 10 ~ "B",
+        new7b &gt;= 10 &amp; new7b &lt; 25 ~ "C",
+        TRUE ~ "D"))
 # Custom colors (Green, Yellow, Orange, and Red)
 cols &lt;- c("A"="#197d7d", "B"="#dbc037", "C"="#e08f38", "D"="#8C1111")
 # Create map
@@ -1652,7 +1967,8 @@ leg.R &lt;- ggplot() +
 
 ```r
 # Create a legend item as another plot using annotate
-usa2 + (leg.G/leg.Y/leg.O/leg.R) + plot_layout(widths = c(4, 1)) + 
+usa2 + (leg.G/leg.Y/leg.O/leg.R) + 
+  plot_layout(widths = c(4, 1)) + 
   plot_annotation(
     title='Which Places Have The Most New Daily Cases?',
     subtitle=paste("Data as of 11:59 p.m. ET", Sys.Date()-1)) &amp; 
@@ -1669,9 +1985,14 @@ usa2 + (leg.G/leg.Y/leg.O/leg.R) + plot_layout(widths = c(4, 1)) +
 &lt;center&gt;&lt;img src="./images/covid19b.jpeg" alt="ggplot"&lt;/&gt;&lt;/center&gt;
 
 ---
+#### Topic 2: Static visualizations
+
+&lt;center&gt;&lt;img src="./images/covid19b.jpeg" alt="ggplot"&lt;/&gt;&lt;/center&gt;
+
+---
 class: inverse
 
-#### Review - Static visualizations:
+#### Review - Grammar of Graphics &amp; Static Visualizations:
 * Grammar of graphics - basis for many data visualization programs.
 
 --
@@ -1788,7 +2109,7 @@ tibble [1,704 × 6] (S3: tbl_df/tbl/data.frame)
 
 --
 
-  + New grammar classes
+  + New grammar classes (functions)
   
   + How a plot should change with time
   {{content}}
@@ -1917,28 +2238,31 @@ class: center, middle, inverse
   + Customizable user interface
 ]
 
-
-
 ---
 #### Topic 3: Dynamic visualizations
 
 
 
 .tiny2[
-<div id="htmlwidget-affa13a7cc0f39d3d5bb" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-affa13a7cc0f39d3d5bb">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-61.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-49e4e392e62ce9078a35" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-49e4e392e62ce9078a35">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-82.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 ]
 
 ---
 #### Topic 3: Dynamic visualizations
-.tiny2[
+
+.tiny2.left-column5b[
+* Create ggplot object
+
 
 ```r
-library(plotly)
+pacman::p_load(gapminder,plotly)
 plot &lt;- ggplot(data=gapminder, 
-             aes(x=gdpPercap, y=lifeExp, size=pop, color=continent)) +
+             aes(x=gdpPercap, y=lifeExp, size=pop,
+                 color=continent)) +
   # Add a point geom
-  geom_point(alpha=0.7, show.legend=FALSE, aes(frame = year, ids = country)) +
+  geom_point(alpha=0.7, show.legend=FALSE,
+             aes(frame = year, ids = country)) +
   # Add some manual scaling
   scale_colour_manual(values=continent_colors) +
   scale_size(range=c(2, 12)) +
@@ -1948,9 +2272,40 @@ plot &lt;- ggplot(data=gapminder,
 ```
 ]
 
---
+.tiny2.right-column5b[]
 
-.tiny2[
+---
+#### Topic 3: Dynamic visualizations
+
+&lt;center&gt;&lt;img src="./images/plotly.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;
+
+---
+#### Topic 3: Dynamic visualizations
+
+.tiny2.left-column5b[
+* Create ggplot object
+
+
+```r
+pacman::p_load(gapminder,plotly)
+plot &lt;- ggplot(data=gapminder, 
+             aes(x=gdpPercap, y=lifeExp, size=pop,
+                 color=continent)) +
+  # Add a point geom
+  geom_point(alpha=0.7, show.legend=FALSE,
+             aes(frame = year, ids = country)) +
+  # Add some manual scaling
+  scale_colour_manual(values=continent_colors) +
+  scale_size(range=c(2, 12)) +
+  scale_x_log10() +
+  labs(x='GDP per capita', 
+       y='Life expectancy at birth')
+```
+]
+
+.tiny2.right-column5b[
+* Pass to plotly
+
 
 ```r
 fig &lt;- ggplotly(plot, height=500, width=750) %&gt;%
@@ -1961,8 +2316,10 @@ fig &lt;- ggplotly(plot, height=500, width=750) %&gt;%
                       font=list(color="red"),
                       xanchor='left',
                       yanchor='top')) %&gt;%
-  animation_button(
-    x = 1, xanchor = "right", y = -0.2, yanchor = "bottom"
+  animation_button(x=1,
+                   xanchor="right",
+                   y=-0.2,
+                   yanchor="bottom"
   )
 ```
 ]
@@ -1970,8 +2327,8 @@ fig &lt;- ggplotly(plot, height=500, width=750) %&gt;%
 ---
 #### Topic 3: Dynamic visualizations
 
-<div id="htmlwidget-d389cede3d95008f14ce" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d389cede3d95008f14ce">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-64.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-e469f2a04c5c17d4d2c4" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e469f2a04c5c17d4d2c4">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-86.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 
 ---
 #### Topic 3: Dynamic visualizations
@@ -1998,45 +2355,14 @@ fig &lt;- ggplotly(plot, height=500, width=750) %&gt;%
 ---
 #### Topic 3: Dynamic visualizations
 
-.tiny2[
-
-```r
-# Load necessary packages
-pacman::p_load(tidyverse, raster, gggthemes, sp, sf, rasterVis, rayshader)
-# Download raster dataset
-url  &lt;- "https://github.com/jeremymack-LU/rviz/blob/master/data/CRLA_DEM_fill2.tif?raw=true"
-download.file(url, "CRLA_DEM_fill2.tif")
-# Load raster dataset and convert to a data frame
-r    &lt;- raster("CRLA_DEM_fill2.tif")
-r.df &lt;- as.data.frame(r, xy=TRUE)
-# Create ggplot2 object
-r.plot &lt;- ggplot() +
-    geom_raster(data=r.df,
-                aes(x=x, y=y, fill=CRLA_DEM_fill2),
-                interpolate=TRUE,
-                show.legend=FALSE) +
-    scale_fill_gradientn(name = "Elevation", colors=terrain.colors(10)) +
-    coord_quickmap() +
-    theme_dark(base_size=6) +
-    theme(axis.title=element_blank())
-```
-]
-
----
-#### Topic 3: Dynamic visualizations
-
-&lt;center&gt;&lt;img src="./images/map.png" width=500 alt="ggplot"&lt;/&gt;&lt;/center&gt;
-
----
-#### Topic 3: Dynamic visualizations
-
 .tiny2.left-column7[
 * Create ggplot object
 
 
 ```r
 # Load necessary packages
-pacman::p_load(tidyverse, raster, gggthemes, sp, sf, rasterVis, rayshader)
+pacman::p_load(tidyverse, raster, ggthemes, sp, sf,
+               rasterVis, rayshader)
 # Download raster dataset
 url  &lt;- "https://github.com/jeremymack-LU/rviz/blob/master/data/CRLA_DEM_fill2.tif?raw=true"
 download.file(url, "CRLA_DEM_fill2.tif")
@@ -2056,7 +2382,42 @@ r.plot &lt;- ggplot() +
 ```
 ]
 
---
+.tiny2.right-column7[]
+
+---
+#### Topic 3: Dynamic visualizations
+
+&lt;center&gt;&lt;img src="./images/map.png" width=500 alt="ggplot"&lt;/&gt;&lt;/center&gt;
+
+---
+#### Topic 3: Dynamic visualizations
+
+.tiny2.left-column7[
+* Create ggplot object
+
+
+```r
+# Load necessary packages
+pacman::p_load(tidyverse, raster, ggthemes, sp, sf,
+               rasterVis, rayshader)
+# Download raster dataset
+url  &lt;- "https://github.com/jeremymack-LU/rviz/blob/master/data/CRLA_DEM_fill2.tif?raw=true"
+download.file(url, "CRLA_DEM_fill2.tif")
+# Load raster dataset and convert to a data frame
+r    &lt;- raster("data/CRLA_DEM_fill2.tif")
+r.df &lt;- as.data.frame(r, xy=TRUE)
+# Create ggplot2 object
+r.plot &lt;- ggplot() +
+    geom_raster(data=r.df,
+                aes(x=x, y=y, fill=CRLA_DEM_fill2),
+                interpolate=TRUE,
+                show.legend=FALSE) +
+    scale_fill_gradientn(name = "Elevation", colors=terrain.colors(10)) +
+    coord_quickmap() +
+    theme_dark(base_size=6) +
+    theme(axis.title=element_blank())
+```
+]
 
 .tiny2.right-column7[
 * Pass to rayshader
@@ -2180,7 +2541,7 @@ class: center, middle, inverse
 ---
 #### Topic 4: Shiny Apps - a preview
 
-[&lt;center&gt;&lt;img src="./images/covid_shiny.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;](https://shiny.cc.lehigh.edu/jsm4/covid19)
+[&lt;center&gt;&lt;img src="./images/lehighriver_shiny.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;](https://jeremymack.shinyapps.io/lehighriver/)
 
 ---
 class: inverse
@@ -2261,6 +2622,32 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
 // adds .remark-code-has-line-highlighted class to <pre> parent elements
 // of code chunks containing highlighted lines with class .remark-code-line-highlighted
 (function(d) {
@@ -2278,17 +2665,6 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   }
   preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
 })(document);</script>
-
-<script>
-(function() {
-  var links = document.getElementsByTagName('a');
-  for (var i = 0; i < links.length; i++) {
-    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
-      links[i].target = '_blank';
-    }
-  }
-})();
-</script>
 
 <script>
 slideshow._releaseMath = function(el) {

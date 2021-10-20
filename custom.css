@@ -112,10 +112,19 @@ th, td { padding: 5px; }
 }
 
 .left-column5 {
-  width: 50%;
+  width: 44%;
   float: left;
 }
 .right-column5 {
+  width: 50%;
+  float: right;
+}
+
+.left-column5b {
+  width: 50%;
+  float: left;
+}
+.right-column5b {
   width: 44%;
   float: right;
 }
