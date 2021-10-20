@@ -62,9 +62,9 @@ The presentation is split into four topics:
  
  * [**Topic 2:**](https://jeremymack-lu.github.io/rviz/#26) Static visualizations
  
- * [**Topic 3:**](https://jeremymack-lu.github.io/rviz/#102) Dynamic visualizations
+ * [**Topic 3:**](https://jeremymack-lu.github.io/rviz/#120) Dynamic visualizations
  
- * [**Topic 4:**](https://jeremymack-lu.github.io/rviz/#133) Shiny Apps - a preview
+ * [**Topic 4:**](https://jeremymack-lu.github.io/rviz/#151) Shiny Apps - a preview
 
 ---
 #### Data Visualization with R
