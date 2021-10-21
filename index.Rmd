@@ -60,11 +60,11 @@ The presentation is split into four topics:
 
  * [**Topic 1:**](https://jeremymack-lu.github.io/rviz/#12) The (layered) Grammar of Graphics
  
- * [**Topic 2:**](https://jeremymack-lu.github.io/rviz/#26) Static visualizations
+ * [**Topic 2:**](https://jeremymack-lu.github.io/rviz/#29) Static visualizations
  
- * [**Topic 3:**](https://jeremymack-lu.github.io/rviz/#120) Dynamic visualizations
+ * [**Topic 3:**](https://jeremymack-lu.github.io/rviz/#123) Dynamic visualizations
  
- * [**Topic 4:**](https://jeremymack-lu.github.io/rviz/#151) Shiny Apps - a preview
+ * [**Topic 4:**](https://jeremymack-lu.github.io/rviz/#154) Shiny Apps - a preview
 
 ---
 #### Data Visualization with R
@@ -125,6 +125,21 @@ class: center, middle, inverse
 
 .pull-right2[
 <center><img src="./images/ggplot2a.png" alt="RStudio" height=500/></center>]
+
+---
+#### Topic 1: The (layered) Grammar of Graphics
+
+<center><img src="./images/tidy1.png" alt="RStudio" height=350/></center>
+
+---
+#### Topic 1: The (layered) Grammar of Graphics
+
+<center><img src="./images/tidy2.png" alt="RStudio" height=350/></center>
+
+---
+#### Topic 1: The (layered) Grammar of Graphics
+
+<center><img src="./images/tidy3.png" alt="RStudio" height=350/></center>
 
 ---
 #### Topic 1: The (layered) Grammar of Graphics
