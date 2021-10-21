@@ -685,6 +685,49 @@ geom_point(mapping=aes(x=eruptions,
 .left-column2[
 * Layered approach to building graphics
 
+.tiny[
+
+```r
+# Create a blank ggplot canvas
+ggplot(data=faithful)
+```
+
+
+```r
+# Add a geometric (geom) layer and map variables to aesthetics (aes) function
+ggplot(data=faithful) +
+geom_point(mapping=aes(x=eruptions,
+                       y=waiting))
+```
+
+
+```r
+# Add additional aesthetics
+ggplot(data=faithful) +
+geom_point(mapping=aes(x=eruptions,
+                       y=waiting,
+                       color=eruptions &lt; 3,
+                       size=waiting),
+           alpha=0.5)
+```
+]
+]
+
+---
+#### Topic 2: Static visualizations
+
+&lt;center&gt;&lt;img src="./images/p5e.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;
+
+---
+#### Topic 2: Static visualizations
+.right-column2[
+&lt;center&gt;&lt;img src="./images/ggplot10.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/ggplot.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
+]
+
+.left-column2[
+* Layered approach to building graphics
+
 * Some things to remember:
 
  + &lt;span style="color:lightgray"&gt;Multiple ways to map variables&lt;/span&gt;
@@ -706,36 +749,41 @@ geom_point(mapping=aes(x=eruptions,
 &lt;center&gt;&lt;img src="./images/ggplot.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
 ]
 
-.tiny.left-column2[
-* Mapping a color:
+.left-column2[
+* Layered approach to building graphics
+
+.tiny[
 
 ```r
+# Create a blank ggplot canvas
+ggplot(data=faithful)
+```
+
+
+```r
+# Add a geometric (geom) layer and map variables to aesthetics (aes) function
 ggplot(data=faithful) +
 geom_point(mapping=aes(x=eruptions,
-                       y=waiting,
-                       color=eruptions &lt; 3))
+                       y=waiting))
 ```
-{{content}}
-]
 
---
-
-* Adding aesthetics:
 
 ```r
+# Add another geom ("stacking layers")
 ggplot(data=faithful) +
-    geom_point(mapping=aes(x=eruptions,
-                           y=waiting,
-                           color=eruptions &lt; 3,
-                           size=waiting),
-               alpha=0.5)
+geom_point(mapping=aes(x=eruptions,
+                       y=waiting)) +
+geom_smooth(mapping=aes(x=eruptions,
+                       y=waiting),
+            method="lm")
 ```
-{{content}}
+]
+]
 
 ---
 #### Topic 2: Static visualizations
 
-&lt;center&gt;&lt;img src="./images/p5e.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/p7.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;
 
 ---
 #### Topic 2: Static visualizations
@@ -770,11 +818,12 @@ ggplot(data=faithful) +
 * Add another geom ("stacking layers"):
 
 ```r
-ggplot(data=faithful,
-       mapping=aes(x=eruptions,
-                   y=waiting)) +
-geom_point() +
-geom_smooth(method="lm")
+ggplot(data=faithful) +
+geom_point(mapping=aes(x=eruptions,
+                       y=waiting)) +
+geom_smooth(mapping=aes(x=eruptions,
+                       y=waiting),
+            method="lm")
 ```
 ]
 
@@ -795,27 +844,25 @@ geom_smooth(method="lm")
 * Add another geom ("stacking layers"):
 
 ```r
-ggplot(data=faithful,
-       mapping=aes(x=eruptions,
-                   y=waiting)) +
-geom_point() +
-geom_smooth(method="lm")
+ggplot(data=faithful) +
+geom_point(mapping=aes(x=eruptions,
+                       y=waiting)) +
+geom_smooth(mapping=aes(x=eruptions,
+                       y=waiting),
+            method="lm")
 ```
-{{content}}
-]
-
---
 
 * Order matters
 
 ```r
-ggplot(data=faithful,
-       mapping=aes(x=eruptions,
-                   y=waiting)) +
-geom_smooth(method="lm") +
-geom_point()
+ggplot(data=faithful) +
+geom_smooth(mapping=aes(x=eruptions,
+                       y=waiting),
+            method="lm") +
+geom_point(mapping=aes(x=eruptions,
+                       y=waiting))
 ```
-{{content}}
+]
 
 ---
 #### Topic 2: Static visualizations
@@ -2259,8 +2306,8 @@ class: center, middle, inverse
 
 
 .tiny2[
-<div id="htmlwidget-1c3fa55a076bb25ef185" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1c3fa55a076bb25ef185">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-82.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-5524d0f8cc06232f39f1" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5524d0f8cc06232f39f1">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-88.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 ]
 
 ---
@@ -2342,8 +2389,8 @@ fig &lt;- ggplotly(plot, height=500, width=750) %&gt;%
 ---
 #### Topic 3: Dynamic visualizations
 
-<div id="htmlwidget-48b775b9e08e9fe7c105" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-48b775b9e08e9fe7c105">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-86.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-710af060a9644b810b7e" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-710af060a9644b810b7e">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-92.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 
 ---
 #### Topic 3: Dynamic visualizations
