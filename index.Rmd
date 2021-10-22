@@ -1472,12 +1472,12 @@ library(dplyr)
 .tiny7[
 ```{r eval=FALSE}
 non_sf %>% 
-  filter(abbr=="PA") %>%
-  ggplot() +
-  geom_point(aes(x=x,y=y,group=group)) +
-  geom_path(aes(x=x,y=y,group=group)) +
-  coord_fixed() +
-  ggthemes::theme_map()
+    filter(abbr=="PA") %>%
+    ggplot(aes(x=x, y=y)) +
+    geom_polygon(fill='lightblue') +
+    geom_point(aes(x=x, y=y, group=group)) +
+    coord_fixed() +
+    ggthemes::theme_map()
 ```
 ]
 <center><img src="./images/pa_state.png" alt="ggplot"</></center>
@@ -1516,7 +1516,7 @@ library(dplyr)
 states_sf %>%
     filter(state_abbv=='PA') %>%
     ggplot() +
-    geom_sf() +
+    geom_sf(size=0.2,fill='lightblue') +
     ggthemes::theme_map()
 ```
 ]

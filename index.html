@@ -1535,12 +1535,12 @@ non_sf &lt;- us_map(regions="states"); head(non_sf, 5); str(non_sf)
 
 ```r
 non_sf %&gt;% 
-  filter(abbr=="PA") %&gt;%
-  ggplot() +
-  geom_point(aes(x=x,y=y,group=group)) +
-  geom_path(aes(x=x,y=y,group=group)) +
-  coord_fixed() +
-  ggthemes::theme_map()
+    filter(abbr=="PA") %&gt;%
+    ggplot(aes(x=x, y=y)) +
+    geom_polygon(fill='lightblue') +
+    geom_point(aes(x=x, y=y, group=group)) +
+    coord_fixed() +
+    ggthemes::theme_map()
 ```
 ]
 &lt;center&gt;&lt;img src="./images/pa_state.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;
@@ -1593,7 +1593,7 @@ states_sf &lt;- get_urbn_map("states", sf = TRUE); print(states_sf)
 states_sf %&gt;%
     filter(state_abbv=='PA') %&gt;%
     ggplot() +
-    geom_sf() +
+    geom_sf(size=0.2,fill='lightblue') +
     ggthemes::theme_map()
 ```
 ]
@@ -2306,8 +2306,8 @@ class: center, middle, inverse
 
 
 .tiny2[
-<div id="htmlwidget-5524d0f8cc06232f39f1" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-5524d0f8cc06232f39f1">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-88.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-3431a1948be1a587c53b" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3431a1948be1a587c53b">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-88.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 ]
 
 ---
@@ -2389,8 +2389,8 @@ fig &lt;- ggplotly(plot, height=500, width=750) %&gt;%
 ---
 #### Topic 3: Dynamic visualizations
 
-<div id="htmlwidget-710af060a9644b810b7e" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-710af060a9644b810b7e">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-92.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-cbd715a3db0d1bcd85cf" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-cbd715a3db0d1bcd85cf">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-92.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 
 ---
 #### Topic 3: Dynamic visualizations
