@@ -15,6 +15,13 @@
     <textarea id="source">
 
 class: center, middle, inverse, title-slide
+&lt;style&gt;
+  pre {
+    background-color: lightyellow;
+    white-space: pre-wrap;
+    line-height: 100%;
+  }
+&lt;/style&gt;
 
 ## Data Visualization with R
 #### Jeremy Mack
@@ -37,18 +44,12 @@ class: center, middle, inverse, title-slide
 
  * This seminar is the second in a series on R programming, with
    a focus on **data visualization**.
-
---
  
  * It is targeted at people that have experience programming in R.
- 
---
    
  * It could be useful for people who learned R some time ago and
    forgot it, or who are not familiar with modern R programming
    (`tidyverse`).
-   
---
    
  * Slides are available on [Lehigh's Research Computing site](https://confluence.cc.lehigh.edu/display/hpc/Seminars) and Github ([slides](https://jeremymack-lu.github.io/rviz/) and [raw code](https://github.com/jeremymack-LU/rviz))
 
@@ -57,28 +58,23 @@ class: center, middle, inverse, title-slide
 
 The presentation is split into four topics:
 
- * [**Topic 1:**](https://jeremymack-lu.github.io/rviz/#12) The (layered) Grammar of Graphics
+ * [**Topic 1:**](https://jeremymack-lu.github.io/rviz/#8) The (layered) Grammar of Graphics
  
- * [**Topic 2:**](https://jeremymack-lu.github.io/rviz/#29) Static visualizations
+ * [**Topic 2:**](https://jeremymack-lu.github.io/rviz/#22) Static visualizations
  
- * [**Topic 3:**](https://jeremymack-lu.github.io/rviz/#123) Dynamic visualizations
+ * [**Topic 3:**](https://jeremymack-lu.github.io/rviz/#106) Dynamic visualizations
  
- * [**Topic 4:**](https://jeremymack-lu.github.io/rviz/#154) Shiny Apps - a preview
+ * [**Topic 4:**](https://jeremymack-lu.github.io/rviz/#135) Shiny Apps - a preview
 
 ---
 #### Data Visualization with R
 
-&lt;center&gt;&lt;img src="./images/data-science.png" alt="RStudio" height=350/&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/tidy1.png" alt="RStudio" height=350/&gt;&lt;/center&gt;
 
 ---
 #### Data Visualization with R
 
-&lt;center&gt;&lt;img src="./images/data-science2.png" alt="RStudio" height=350/&gt;&lt;/center&gt;
-
----
-#### Data Visualization with R
-
-&lt;center&gt;&lt;img src="./images/data-science3.png" alt="RStudio" height=350/&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/tidy3.png" alt="RStudio" height=350/&gt;&lt;/center&gt;
 
 ---
 #### Data Visualization with R
@@ -124,21 +120,6 @@ class: center, middle, inverse
 
 .pull-right2[
 &lt;center&gt;&lt;img src="./images/ggplot2a.png" alt="RStudio" height=500/&gt;&lt;/center&gt;]
-
----
-#### Topic 1: The (layered) Grammar of Graphics
-
-&lt;center&gt;&lt;img src="./images/tidy1.png" alt="RStudio" height=350/&gt;&lt;/center&gt;
-
----
-#### Topic 1: The (layered) Grammar of Graphics
-
-&lt;center&gt;&lt;img src="./images/tidy2.png" alt="RStudio" height=350/&gt;&lt;/center&gt;
-
----
-#### Topic 1: The (layered) Grammar of Graphics
-
-&lt;center&gt;&lt;img src="./images/tidy3.png" alt="RStudio" height=350/&gt;&lt;/center&gt;
 
 ---
 #### Topic 1: The (layered) Grammar of Graphics
@@ -685,49 +666,6 @@ geom_point(mapping=aes(x=eruptions,
 .left-column2[
 * Layered approach to building graphics
 
-.tiny[
-
-```r
-# Create a blank ggplot canvas
-ggplot(data=faithful)
-```
-
-
-```r
-# Add a geometric (geom) layer and map variables to aesthetics (aes) function
-ggplot(data=faithful) +
-geom_point(mapping=aes(x=eruptions,
-                       y=waiting))
-```
-
-
-```r
-# Add additional aesthetics
-ggplot(data=faithful) +
-geom_point(mapping=aes(x=eruptions,
-                       y=waiting,
-                       color=eruptions &lt; 3,
-                       size=waiting),
-           alpha=0.5)
-```
-]
-]
-
----
-#### Topic 2: Static visualizations
-
-&lt;center&gt;&lt;img src="./images/p5e.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;
-
----
-#### Topic 2: Static visualizations
-.right-column2[
-&lt;center&gt;&lt;img src="./images/ggplot10.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
-&lt;center&gt;&lt;img src="./images/ggplot.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
-]
-
-.left-column2[
-* Layered approach to building graphics
-
 * Some things to remember:
 
  + &lt;span style="color:lightgray"&gt;Multiple ways to map variables&lt;/span&gt;
@@ -749,41 +687,36 @@ geom_point(mapping=aes(x=eruptions,
 &lt;center&gt;&lt;img src="./images/ggplot.png" alt="RStudio" width=500/&gt;&lt;/center&gt;
 ]
 
-.left-column2[
-* Layered approach to building graphics
-
-.tiny[
+.tiny.left-column2[
+* Mapping a color:
 
 ```r
-# Create a blank ggplot canvas
-ggplot(data=faithful)
-```
-
-
-```r
-# Add a geometric (geom) layer and map variables to aesthetics (aes) function
 ggplot(data=faithful) +
 geom_point(mapping=aes(x=eruptions,
-                       y=waiting))
+                       y=waiting,
+                       color=eruptions &lt; 3))
 ```
+{{content}}
+]
 
+--
+
+* Adding aesthetics:
 
 ```r
-# Add another geom ("stacking layers")
 ggplot(data=faithful) +
-geom_point(mapping=aes(x=eruptions,
-                       y=waiting)) +
-geom_smooth(mapping=aes(x=eruptions,
-                       y=waiting),
-            method="lm")
+    geom_point(mapping=aes(x=eruptions,
+                           y=waiting,
+                           color=eruptions &lt; 3,
+                           size=waiting),
+               alpha=0.5)
 ```
-]
-]
+{{content}}
 
 ---
 #### Topic 2: Static visualizations
 
-&lt;center&gt;&lt;img src="./images/p7.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/p5e.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;
 
 ---
 #### Topic 2: Static visualizations
@@ -818,12 +751,11 @@ geom_smooth(mapping=aes(x=eruptions,
 * Add another geom ("stacking layers"):
 
 ```r
-ggplot(data=faithful) +
-geom_point(mapping=aes(x=eruptions,
-                       y=waiting)) +
-geom_smooth(mapping=aes(x=eruptions,
-                       y=waiting),
-            method="lm")
+ggplot(data=faithful,
+       mapping=aes(x=eruptions,
+                   y=waiting)) +
+geom_point() +
+geom_smooth(method="lm")
 ```
 ]
 
@@ -844,25 +776,27 @@ geom_smooth(mapping=aes(x=eruptions,
 * Add another geom ("stacking layers"):
 
 ```r
-ggplot(data=faithful) +
-geom_point(mapping=aes(x=eruptions,
-                       y=waiting)) +
-geom_smooth(mapping=aes(x=eruptions,
-                       y=waiting),
-            method="lm")
+ggplot(data=faithful,
+       mapping=aes(x=eruptions,
+                   y=waiting)) +
+geom_point() +
+geom_smooth(method="lm")
 ```
+{{content}}
+]
+
+--
 
 * Order matters
 
 ```r
-ggplot(data=faithful) +
-geom_smooth(mapping=aes(x=eruptions,
-                       y=waiting),
-            method="lm") +
-geom_point(mapping=aes(x=eruptions,
-                       y=waiting))
+ggplot(data=faithful,
+       mapping=aes(x=eruptions,
+                   y=waiting)) +
+geom_smooth(method="lm") +
+geom_point()
 ```
-]
+{{content}}
 
 ---
 #### Topic 2: Static visualizations
@@ -1535,12 +1469,12 @@ non_sf &lt;- us_map(regions="states"); head(non_sf, 5); str(non_sf)
 
 ```r
 non_sf %&gt;% 
-    filter(abbr=="PA") %&gt;%
-    ggplot(aes(x=x, y=y)) +
-    geom_polygon(fill='lightblue') +
-    geom_point(aes(x=x, y=y, group=group)) +
-    coord_fixed() +
-    ggthemes::theme_map()
+  filter(abbr=="PA") %&gt;%
+  ggplot() +
+  geom_point(aes(x=x,y=y,group=group)) +
+  geom_path(aes(x=x,y=y,group=group)) +
+  coord_fixed() +
+  ggthemes::theme_map()
 ```
 ]
 &lt;center&gt;&lt;img src="./images/pa_state.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;
@@ -1593,7 +1527,7 @@ states_sf &lt;- get_urbn_map("states", sf = TRUE); print(states_sf)
 states_sf %&gt;%
     filter(state_abbv=='PA') %&gt;%
     ggplot() +
-    geom_sf(size=0.2,fill='lightblue') +
+    geom_sf() +
     ggthemes::theme_map()
 ```
 ]
@@ -1673,7 +1607,7 @@ states_sf &lt;- get_urbn_map("states", sf = TRUE); print(states_sf)
 ---
 #### Topic 2: Static visualizations
 
-&lt;center&gt;&lt;img src="./images/covid19b.jpeg" alt="ggplot"&lt;/&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/cdc_masking_map2.jpeg" alt="ggplot"&lt;/&gt;&lt;/center&gt;
 
 ---
 #### Topic 2: Static visualizations
@@ -1685,379 +1619,221 @@ states_sf &lt;- get_urbn_map("states", sf = TRUE); print(states_sf)
 .tiny2.pull-left2[
 Necessary datasets:
 
- * Spatial data: state boundaries
+ * Spatial data: state and county boundaries
   
- * Non-spatial data: cases of COVID-19
- 
- * Non-spatial data: state populations
+ * Non-spatial data: CDC COVID-19 metrics
 ]
 
 ---
 #### Topic 2: Static visualizations
 .right-column2[
-&lt;center&gt;&lt;img src="./images/map.jpeg" width=300 alt="RStudio" &lt;/center&gt;
-]
-
-.left-column2[
-* Spatial data: state boundaries
-
-
-.tiny5[
-
-```r
-library(urbnmapr) # State and county shapefiles in sf
-states.sf &lt;- get_urbn_map("states", sf = TRUE)
-print(states.sf)
-```
-
-```
-## Simple feature collection with 51 features and 3 fields
-## Geometry type: MULTIPOLYGON
-## Dimension:     XY
-## Bounding box:  xmin: -2600000 ymin: -2363000 xmax: 2516374 ymax: 732352.2
-## Projected CRS: NAD27 / US National Atlas Equal Area
-## First 10 features:
-##    state_fips state_abbv  state_name                       geometry
-## 1          01         AL     Alabama MULTIPOLYGON (((1150023 -15...
-## 2          04         AZ     Arizona MULTIPOLYGON (((-1386136 -1...
-## 3          08         CO    Colorado MULTIPOLYGON (((-786661.9 -...
-## 4          09         CT Connecticut MULTIPOLYGON (((2156197 -83...
-## 5          12         FL     Florida MULTIPOLYGON (((1953691 -20...
-## 6          13         GA     Georgia MULTIPOLYGON (((1308636 -10...
-## 7          16         ID       Idaho MULTIPOLYGON (((-1357097 78...
-## 8          18         IN     Indiana MULTIPOLYGON (((1042064 -71...
-## 9          20         KS      Kansas MULTIPOLYGON (((-174904.2 -...
-## 10         22         LA   Louisiana MULTIPOLYGON (((1075669 -15...
-```
-]
-]
-
----
-#### Topic 2: Static visualizations
-.tiny5.left-column3[
-* Non-spatial data: cases
-
-
-
-```r
-ts &lt;- "https://raw.githubusercontent.com/jeremymack-LU/rviz/master/data/us_covid_ts.csv"
-ts &lt;- read_csv(ts)
-head(ts)
-```
-
-
-```
-## # A tibble: 6 × 6
-##      X1 state_name date       cases   new  new7
-##   &lt;dbl&gt; &lt;chr&gt;      &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1     1 Alabama    2020-01-22     0     0     0
-## 2     2 Alabama    2020-01-23     0     0     0
-## 3     3 Alabama    2020-01-24     0     0     0
-## 4     4 Alabama    2020-01-25     0     0     0
-## 5     5 Alabama    2020-01-26     0     0     0
-## 6     6 Alabama    2020-01-27     0     0     0
-```
-]
-
-.tiny5.right-column3[
-* Non-spatial data: state populations
-
-
-
-```r
-pop &lt;- "https://raw.githubusercontent.com/jeremymack-LU/rviz/master/data/population.csv"
-pop &lt;- read_csv(pop)
-head(pop)
-```
-
-
-```
-## # A tibble: 6 × 2
-##   state      population
-##   &lt;chr&gt;           &lt;dbl&gt;
-## 1 Alabama       4903185
-## 2 Alaska         731545
-## 3 Arizona       7278717
-## 4 Arkansas      3017804
-## 5 California   39512223
-## 6 Colorado      5758736
-```
-
-
-```r
-names(pop)[1] &lt;- "state_name"
-head(pop, 2)
-```
-
-```
-## # A tibble: 2 × 2
-##   state_name population
-##   &lt;chr&gt;           &lt;dbl&gt;
-## 1 Alabama       4903185
-## 2 Alaska         731545
-```
-
-]
-
----
-#### Topic 2: Static visualizations
-.left-column2[
-* Merge cases and population datasets
-]
-&lt;br/&gt;&lt;br/&gt;
-.tiny5[
-
-```r
-# Combine data frames
-df.us &lt;- ts %&gt;%
-  group_by(state_name) %&gt;%
-  arrange(date) %&gt;%
-  # Select most recent date
-  slice(n()) %&gt;%
-  left_join(pop, by="state_name") %&gt;%
-  # Calculate per capita rate
-  mutate(new7b=round(new7/(population/100000),1))
-# View top of data frame
-head(df.us)
-```
-
-```
-## # A tibble: 6 × 8
-## # Groups:   state_name [6]
-##      X1 state_name date         cases   new  new7 population new7b
-##   &lt;dbl&gt; &lt;chr&gt;      &lt;date&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt;
-## 1   636 Alabama    2021-10-18  814363   338  823.    4903185  16.8
-## 2  1272 Alaska     2021-10-18  127767     0  521.     731545  71.2
-## 3  1908 Arizona    2021-10-18 1131976     0 1659.    7278717  22.8
-## 4  2544 Arkansas   2021-10-18  507098   142  573.    3017804  19  
-## 5  3180 California 2021-10-18 4825708 13399 5439    39512223  13.8
-## 6  3816 Colorado   2021-10-18  710142  5303 2256.    5758736  39.2
-```
-]
-
----
-#### Topic 2: Static visualizations
-.left-column2[
-* Merge attributes and geometries
-]
-&lt;br/&gt;&lt;br/&gt;
-.tiny5[
-
-
-
-```r
-# Combine data frames
-states.sf &lt;- states.sf %&gt;% 
-  right_join(df.us, by="state_name")
-# View top of data frame
-head(states.sf)
-```
-]
-
-.tiny5[
-
-```
-## Simple feature collection with 5 features and 10 fields
-## Geometry type: MULTIPOLYGON
-## Dimension:     XY
-## Bounding box:  xmin: -1389101 ymin: -2086803 xmax: 2295610 ymax: 67481.2
-## Projected CRS: NAD27 / US National Atlas Equal Area
-##   state_fips state_abbv  state_name   X1       date   cases  new   new7
-## 1         01         AL     Alabama  636 2021-10-18  814363  338  823.4
-## 2         04         AZ     Arizona 1908 2021-10-18 1131976    0 1659.3
-## 3         08         CO    Colorado 3816 2021-10-18  710142 5303 2256.1
-## 4         09         CT Connecticut 4452 2021-10-18  398270 1147  608.9
-## 5         12         FL     Florida 6360 2021-10-18 3664097    0 2686.7
-##   population new7b                       geometry
-## 1    4903185  16.8 MULTIPOLYGON (((1150023 -15...
-## 2    7278717  22.8 MULTIPOLYGON (((-1386136 -1...
-## 3    5758736  39.2 MULTIPOLYGON (((-786661.9 -...
-## 4    3565287  17.1 MULTIPOLYGON (((2156197 -83...
-## 5   21477737  12.5 MULTIPOLYGON (((1953691 -20...
-```
-]
-
----
-#### Topic 2: Static visualizations
-
-.pull-right2[
-&lt;center&gt;&lt;img src="./images/sf.jpg" height=250 alt="RStudio" &lt;/center&gt;
-]
-
-.tiny2.pull-left2[
-Necessary datasets:
- * Spatial data: state boundaries
-  
- * Non-spatial data: cases of COVID-19
- 
- * Non-spatial data: state populations
-{{content}}
-]
-
---
-
+&lt;center&gt;&lt;img src="./images/map2.png" width=300 alt="RStudio" &lt;/center&gt;
 &lt;br/&gt;
-
-Parts of the plot:
-  
- * Map
- 
- * Legend (custom)
-  {{content}}
-
----
-#### Topic 2: Static visualizations
+&lt;center&gt;&lt;img src="./images/map1.png" width=300 alt="RStudio" &lt;/center&gt;
+&lt;br/&gt;
+&lt;center&gt;&lt;img src="./images/map3.png" width=300 alt="RStudio" &lt;/center&gt;
+]
 
 .left-column2[
-* Parts of the plot: Map
-]
-&lt;br/&gt;&lt;br/&gt;
+* Spatial data: state and county boundaries
 
-.tiny2[
+
+.tiny3[
 
 ```r
-# Create bins based on incidence value
-states.sf &lt;- states.sf %&gt;%
-  mutate(bin2=case_when(
-        new7b &lt; 1 ~ "A",
-        new7b &gt;= 1  &amp; new7b &lt; 10 ~ "B",
-        new7b &gt;= 10 &amp; new7b &lt; 25 ~ "C",
-        TRUE ~ "D"))
-# Custom colors (Green, Yellow, Orange, and Red)
-cols &lt;- c("A"="#197d7d", "B"="#dbc037", "C"="#e08f38", "D"="#8C1111")
-# Create map
-usa &lt;- ggplot() +
-  geom_sf(data=states.sf, aes(fill=bin),
-          size=0.25, color="white") +
+# Install albersusa package if needed
+#remotes::install_github("hrbrmstr/albersusa") 
+
+# Load required packages
+library(albersusa, sf, ggtext)
+
+# County boundary sf object
+cty.sf &lt;- counties_sf("longlat")
+sf::st_crs(cty.sf) &lt;- sf::st_crs(cty.sf)
+
+# State boundary sf object
+usa.sf &lt;- usa_sf("longlat")
+sf::st_crs(usa.sf) &lt;- sf::st_crs(usa.sf)
+
+# County boundary filtered for Pennsylvania
+pa.sf &lt;- cty.sf %&gt;%
+  filter(name=="Pennsylvania")
+```
+]
+]
+
+---
+#### Topic 2: Static visualizations
+.tiny3.left-column8[
+* Non-spatial data: CDC COVID-19 metrics
+
+
+
+```r
+# Read cdc covid-19 community levels from cdc website
+url &lt;- "https://www.cdc.gov/coronavirus/2019-ncov/json/covid-community-level-structure-2.csv"
+cdc &lt;- read_csv(url, skip=1)
+cdc &lt;- cdc %&gt;%
+  #select(-c(10:12)) %&gt;%
+  rename(fips=2,
+         hosp_beds=3,
+         hosp_admin=4,
+         cases_per_100k=5,
+         comm_level=6,
+         cases=7,
+         positivity=8,
+         comm_trans_level=9)
+```
+
+
+```
+## # A tibble: 6 × 9
+##   County    fips hosp_beds hosp_admin cases_per_100k comm_level cases positivity
+##   &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt;          &lt;dbl&gt; &lt;chr&gt;      &lt;lgl&gt; &lt;lgl&gt;     
+## 1 Autauga…  1001 1.90%            2.6           35.8 Low        NA    NA        
+## 2 Bullock…  1011 1.90%            2.6            0   Low        NA    NA        
+## 3 Covingt…  1039 1.90%            2.6           32.4 Low        NA    NA        
+## 4 Crensha…  1041 1.90%            2.6           36.3 Low        NA    NA        
+## 5 Lowndes…  1085 1.90%            2.6           20.6 Low        NA    NA        
+## 6 Montgom…  1101 1.90%            2.6           25.6 Low        NA    NA        
+## # … with 1 more variable: comm_trans_level &lt;lgl&gt;
+```
+]
+
+---
+#### Topic 2: Static visualizations
+.tiny3.left-column8[
+* Combine spatial and non-spatial data
+
+```r
+# Join cdc covid-19 community levels to county boundary sf object
+cty.sf &lt;- cty.sf %&gt;%
+  select(fips,state) %&gt;%
+  mutate(fips=as.numeric(as.character(fips))) %&gt;%
+  left_join(cdc,by='fips') %&gt;%
+  mutate(comm_level=case_when(is.na(comm_level) ~ "No Data",
+                              TRUE ~ comm_level)) %&gt;%
+  select(fips,state,comm_level)
+```
+
+
+```
+## Simple feature collection with 6 features and 3 fields
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: -88.13999 ymin: 31.19518 xmax: -85.12342 ymax: 34.8922
+## Geodetic CRS:  WGS 84
+##   fips   state comm_level                       geometry
+## 1 1001 Alabama        Low MULTIPOLYGON (((-86.49677 3...
+## 2 1009 Alabama        Low MULTIPOLYGON (((-86.5778 33...
+## 3 1017 Alabama        Low MULTIPOLYGON (((-85.18413 3...
+## 4 1021 Alabama     Medium MULTIPOLYGON (((-86.51734 3...
+## 5 1033 Alabama        Low MULTIPOLYGON (((-88.13999 3...
+## 6 1045 Alabama        Low MULTIPOLYGON (((-85.41644 3...
+```
+]
+
+---
+#### Topic 2: Static visualizations
+.tiny3.left-column8[
+* Set colors and specify elements of the plot's theme
+
+```r
+library(ggtext)
+```
+
+
+
+```r
+# Specify color scheme
+cols &lt;- c("Low"="#197d7d",
+          "Medium"="#dbc037",
+          "High"="#e08f38",
+          "No Data"="lightgray")
+
+# Specify plot theme
+plot.theme &lt;- theme(
+  # Add extra space to the right margin for inset map
+  plot.margin = unit(c(0, 2.5, 0, 0), "cm"),
+  legend.position=c(0.5,0.98),
+  legend.direction="horizontal",
+  legend.title=element_blank(),
+  legend.key.height=unit(0.25, 'cm'),
+  legend.key.width=unit(0.25, 'cm'),
+  legend.text=element_text(size=6),
+  legend.margin=margin(b=5.5),
+  text=element_text(color="#22211d"),
+  plot.background=element_rect(fill="white", color=NA),
+  panel.background=element_rect(fill="white", color=NA),
+  plot.title=element_textbox_simple(size=8, color="#4e4d47", padding=margin(5.5, 5.5, 5.5, 5.5)),
+  plot.subtitle=element_textbox_simple(size=6, color="#4e4d47", face="italic", padding=margin(0, 5.5, 5.5, 5.5)))
+```
+]
+
+---
+#### Topic 2: Static visualizations
+.tiny3.left-column8[
+* Create the main plot
+
+```r
+plot &lt;- ggplot() +
+  geom_sf(data=cty.sf, aes(fill=comm_level),
+          size=0.1, color="white", alpha=0.9) +
+  geom_sf(data=usa.sf, size=0.1, color="black", fill=NA, alpha=0.9) +
   scale_fill_manual(values=cols) +
+  labs(title="COVID-19 CDC Community Levels",
+       subtitle=paste(
+         "CDC metric that factors in new COVID-19 hospitalizations, existing hospital capacity, and new cases in an area. Data as of", Sys.Date(),"\n")) +
   theme_void() +
-  theme(legend.position="none",
-        text=element_text(color="#22211d"),
-        plot.background=element_rect(fill="white", color=NA),
-        panel.background=element_rect(fill="white", color=NA))
+  plot.theme
 ```
 ]
 
 ---
 #### Topic 2: Static visualizations
 
-&lt;center&gt;&lt;img src="./images/covid19c.jpeg" alt="ggplot"&lt;/&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/cdc_masking_map1.jpeg" alt="ggplot"&lt;/&gt;&lt;/center&gt;
 
 ---
 #### Topic 2: Static visualizations
 
-.left-column8[
-* Parts of the plot: Map - updated coordinate reference system (CRS)
-]
-&lt;br/&gt;&lt;br/&gt;
-
-.tiny2[
+.tiny3.left-column8[
+* Add inset map of PA with Cowplot package
 
 ```r
-# Create map
-usa2 &lt;- ggplot() +
-  geom_sf(data=states.sf, aes(fill=bin),
-          size=0.25, color="white") +
-  scale_fill_manual(values=cols) +
-# Update the coordinate reference system
-  coord_sf(crs=st_crs(3857)) +
-  theme_void() +
-  theme(legend.position="none",
-        text=element_text(color="#22211d"),
-        plot.background=element_rect(fill="white", color=NA), 
-        panel.background=element_rect(fill="white", color=NA))
+library(cowplot)
+mask &lt;- ggdraw(plot) +
+  draw_plot(
+    {
+      cty.sf %&gt;%
+        filter(state=="Pennsylvania") %&gt;%
+        ggplot() +
+        geom_sf(aes(fill=comm_level),
+                size=0.1, color="white", alpha=0.9) +
+        geom_sf(data=pa.sf,size=0.1,color="black",fill=NA,alpha=0.9) +
+        scale_fill_manual(values=cols) +
+        theme_void() +
+        theme(
+          legend.position="none",
+          plot.background=element_rect(fill="white", color=NA), 
+          panel.background=element_rect(fill="white", color=NA))},
+    x = 0.68, 
+    y = 0.2,
+    width = 0.3, 
+    height = 0.3)
 ```
 ]
 
 ---
 #### Topic 2: Static visualizations
 
-&lt;center&gt;&lt;img src="./images/covid19h.jpeg" alt="ggplot"&lt;/&gt;&lt;/center&gt;
-
----
-#### Topic 2: Static visualizations
-.left-column2[
-* Parts of the plot: Legend (custom)
-]
-&lt;br/&gt;&lt;br/&gt;
-
-.tiny2[
-
-```r
-# Create a legend item as another plot using annotate
-leg.R &lt;- ggplot() +
-  annotate(geom="rect", xmin=0, xmax=2, ymin=1.8, ymax=2, color=NA, fill="#8C1111") +
-  annotate(geom="text", label="RED", x=1, y=1.9, color="white", size=3) +
-  annotate(geom="text",
-           label="Threshold:",
-           x=0, hjust=0, y=1.75, vjust=1, size=2.5, fontface="bold") +
-  annotate(geom="text",
-           label="                    25+ daily\nnew cases per 100,000\npeople",
-           x=0, hjust=0, y=1.75, vjust=1, size=2.5) +
-  annotate(geom="text",
-           label="Indicates:",
-           x=0, hjust=0, y=1.3, vjust=1, size=2.5, fontface="bold") +
-  annotate(geom="text",
-           label="                  unchecked\ncommunity spread",
-           x=0, hjust=0, y=1.3, vjust=1, size=2.5) +
-  scale_y_continuous(limits=c(1,2)) +
-  theme_void() +
-  theme(text=element_text(color="#22211d"),
-        plot.background=element_rect(fill="white", color=NA),
-        panel.background=element_rect(fill="white", color=NA),
-        legend.background=element_rect(fill="white", color=NA))
-```
-]
-
----
-#### Topic 2: Static visualizations
-
-&lt;img src="./images/covid19g.jpeg" alt="ggplot" height=175&lt;/&gt;
-&lt;img src="./images/covid19f.jpeg" alt="ggplot" height=175&lt;/&gt;
-&lt;img src="./images/covid19e.jpeg" alt="ggplot" height=175&lt;/&gt;
-&lt;img src="./images/covid19d.jpeg" alt="ggplot" height=175&lt;/&gt;
-
----
-#### Topic 2: Static visualizations
-
-.left-column8[
-* Combining parts of the plot using patchwork
-]
-&lt;br/&gt;&lt;br/&gt;
-
-.tiny2[
-
-```r
-# Create a legend item as another plot using annotate
-usa2 + (leg.G/leg.Y/leg.O/leg.R) + 
-  plot_layout(widths = c(4, 1)) + 
-  plot_annotation(
-    title='Which Places Have The Most New Daily Cases?',
-    subtitle=paste("Data as of 11:59 p.m. ET", Sys.Date()-1)) &amp; 
-  theme(plot.title=element_text(size= 12, hjust=0.5, color="#4e4d47",
-                                margin=margin(b = -0.1, t = 0.4, l = 2, unit = "cm")),
-        plot.subtitle=element_text(size=8, hjust=0.5, color="#4e4d47", face="italic",
-                                   margin=margin(b = -0.1, t = 0.4, l = 2, unit = "cm")))
-```
-]
-
----
-#### Topic 2: Static visualizations
-
-&lt;center&gt;&lt;img src="./images/covid19b.jpeg" alt="ggplot"&lt;/&gt;&lt;/center&gt;
-
----
-#### Topic 2: Static visualizations
-
-&lt;center&gt;&lt;img src="./images/covid19b.jpeg" alt="ggplot"&lt;/&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/cdc_masking_map2.jpeg" alt="ggplot"&lt;/&gt;&lt;/center&gt;
 
 ---
 class: inverse
 
 #### Review - Grammar of Graphics &amp; Static Visualizations:
 * Grammar of graphics - basis for many data visualization programs.
-
---
 
 * **ggplot2** is a popular implementation.
 
@@ -2066,13 +1842,15 @@ class: inverse
  
    &lt;center&gt;&lt;img src="./images/ggplot.png" alt="RStudio" width=400/&gt;&lt;/center&gt;
 
---
-
 * Extension packages expand **ggplot2** capabilities.
 
---
-
 * **sf** data makes working with spatial data more efficient.
+&lt;br/&gt;&lt;br/&gt;
+.pull-right3[
+&lt;img src="./images/patchwork_hex.png" alt="RStudio" height=150/ align="right"&gt; 
+&lt;img src="./images/ggstats_hex.png" alt="RStudio" height=150/ align="right" style="vertical-align:middle;margin:0px 10px"&gt;
+&lt;img src="./images/ggplot_hex.png" alt="RStudio" height=150/ align="right"&gt;
+]
 
 ---
 class: center, middle, inverse
@@ -2306,8 +2084,8 @@ class: center, middle, inverse
 
 
 .tiny2[
-<div id="htmlwidget-3431a1948be1a587c53b" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-3431a1948be1a587c53b">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-88.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-a8df7415a9a6d1d9b116" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a8df7415a9a6d1d9b116">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-76.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 ]
 
 ---
@@ -2389,8 +2167,8 @@ fig &lt;- ggplotly(plot, height=500, width=750) %&gt;%
 ---
 #### Topic 3: Dynamic visualizations
 
-<div id="htmlwidget-cbd715a3db0d1bcd85cf" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-cbd715a3db0d1bcd85cf">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-92.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-b6d683908d8d320de773" style="width:750px;height:500px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b6d683908d8d320de773">{"x":{"url":"index_files/figure-html//widgets/widget_unnamed-chunk-80.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 
 ---
 #### Topic 3: Dynamic visualizations
@@ -2412,77 +2190,51 @@ fig &lt;- ggplotly(plot, height=500, width=750) %&gt;%
 ---
 #### Topic 3: Dynamic visualizations
 
-&lt;center&gt;&lt;img src="./images/test.png" width=700 alt="ggplot"&lt;/&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/smtn_3D.png" width=700 alt="ggplot"&lt;/&gt;&lt;/center&gt;
 
 ---
 #### Topic 3: Dynamic visualizations
 
-.tiny2.left-column7[
-* Create ggplot object
+.tiny2[
+* Create ggplot object with raster data (digital elevation model)
 
 
 ```r
 # Load necessary packages
-pacman::p_load(tidyverse, raster, ggthemes, sp, sf,
-               rasterVis, rayshader)
-# Download raster dataset
-url  &lt;- "https://github.com/jeremymack-LU/rviz/blob/master/data/CRLA_DEM_fill2.tif?raw=true"
-download.file(url, "CRLA_DEM_fill2.tif")
-# Load raster dataset and convert to a data frame
-r    &lt;- raster("data/CRLA_DEM_fill2.tif")
-r.df &lt;- as.data.frame(r, xy=TRUE)
+pacman::p_load(tidyverse, raster, ggthemes, sp, sf, rasterVis, rayshader)
+
+# Read raster dataset from url and convert to data frame
+url      &lt;- "https://github.com/jeremymack-LU/rviz/blob/master/data/smtn_dem_clip.tif?raw=true"
+r.dem    &lt;- raster::raster(url)
+r.df     &lt;- raster::as.data.frame(r.dem, xy=TRUE)
+# Drop NAs and rename raster grid cell variable
+r.df     &lt;- r.df %&gt;% drop_na() %&gt;% rename(elevation=3)
+
 # Create ggplot2 object
 r.plot &lt;- ggplot() +
     geom_raster(data=r.df,
-                aes(x=x, y=y, fill=CRLA_DEM_fill2),
+                aes(x=x, y=y, fill=elevation),
                 interpolate=TRUE,
-                show.legend=FALSE) +
+                show.legend=TRUE) +
     scale_fill_gradientn(name = "Elevation", colors=terrain.colors(10)) +
     coord_quickmap() +
     theme_dark(base_size=6) +
-    theme(axis.title=element_blank())
+    theme(axis.title=element_blank(),
+        legend.position='top',
+        legend.direction='horizontal')
 ```
 ]
-
-.tiny2.right-column7[]
 
 ---
 #### Topic 3: Dynamic visualizations
 
-&lt;center&gt;&lt;img src="./images/map.png" width=500 alt="ggplot"&lt;/&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/smtn_raster.png" width=700 alt="ggplot"&lt;/&gt;&lt;/center&gt;
 
 ---
 #### Topic 3: Dynamic visualizations
 
-.tiny2.left-column7[
-* Create ggplot object
-
-
-```r
-# Load necessary packages
-pacman::p_load(tidyverse, raster, ggthemes, sp, sf,
-               rasterVis, rayshader)
-# Download raster dataset
-url  &lt;- "https://github.com/jeremymack-LU/rviz/blob/master/data/CRLA_DEM_fill2.tif?raw=true"
-download.file(url, "CRLA_DEM_fill2.tif")
-# Load raster dataset and convert to a data frame
-r    &lt;- raster("data/CRLA_DEM_fill2.tif")
-r.df &lt;- as.data.frame(r, xy=TRUE)
-# Create ggplot2 object
-r.plot &lt;- ggplot() +
-    geom_raster(data=r.df,
-                aes(x=x, y=y, fill=CRLA_DEM_fill2),
-                interpolate=TRUE,
-                show.legend=FALSE) +
-    scale_fill_gradientn(name = "Elevation", colors=terrain.colors(10)) +
-    coord_quickmap() +
-    theme_dark(base_size=6) +
-    theme(axis.title=element_blank())
-```
-]
-
-.tiny2.right-column7[
-* Pass to rayshader
+.tiny2[
+* Pass ggplot object to rayshader
 
 
 ```r
@@ -2491,20 +2243,19 @@ plot_gg(r.plot,
         multicore=TRUE,
         width=5,
         height=5,
-        scale=250,
+        scale=200,
         windowsize=c(1400,866),
         zoom=0.55,
         phi=30)
 # Capture snapshot of the rgl window
-render_snapshot(filename = "CRLA_3D",
-                clear=TRUE)
+render_snapshot(filename = "smtn_3D", clear=TRUE)
 ```
 ]
 
 ---
 #### Topic 3: Dynamic visualizations
 
-&lt;center&gt;&lt;img src="./images/CRLA_3D_no_water.png" width=500 alt="ggplot"&lt;/&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/smtn_3D_2.png" width=600 alt="ggplot"&lt;/&gt;&lt;/center&gt;
 
 ---
 #### Topic 3: Dynamic visualizations
@@ -2517,13 +2268,13 @@ render_snapshot(filename = "CRLA_3D",
 library(viridis)
 # Plot using mtcars dataset
 gg_cars &lt;- ggplot(mtcars) + 
-    geom_point(aes(x=disp, color=wt, y=mpg), size=2) +
-    scale_fill_viridis("Weight") +
-    ggtitle("mtcars: Displacement vs mpg vs # of cylinders") +
-    theme_dark() +
-    theme(title = element_text(size=8),
-          text = element_text(size=12),
-          legend.position = 'bottom') 
+  geom_point(aes(x=disp, y=mpg, color=wt), size=2) +
+  scale_fill_viridis("Weight") +
+  ggtitle("mtcars: Displacement vs mpg vs # of cylinders") +
+  theme_dark() +
+  theme(title = element_text(size=8),
+        text = element_text(size=12),
+        legend.position = 'bottom') 
 ```
 ]
 
@@ -2549,7 +2300,7 @@ render_snapshot(filename = "mtcars",
 ---
 #### Topic 3: Dynamic visualizations
 
-&lt;center&gt;&lt;img src="./images/mtcars.png" width=500 alt="ggplot"&lt;/&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src="./images/mtcars.png" width=600 alt="ggplot"&lt;/&gt;&lt;/center&gt;
 
 ---
 class: inverse
@@ -2557,20 +2308,17 @@ class: inverse
 #### Review - Dynamic visualizations:
 * Dynamic visualization created with **ggplot2** extensions and integrations
 
---
-
 * **gganimate** is a popular extension for animating graphs
 
  * Adds new grammar to ggplot2
 
---
-
 * **rayshader** is a popular integration for creating 3D objects
 
   * Uses ggplot objects as required arguments
-&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;
-.pull-right[
-&lt;center&gt;&lt;img src="./images/rayshader.png" width=400 alt="ggplot"&lt;/&gt;&lt;/center&gt;
+&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;
+.pull-right3[
+&lt;img src="./images/rayshader.png" height=220 alt="ggplot" align="right"&gt;
+&lt;img src="./images/gganimate_hex.png" height=220 alt="RStudio" align="right" style="vertical-align:middle;margin:0px 10px"&gt;
 ]
 
 ---
@@ -2603,7 +2351,7 @@ class: center, middle, inverse
 ---
 #### Topic 4: Shiny Apps - a preview
 
-[&lt;center&gt;&lt;img src="./images/lehighriver_shiny.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;](https://jeremymack.shinyapps.io/lehighriver/)
+[&lt;center&gt;&lt;img src="./images/purpleair_shiny.png" alt="ggplot"&lt;/&gt;&lt;/center&gt;](https://jeremymack.shinyapps.io/purpleair/)
 
 ---
 class: inverse

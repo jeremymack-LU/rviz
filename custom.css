@@ -148,10 +148,9 @@ th, td { padding: 5px; }
 }
 
 .left-column8 {
-  width: 90%;
+  width: 100%;
   float: left;
 }
-
 
 .tiny .remark-code { /*Change made here*/
   font-size: 65% !important;

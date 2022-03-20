@@ -7,6 +7,7 @@ index2.html
 index2_files/
 index_old.Rmd
 index_old2.Rmd
+index_old3.Rmd
 subset.Rmd
 subset.html
 subset_files/
@@ -27,3 +28,12 @@ grammar.Rmd
 grammar.html
 grammar_files/
 mtcars.png
+cdc_masking_map.jpeg
+data/route.cpg
+data/route.dbf
+data/route.prj
+data/route.sbn
+data/route.sbx
+data/route.shp
+data/route.shp.xml
+data/route.shx

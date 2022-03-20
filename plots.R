@@ -573,9 +573,9 @@ png(file="images/pa_state.png",
     width=2200, height=1600, units="px", res=600)
 non_sf %>% 
   filter(abbr=="PA") %>%
-  ggplot() +
-  geom_polygon(aes(x=x,y=y,group=group),size=0.2,fill='lightblue',color='black') +
-  geom_point(aes(x=x,y=y,group=group),size=0.2) +
+  ggplot(aes(x=x,y=y,group=group)) +
+  geom_polygon(size=0.2,fill='lightblue',color='black') +
+  geom_point(size=0.2) +
   coord_fixed() +
   ggthemes::theme_map()
 dev.off()
